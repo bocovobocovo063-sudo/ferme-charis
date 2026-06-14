@@ -1,0 +1,17 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 600">
+  <defs>
+    <linearGradient id="heroBg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#d1fae5;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#a7f3d0;stop-opacity:1" />
+    </linearGradient>
+  </defs>
+  <rect width="1200" height="600" fill="url(#heroBg)"/>
+  <!-- Ferme silhouette -->
+  <polygon points="600,150 750,250 750,450 50,450 50,300 200,200 300,150 400,180 500,140" fill="#059669" opacity="0.8"/>
+  <rect x="150" y="280" width="80" height="80" fill="#d97706"/>
+  <polygon points="190,240 150,280 230,280" fill="#9a3412"/>
+  <circle cx="900" cy="100" r="60" fill="#fbbf24" opacity="0.9"/>
+  <!-- Texte -->
+  <text x="600" y="520" font-size="48" font-weight="bold" fill="#059669" text-anchor="middle" font-family="Arial, sans-serif">CHARISFERME</text>
+  <text x="600" y="560" font-size="24" fill="#047857" text-anchor="middle" font-family="Arial, sans-serif">Ferme Artisanale & Produits Locaux</text>
+</svg>

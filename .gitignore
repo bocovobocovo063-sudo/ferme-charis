@@ -1,0 +1,55 @@
+# Environment variables (NEVER commit these!)
+.env
+.env.local
+.env.*.local
+.env.production
+
+# Node modules
+node_modules/
+package-lock.json
+yarn.lock
+
+# VS Code workspace
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# Operating system files
+.DS_Store
+Thumbs.db
+
+# Netlify build cache
+.netlify/
+
+# IDE
+.sublime-project
+.sublime-workspace
+
+# Build outputs
+dist/
+build/
+.next/
+
+# Testing
+coverage/
+.nyc_output/
+
+# Logs
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# Security - sensitive files
+*.pem
+*.key
+*.crt
+*.pfx
+
+# Misc
+*.tmp
+*.bak
+.cache/
+temp/

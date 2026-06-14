@@ -1,0 +1,1062 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+  <title>Nos produits - CHARISFERME</title>
+  <meta name="description" content="Légumes bio, produits laitiers fermiers, viandes et volailles, conserves maison. Commandez directement en ligne depuis CHARISFERME.">
+  <meta name="author" content="CHARISFERME">
+  <meta property="og:title" content="Nos produits - CHARISFERME">
+  <meta property="og:type" content="website">
+  <meta name="theme-color" content="#059669">
+  <script>(function(){try{var t=localStorage.getItem('charisferme-theme');if(t==='dark'||(!t&&window.matchMedia('(prefers-color-scheme: dark)').matches)){document.documentElement.classList.add('dark-mode');}}catch(e){}})();</script>
+  <link rel="stylesheet" href="styles.css">
+  <style>
+    /* ── HERO ── */
+    .products-hero-inner {
+      max-width: 640px;
+      margin: 0 auto;
+    }
+    .products-hero-inner h1 {
+      font-size: clamp(2rem, 5vw, 3rem);
+      font-weight: 800;
+      margin-bottom: 0.75rem;
+    }
+
+    /* ── BARRE FILTRE + IMPRIMER ── */
+    .filter-bar {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 1rem;
+      margin-bottom: 2rem;
+    }
+    .filter-group {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+    }
+
+    /* ── GRILLE PRODUITS ── */
+    .products-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+      gap: 1.5rem;
+    }
+
+    /* ── CARTE PRODUIT ── */
+    .pcard {
+      background: #fff;
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+      transition: box-shadow 0.25s, transform 0.25s;
+    }
+    html.dark-mode .pcard {
+      background: rgba(22,27,34,0.85);
+    }
+    .pcard:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 12px 28px rgba(0,0,0,0.1);
+    }
+    .pcard-img {
+      height: 140px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      position: relative;
+      font-size: 3.5rem;
+    }
+    .pcard-img-legumes   { background: linear-gradient(135deg, #d1fae5, #a7f3d0); }
+    .pcard-img-laitiers  { background: linear-gradient(135deg, #fef3c7, #fde68a); }
+    .pcard-img-viandes   { background: linear-gradient(135deg, #fff7ed, #fed7aa); }
+    .pcard-img-conserves { background: linear-gradient(135deg, #ede9fe, #ddd6fe); }
+    .pcard-img-aromates  { background: linear-gradient(135deg, #ecfdf5, #bbf7d0); }
+    .pcard-img-oeufs     { background: linear-gradient(135deg, #fef9c3, #fef08a); }
+
+    .pcard-badge {
+      position: absolute;
+      top: 10px;
+      right: 10px;
+      font-size: 0.7rem;
+      font-weight: 700;
+      padding: 3px 10px;
+      border-radius: 999px;
+      text-transform: uppercase;
+      letter-spacing: 0.04em;
+    }
+    .badge-bio      { background: #059669; color: #fff; }
+    .badge-local    { background: #2563eb; color: #fff; }
+    .badge-elevage  { background: #d97706; color: #fff; }
+    .badge-maison   { background: #7c3aed; color: #fff; }
+    .badge-frais    { background: #0891b2; color: #fff; }
+
+    .pcard-body {
+      padding: 1.1rem 1.25rem;
+      display: flex;
+      flex-direction: column;
+      flex: 1;
+      gap: 0.4rem;
+    }
+    .pcard-cat {
+      font-size: 0.72rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.07em;
+      color: var(--primary);
+    }
+    .pcard-title {
+      font-size: 1.05rem;
+      font-weight: 700;
+      color: var(--text);
+      margin: 0;
+    }
+    .pcard-desc {
+      font-size: 0.845rem;
+      color: var(--text-secondary);
+      line-height: 1.5;
+      margin: 0;
+      flex: 1;
+    }
+    .pcard-unit {
+      font-size: 0.78rem;
+      color: var(--muted);
+    }
+    .pcard-footer {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 0.75rem;
+      margin-top: 0.75rem;
+      padding-top: 0.75rem;
+      border-top: 1px solid var(--border);
+    }
+    .pcard-price {
+      font-size: 1.15rem;
+      font-weight: 800;
+      color: var(--primary-dark);
+    }
+
+    /* Stepper quantité */
+    .qty-stepper {
+      display: flex;
+      align-items: center;
+      gap: 0;
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      overflow: hidden;
+      height: 36px;
+    }
+    .qty-btn {
+      width: 32px;
+      height: 36px;
+      background: none;
+      border: none;
+      cursor: pointer;
+      font-size: 1.1rem;
+      font-weight: 700;
+      color: var(--primary);
+      transition: background 0.15s;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .qty-btn:hover { background: rgba(5,150,105,0.08); }
+    .qty-value {
+      width: 32px;
+      text-align: center;
+      font-size: 0.9rem;
+      font-weight: 700;
+      color: var(--text);
+      border: none;
+      background: none;
+      pointer-events: none;
+    }
+
+    /* Bouton ajouter */
+    .btn-add {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+      padding: 0 1rem;
+      height: 36px;
+      border-radius: 8px;
+      background: var(--primary);
+      color: #fff;
+      border: none;
+      font-size: 0.82rem;
+      font-weight: 700;
+      cursor: pointer;
+      transition: background 0.2s, transform 0.15s;
+      white-space: nowrap;
+      font-family: inherit;
+    }
+    .btn-add:hover { background: var(--primary-dark); transform: scale(1.04); }
+    .btn-add.added {
+      background: #059669;
+      animation: addPop 0.3s ease;
+    }
+    @keyframes addPop {
+      0%   { transform: scale(1); }
+      50%  { transform: scale(1.12); }
+      100% { transform: scale(1); }
+    }
+
+    /* ── PANIER FLOTTANT ── */
+    .cart-fab {
+      position: fixed;
+      bottom: 5.5rem;
+      right: 1.5rem;
+      display: none;
+      align-items: center;
+      gap: 0.6rem;
+      background: var(--primary);
+      color: #fff;
+      border: none;
+      border-radius: 999px;
+      padding: 0.7rem 1.4rem;
+      font-size: 0.9rem;
+      font-weight: 700;
+      cursor: pointer;
+      box-shadow: 0 6px 20px rgba(5,150,105,0.4);
+      z-index: 90;
+      transition: transform 0.2s, box-shadow 0.2s;
+      font-family: inherit;
+    }
+    .cart-fab.visible { display: flex; }
+    .cart-fab:hover { transform: translateY(-3px); box-shadow: 0 10px 28px rgba(5,150,105,0.45); }
+    .cart-fab-count {
+      background: #fff;
+      color: var(--primary-dark);
+      width: 22px;
+      height: 22px;
+      border-radius: 50%;
+      font-size: 0.75rem;
+      font-weight: 800;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    /* ── TIROIR PANIER ── */
+    .cart-overlay {
+      display: none;
+      position: fixed;
+      inset: 0;
+      background: rgba(0,0,0,0.45);
+      z-index: 200;
+      backdrop-filter: blur(2px);
+    }
+    .cart-overlay.open { display: block; }
+
+    .cart-drawer {
+      position: fixed;
+      top: 0;
+      right: 0;
+      width: min(480px, 100vw);
+      height: 100%;
+      background: #fff;
+      z-index: 201;
+      display: flex;
+      flex-direction: column;
+      box-shadow: -8px 0 40px rgba(0,0,0,0.15);
+      transform: translateX(100%);
+      transition: transform 0.35s cubic-bezier(0.4,0,0.2,1);
+    }
+    html.dark-mode .cart-drawer { background: #0d1117; }
+    .cart-drawer.open { transform: translateX(0); }
+
+    .cart-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 1.25rem 1.5rem;
+      border-bottom: 1px solid var(--border);
+      flex-shrink: 0;
+    }
+    .cart-header h2 {
+      margin: 0;
+      font-size: 1.1rem;
+      font-weight: 800;
+      color: var(--text);
+    }
+    .cart-close {
+      width: 36px;
+      height: 36px;
+      border-radius: 50%;
+      background: rgba(0,0,0,0.06);
+      border: none;
+      cursor: pointer;
+      font-size: 1.1rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--text);
+      transition: background 0.2s;
+    }
+    .cart-close:hover { background: rgba(0,0,0,0.12); }
+
+    .cart-body {
+      flex: 1;
+      overflow-y: auto;
+      padding: 1.25rem 1.5rem;
+      display: flex;
+      flex-direction: column;
+      gap: 1.5rem;
+    }
+
+    /* Liste articles */
+    .cart-items {
+      display: flex;
+      flex-direction: column;
+      gap: 0.75rem;
+    }
+    .cart-empty {
+      text-align: center;
+      color: var(--muted);
+      font-size: 0.9rem;
+      padding: 1rem 0;
+    }
+    .cart-item {
+      display: grid;
+      grid-template-columns: 2rem 1fr auto auto;
+      align-items: center;
+      gap: 0.75rem;
+      padding: 0.75rem;
+      background: rgba(5,150,105,0.04);
+      border: 1px solid rgba(5,150,105,0.12);
+      border-radius: 10px;
+    }
+    .cart-item-emoji { font-size: 1.4rem; text-align: center; }
+    .cart-item-name  { font-size: 0.875rem; font-weight: 600; color: var(--text); }
+    .cart-item-qty   { font-size: 0.8rem; color: var(--muted); }
+    .cart-item-remove {
+      width: 26px;
+      height: 26px;
+      border: none;
+      background: rgba(239,68,68,0.1);
+      color: #dc2626;
+      border-radius: 50%;
+      cursor: pointer;
+      font-size: 0.8rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: background 0.2s;
+    }
+    .cart-item-remove:hover { background: rgba(239,68,68,0.2); }
+
+    .cart-clear {
+      background: none;
+      border: none;
+      color: var(--muted);
+      font-size: 0.8rem;
+      cursor: pointer;
+      text-decoration: underline;
+      padding: 0;
+      font-family: inherit;
+    }
+    .cart-clear:hover { color: #dc2626; }
+
+    /* Séparateur */
+    .cart-divider {
+      border: none;
+      border-top: 1px solid var(--border);
+      margin: 0;
+    }
+
+    /* Formulaire panier */
+    .cart-form-title {
+      font-size: 0.95rem;
+      font-weight: 700;
+      color: var(--text);
+      margin: 0 0 0.75rem;
+    }
+    .cart-form {
+      display: flex;
+      flex-direction: column;
+      gap: 0.75rem;
+    }
+    .cf-row { display: grid; grid-template-columns: 1fr 1fr; gap: 0.75rem; }
+    .cf-group { display: flex; flex-direction: column; gap: 0.3rem; }
+    .cf-group label {
+      font-size: 0.78rem;
+      font-weight: 600;
+      color: var(--text-secondary);
+      text-transform: uppercase;
+      letter-spacing: 0.04em;
+    }
+    .cf-group input,
+    .cf-group textarea,
+    .cf-group select {
+      padding: 0.65rem 0.85rem;
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      font-size: 0.9rem;
+      font-family: inherit;
+      color: var(--text);
+      background: var(--surface-elevated, #fff);
+      transition: border-color 0.2s, box-shadow 0.2s;
+    }
+    .cf-group input:focus,
+    .cf-group textarea:focus,
+    .cf-group select:focus {
+      outline: none;
+      border-color: var(--primary);
+      box-shadow: 0 0 0 3px rgba(5,150,105,0.12);
+    }
+    .cf-group textarea { resize: vertical; min-height: 80px; }
+
+    .cart-footer {
+      padding: 1.25rem 1.5rem;
+      border-top: 1px solid var(--border);
+      display: flex;
+      flex-direction: column;
+      gap: 0.6rem;
+      flex-shrink: 0;
+    }
+    .btn-send {
+      width: 100%;
+      padding: 0.9rem;
+      background: var(--primary);
+      color: #fff;
+      border: none;
+      border-radius: 10px;
+      font-size: 1rem;
+      font-weight: 700;
+      cursor: pointer;
+      transition: background 0.2s;
+      font-family: inherit;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.5rem;
+    }
+    .btn-send:hover { background: var(--primary-dark); }
+    .btn-send:disabled {
+      opacity: 0.45;
+      cursor: not-allowed;
+    }
+    .cart-note {
+      text-align: center;
+      font-size: 0.75rem;
+      color: var(--muted);
+    }
+
+    /* Section labels de qualité */
+    .quality-strip {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1.5rem;
+      justify-content: center;
+      padding: 2rem 0 0.5rem;
+    }
+    .quality-pill {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      font-size: 0.85rem;
+      font-weight: 600;
+      color: var(--text-secondary);
+    }
+    .quality-pill span { font-size: 1.2rem; }
+
+    @media (max-width: 640px) {
+      .cf-row { grid-template-columns: 1fr; }
+      .cart-fab { bottom: 4.5rem; right: 1rem; }
+      .filter-bar { flex-direction: column; align-items: flex-start; }
+    }
+  </style>
+</head>
+<body>
+  <a href="#main-content" class="skip-link">Aller au contenu principal</a>
+  <div class="page-progress" id="pageProgress" aria-hidden="true"></div>
+  <div class="toast-container" id="toastContainer" aria-live="polite" aria-atomic="true"></div>
+
+<header class="site-header">
+  <div class="container header-inner">
+    <a href="index.html" class="logo">CHARISFERME <span>ferme & artisanat local</span></a>
+    <nav class="main-nav" id="siteNav" aria-label="Navigation principale">
+      <div class="nav-links">
+        <a href="index.html">Accueil</a>
+        <a href="apropos.html">À propos</a>
+        <a href="activites.html">Activités</a>
+        <a href="produits.html" class="active">Produits</a>
+        <a href="abonnement.html">Abonnement</a>
+        <a href="blog.html">Blog</a>
+        <a href="galerie.html">Galerie</a>
+        <a href="avis.html">Avis</a>
+        <a href="contact.html">Contact</a>
+      </div>
+      <div class="nav-actions">
+        <button class="theme-toggle" id="themeToggle" aria-label="Basculer le mode sombre" title="Mode sombre">🌙</button>
+      </div>
+    </nav>
+    <button class="menu-toggle" aria-label="Menu" aria-controls="siteNav" aria-expanded="false" id="menuToggle">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</header>
+
+<main id="main-content">
+  <!-- Breadcrumbs -->
+  <nav class="breadcrumbs" aria-label="Chemin de navigation">
+    <a href="index.html">Accueil</a>
+    <span class="separator">/</span>
+    <span class="current">Produits</span>
+    <script type="application/ld+json">
+    {"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [
+      {"@type": "ListItem", "position": 1, "name": "Accueil", "item": "https://www.charisferme.fr"},
+      {"@type": "ListItem", "position": 2, "name": "Produits", "item": "https://www.charisferme.fr/produits.html"}
+    ]}
+    </script>
+  </nav>
+
+  <!-- HERO -->
+  <section class="page-hero" style="padding: 60px 20px 50px; background: linear-gradient(135deg, #6a8a42 0%, #4a5a32 100%); color: white; text-align: center;">
+    <div class="container products-hero-inner">
+      <h1>Nos produits</h1>
+      <p style="opacity: .88; font-size: 1.05rem;">Sélectionnez vos produits, choisissez vos quantités et passez commande directement depuis cette page.</p>
+      <div class="quality-strip" style="color: rgba(255,255,255,0.85);">
+        <div class="quality-pill"><span>🌿</span> Agriculture biologique</div>
+        <div class="quality-pill"><span>🚚</span> Livraison 48h</div>
+        <div class="quality-pill"><span>📍</span> Circuit court local</div>
+        <div class="quality-pill"><span>⭐</span> Note 4.9/5</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CATALOGUE -->
+  <section id="produits" class="section section--light">
+    <div class="container">
+
+      <!-- Barre filtre + imprimer -->
+      <div class="filter-bar">
+        <div class="filter-group product-filter" role="tablist" aria-label="Filtrer les produits">
+          <button type="button" class="filter-btn active" data-filter="all">Tous</button>
+          <button type="button" class="filter-btn" data-filter="legumes">🥬 Légumes</button>
+          <button type="button" class="filter-btn" data-filter="laitiers">🧀 Laitiers</button>
+          <button type="button" class="filter-btn" data-filter="viandes">🐓 Viandes</button>
+          <button type="button" class="filter-btn" data-filter="conserves">🫙 Conserves</button>
+        </div>
+        <button class="btn-print" onclick="window.print()" aria-label="Imprimer ou sauvegarder en PDF">
+          🖨 Imprimer
+        </button>
+      </div>
+
+      <!-- Grille produits -->
+      <div class="products-grid" id="productsGrid">
+
+        <!-- Légumes de saison -->
+        <div class="pcard" data-category="legumes">
+          <div class="pcard-img pcard-img-legumes">
+            🥬
+            <span class="pcard-badge badge-bio">Bio</span>
+          </div>
+          <div class="pcard-body">
+            <span class="pcard-cat">Légumes</span>
+            <h3 class="pcard-title">Légumes de saison</h3>
+            <p class="pcard-desc">Tomates, courgettes, poivrons, salades — récoltés à maturité sans pesticide.</p>
+            <p class="pcard-unit">Unité : panier 2 kg</p>
+            <div class="pcard-footer">
+              <span class="pcard-price">2,50 € / kg</span>
+              <div style="display:flex;align-items:center;gap:0.5rem;">
+                <div class="qty-stepper">
+                  <button type="button" class="qty-btn" data-action="minus" aria-label="Diminuer">−</button>
+                  <span class="qty-value">1</span>
+                  <button type="button" class="qty-btn" data-action="plus" aria-label="Augmenter">+</button>
+                </div>
+                <button type="button" class="btn-add" data-name="Légumes de saison" data-emoji="🥬" aria-label="Ajouter au panier">
+                  + Ajouter
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Fromages & Laitiers -->
+        <div class="pcard" data-category="laitiers">
+          <div class="pcard-img pcard-img-laitiers">
+            🧀
+            <span class="pcard-badge badge-local">Fermier</span>
+          </div>
+          <div class="pcard-body">
+            <span class="pcard-cat">Produits laitiers</span>
+            <h3 class="pcard-title">Fromages & Laitiers</h3>
+            <p class="pcard-desc">Fromages affinés, yaourts artisanaux et faisselles issus directement de nos troupeaux.</p>
+            <p class="pcard-unit">Unité : assortiment 300 g</p>
+            <div class="pcard-footer">
+              <span class="pcard-price">Dès 3,80 €</span>
+              <div style="display:flex;align-items:center;gap:0.5rem;">
+                <div class="qty-stepper">
+                  <button type="button" class="qty-btn" data-action="minus" aria-label="Diminuer">−</button>
+                  <span class="qty-value">1</span>
+                  <button type="button" class="qty-btn" data-action="plus" aria-label="Augmenter">+</button>
+                </div>
+                <button type="button" class="btn-add" data-name="Fromages & Laitiers" data-emoji="🧀" aria-label="Ajouter au panier">
+                  + Ajouter
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Viandes & Volailles -->
+        <div class="pcard" data-category="viandes">
+          <div class="pcard-img pcard-img-viandes">
+            🐓
+            <span class="pcard-badge badge-elevage">Élevage</span>
+          </div>
+          <div class="pcard-body">
+            <span class="pcard-cat">Viandes & Volailles</span>
+            <h3 class="pcard-title">Viandes & Volailles</h3>
+            <p class="pcard-desc">Poulets fermiers élevés en plein air, savoureuses et entièrement tracées de la ferme à votre table.</p>
+            <p class="pcard-unit">Unité : volaille entière ~1,5 kg</p>
+            <div class="pcard-footer">
+              <span class="pcard-price">Dès 12 € / kg</span>
+              <div style="display:flex;align-items:center;gap:0.5rem;">
+                <div class="qty-stepper">
+                  <button type="button" class="qty-btn" data-action="minus" aria-label="Diminuer">−</button>
+                  <span class="qty-value">1</span>
+                  <button type="button" class="qty-btn" data-action="plus" aria-label="Augmenter">+</button>
+                </div>
+                <button type="button" class="btn-add" data-name="Viandes & Volailles" data-emoji="🐓" aria-label="Ajouter au panier">
+                  + Ajouter
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Œufs fermiers -->
+        <div class="pcard" data-category="viandes">
+          <div class="pcard-img pcard-img-oeufs">
+            🥚
+            <span class="pcard-badge badge-elevage">Plein air</span>
+          </div>
+          <div class="pcard-body">
+            <span class="pcard-cat">Viandes & Volailles</span>
+            <h3 class="pcard-title">Œufs fermiers</h3>
+            <p class="pcard-desc">Œufs de poules élevées en plein air, riches en saveur. Ramassés chaque matin.</p>
+            <p class="pcard-unit">Unité : boîte de 12 œufs</p>
+            <div class="pcard-footer">
+              <span class="pcard-price">4,50 € / douzaine</span>
+              <div style="display:flex;align-items:center;gap:0.5rem;">
+                <div class="qty-stepper">
+                  <button type="button" class="qty-btn" data-action="minus" aria-label="Diminuer">−</button>
+                  <span class="qty-value">1</span>
+                  <button type="button" class="qty-btn" data-action="plus" aria-label="Augmenter">+</button>
+                </div>
+                <button type="button" class="btn-add" data-name="Œufs fermiers" data-emoji="🥚" aria-label="Ajouter au panier">
+                  + Ajouter
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Conserves maison -->
+        <div class="pcard" data-category="conserves">
+          <div class="pcard-img pcard-img-conserves">
+            🫙
+            <span class="pcard-badge badge-maison">Maison</span>
+          </div>
+          <div class="pcard-body">
+            <span class="pcard-cat">Conserves</span>
+            <h3 class="pcard-title">Conserves maison</h3>
+            <p class="pcard-desc">Confitures sans sucre raffiné, terrines gastronomiques et pickles préparés selon nos recettes familiales.</p>
+            <p class="pcard-unit">Unité : bocal 350 g</p>
+            <div class="pcard-footer">
+              <span class="pcard-price">Dès 4,50 €</span>
+              <div style="display:flex;align-items:center;gap:0.5rem;">
+                <div class="qty-stepper">
+                  <button type="button" class="qty-btn" data-action="minus" aria-label="Diminuer">−</button>
+                  <span class="qty-value">1</span>
+                  <button type="button" class="qty-btn" data-action="plus" aria-label="Augmenter">+</button>
+                </div>
+                <button type="button" class="btn-add" data-name="Conserves maison" data-emoji="🫙" aria-label="Ajouter au panier">
+                  + Ajouter
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Herbes & Aromates -->
+        <div class="pcard" data-category="legumes">
+          <div class="pcard-img pcard-img-aromates">
+            🌿
+            <span class="pcard-badge badge-bio">Bio</span>
+          </div>
+          <div class="pcard-body">
+            <span class="pcard-cat">Légumes</span>
+            <h3 class="pcard-title">Herbes & Aromates</h3>
+            <p class="pcard-desc">Basilic, persil, ciboulette, thym, menthe et romarin cultivés en pleine terre, cueillis frais.</p>
+            <p class="pcard-unit">Unité : botte fraîche</p>
+            <div class="pcard-footer">
+              <span class="pcard-price">1,80 € / botte</span>
+              <div style="display:flex;align-items:center;gap:0.5rem;">
+                <div class="qty-stepper">
+                  <button type="button" class="qty-btn" data-action="minus" aria-label="Diminuer">−</button>
+                  <span class="qty-value">1</span>
+                  <button type="button" class="qty-btn" data-action="plus" aria-label="Augmenter">+</button>
+                </div>
+                <button type="button" class="btn-add" data-name="Herbes & Aromates" data-emoji="🌿" aria-label="Ajouter au panier">
+                  + Ajouter
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div><!-- /products-grid -->
+    </div>
+  </section>
+
+</main>
+
+<!-- ── PANIER FLOTTANT ── -->
+<button class="cart-fab" id="cartFab" aria-label="Ouvrir le panier">
+  🛒 Mon panier
+  <span class="cart-fab-count" id="cartCount">0</span>
+</button>
+
+<!-- ── OVERLAY + TIROIR ── -->
+<div class="cart-overlay" id="cartOverlay" aria-hidden="true"></div>
+
+<aside class="cart-drawer" id="cartDrawer" aria-label="Panier et commande" role="dialog" aria-modal="true">
+  <div class="cart-header">
+    <h2>🛒 Mon panier</h2>
+    <button class="cart-close" id="cartClose" aria-label="Fermer le panier">✕</button>
+  </div>
+
+  <div class="cart-body">
+    <!-- Articles sélectionnés -->
+    <div>
+      <p class="cart-form-title">Produits sélectionnés</p>
+      <div class="cart-items" id="cartItems">
+        <p class="cart-empty">Aucun produit sélectionné.</p>
+      </div>
+      <button class="cart-clear" id="cartClear" style="display:none;">Vider le panier</button>
+    </div>
+
+    <hr class="cart-divider">
+
+    <!-- Formulaire de commande -->
+    <div>
+      <p class="cart-form-title">Vos coordonnées</p>
+      <form class="cart-form" id="cartForm" novalidate>
+        <div class="cf-row">
+          <div class="cf-group">
+            <label for="cf-name">Nom complet *</label>
+            <input type="text" id="cf-name" name="name" placeholder="Jean Dupont" required>
+          </div>
+          <div class="cf-group">
+            <label for="cf-phone">Téléphone *</label>
+            <input type="tel" id="cf-phone" name="phone" placeholder="06 00 00 00 00" required>
+          </div>
+        </div>
+        <div class="cf-group">
+          <label for="cf-email">Email *</label>
+          <input type="email" id="cf-email" name="email" placeholder="vous@exemple.fr" required>
+        </div>
+        <div class="cf-group">
+          <label for="cf-address">Adresse de livraison</label>
+          <input type="text" id="cf-address" name="address" placeholder="12 rue de la Ferme, 12345 Village">
+        </div>
+        <div class="cf-group">
+          <label for="cf-date">Date souhaitée</label>
+          <input type="date" id="cf-date" name="date">
+        </div>
+        <div class="cf-group">
+          <label for="cf-message">Message / Demandes spéciales</label>
+          <textarea id="cf-message" name="message" placeholder="Intolérances, quantités précises, questions..."></textarea>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <div class="cart-footer">
+    <button class="btn-send" id="btnSend" disabled onclick="sendOrder('email')">
+      📧 Envoyer la commande
+    </button>
+    <button class="btn-send" style="background: linear-gradient(135deg, #7c3aed 0%, #5b21b6 100%); margin-top: 0.6rem;" id="btnPayment" disabled onclick="sendOrder('payment')">
+      💳 Payer maintenant (Stripe)
+    </button>
+    <p class="cart-note">Choisissez votre mode: Email pour devis, ou Paiement direct</p>
+  </div>
+</aside>
+
+<footer>
+  <div class="container footer-content">
+    <div class="footer-block">
+      <h4>CHARISFERME</h4>
+      <p>Ferme familiale dédiée à l'agriculture locale, durable et solidaire depuis 2001.</p>
+      <div class="footer-badges">
+        <span class="footer-badge">Agriculture Bio</span>
+        <span class="footer-badge">Circuit Court</span>
+        <span class="footer-badge">Label Rouge</span>
+      </div>
+    </div>
+    <div class="footer-block">
+      <h4>Navigation</h4>
+      <a href="apropos.html">À propos</a>
+      <a href="produits.html">Produits</a>
+      <a href="reservation.html">Réservation</a>
+      <a href="avis.html">Avis</a>
+    </div>
+    <div class="footer-block">
+      <h4>Contact & Réseaux</h4>
+      <p><a href="tel:0600000000">06 00 00 00 00</a><br><a href="mailto:contact@charisferme.fr">contact@charisferme.fr</a></p>
+      <div class="footer-links">
+        <a href="https://wa.me/33600000000?text=Bonjour%20CHARISFERME%20%21%20Je%20souhaite%20un%20contact" target="_blank" rel="noreferrer noopener">WhatsApp</a>
+      </div>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <div class="footer-legal">
+      <p>© 2026 CHARISFERME • Tous droits réservés</p>
+      <p>SIRET : 123 456 789 00012 | Ferme de Charis, 12345 Village, France</p>
+      <p><a href="mentions-legales.html">Mentions légales & Confidentialité</a></p>
+    </div>
+  </div>
+</footer>
+
+<a class="whatsapp-float" href="https://wa.me/33600000000?text=Bonjour%20CHARISFERME%20%21%20Je%20souhaite%20un%20contact" target="_blank" rel="noreferrer noopener" aria-label="Contact WhatsApp">WhatsApp</a>
+<button class="scroll-to-top" aria-label="Retour en haut">↑</button>
+
+<script>
+(function() {
+  // ── Panier (état) ──
+  let cart = [];
+
+  const fab      = document.getElementById('cartFab');
+  const overlay  = document.getElementById('cartOverlay');
+  const drawer   = document.getElementById('cartDrawer');
+  const closeBtn = document.getElementById('cartClose');
+  const itemsEl  = document.getElementById('cartItems');
+  const countEl  = document.getElementById('cartCount');
+  const clearBtn = document.getElementById('cartClear');
+  const sendBtn  = document.getElementById('btnSend');
+  const form     = document.getElementById('cartForm');
+
+  // ── Ouvrir / Fermer tiroir ──
+  function openDrawer() {
+    drawer.classList.add('open');
+    overlay.classList.add('open');
+    overlay.setAttribute('aria-hidden', 'false');
+    document.body.style.overflow = 'hidden';
+    closeBtn.focus();
+  }
+  function closeDrawer() {
+    drawer.classList.remove('open');
+    overlay.classList.remove('open');
+    overlay.setAttribute('aria-hidden', 'true');
+    document.body.style.overflow = '';
+  }
+
+  fab.addEventListener('click', openDrawer);
+  closeBtn.addEventListener('click', closeDrawer);
+  overlay.addEventListener('click', closeDrawer);
+  document.addEventListener('keydown', e => {
+    if (e.key === 'Escape' && drawer.classList.contains('open')) closeDrawer();
+  });
+
+  // ── Mettre à jour l'affichage du tiroir ──
+  function renderCart() {
+    const total = cart.reduce((s, i) => s + i.qty, 0);
+    countEl.textContent = total;
+    fab.classList.toggle('visible', total > 0);
+    sendBtn.disabled = total === 0;
+    clearBtn.style.display = total > 0 ? 'inline' : 'none';
+
+    if (cart.length === 0) {
+      itemsEl.innerHTML = '<p class="cart-empty">Aucun produit sélectionné.</p>';
+      return;
+    }
+    itemsEl.innerHTML = cart.map((item, idx) => `
+      <div class="cart-item">
+        <span class="cart-item-emoji">${item.emoji}</span>
+        <div>
+          <div class="cart-item-name">${item.name}</div>
+          <div class="cart-item-qty">Qté : ${item.qty}</div>
+        </div>
+        <div></div>
+        <button class="cart-item-remove" data-idx="${idx}" aria-label="Retirer ${item.name}">✕</button>
+      </div>
+    `).join('');
+
+    itemsEl.querySelectorAll('.cart-item-remove').forEach(btn => {
+      btn.addEventListener('click', () => {
+        cart.splice(parseInt(btn.dataset.idx, 10), 1);
+        renderCart();
+      });
+    });
+  }
+
+  // ── Stepper quantité ──
+  document.querySelectorAll('.qty-stepper').forEach(stepper => {
+    const valEl = stepper.querySelector('.qty-value');
+    stepper.querySelectorAll('.qty-btn').forEach(btn => {
+      btn.addEventListener('click', () => {
+        let v = parseInt(valEl.textContent, 10);
+        if (btn.dataset.action === 'plus') v = Math.min(v + 1, 99);
+        if (btn.dataset.action === 'minus') v = Math.max(v - 1, 1);
+        valEl.textContent = v;
+      });
+    });
+  });
+
+  // ── Ajouter au panier ──
+  document.querySelectorAll('.btn-add').forEach(btn => {
+    btn.addEventListener('click', () => {
+      const card    = btn.closest('.pcard');
+      const name    = btn.dataset.name;
+      const emoji   = btn.dataset.emoji;
+      const qty     = parseInt(card.querySelector('.qty-value').textContent, 10);
+
+      const existing = cart.find(i => i.name === name);
+      if (existing) {
+        existing.qty += qty;
+      } else {
+        cart.push({ name, emoji, qty });
+      }
+
+      btn.textContent = '✓ Ajouté';
+      btn.classList.add('added');
+      setTimeout(() => {
+        btn.textContent = '+ Ajouter';
+        btn.classList.remove('added');
+      }, 1400);
+
+      renderCart();
+    });
+  });
+
+  // ── Vider le panier ──
+  clearBtn.addEventListener('click', () => {
+    cart = [];
+    renderCart();
+  });
+
+  // ── Filtre catégories ──
+  const filterBtns = document.querySelectorAll('.filter-btn');
+  const cards      = document.querySelectorAll('.pcard');
+  filterBtns.forEach(btn => {
+    btn.addEventListener('click', () => {
+      filterBtns.forEach(b => b.classList.remove('active'));
+      btn.classList.add('active');
+      const cat = btn.dataset.filter;
+      cards.forEach(c => {
+        c.style.display = (cat === 'all' || c.dataset.category === cat) ? '' : 'none';
+      });
+    });
+  });
+
+  // ── Envoyer la commande ──
+  window.sendOrder = async (mode) => {
+    const name    = document.getElementById('cf-name').value.trim();
+    const email   = document.getElementById('cf-email').value.trim();
+    const phone   = document.getElementById('cf-phone').value.trim();
+    const address = document.getElementById('cf-address').value.trim();
+    const date    = document.getElementById('cf-date').value;
+    const message = document.getElementById('cf-message').value.trim();
+
+    if (!name || !email || !phone) {
+      ['cf-name','cf-email','cf-phone'].forEach(id => {
+        const el = document.getElementById(id);
+        if (!el.value.trim()) {
+          el.style.borderColor = '#ef4444';
+          setTimeout(() => el.style.borderColor = '', 2000);
+        }
+      });
+      if (window.toast) window.toast.error('Veuillez remplir nom, email, téléphone');
+      return;
+    }
+
+    if (cart.length === 0) {
+      if (window.toast) window.toast.error('Votre panier est vide!');
+      return;
+    }
+
+    const sendBtn = document.getElementById('btnSend');
+    const payBtn = document.getElementById('btnPayment');
+    const btn = mode === 'email' ? sendBtn : payBtn;
+
+    btn.disabled = true;
+    const originalText = btn.textContent;
+    btn.textContent = '⏳ Traitement...';
+
+    try {
+      if (mode === 'email') {
+        // ===== ENVOI PAR EMAIL =====
+        const response = await fetch('/.netlify/functions/submit-order', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({
+            name, email, phone, address, date, message,
+            items: cart,
+            type: 'commande'
+          })
+        });
+
+        const result = await response.json();
+
+        if (result.success) {
+          closeDrawer();
+          cart = [];
+          renderCart();
+          if (window.toast) window.toast.success(`Commande reçue! Ref: ${result.commandeId}`);
+          setTimeout(() => {
+            window.location.href = 'merci.html?order=' + result.commandeId + '&type=order&email=' + encodeURIComponent(email);
+          }, 1500);
+        } else {
+          throw new Error(result.error || 'Erreur envoi');
+        }
+
+      } else if (mode === 'payment') {
+        // ===== PAIEMENT STRIPE =====
+        const cartItems = cart.map(item => ({
+          ...item,
+          price: item.price || 5
+        }));
+
+        localStorage.setItem('charisferme-cart', JSON.stringify(cartItems));
+        localStorage.setItem('charisferme-cart-contact', JSON.stringify({
+          name, email, phone, address, date, message
+        }));
+
+        if (window.toast) window.toast.success('Redirection paiement sécurisé...');
+        setTimeout(() => {
+          window.location.href = 'checkout.html?type=cart';
+        }, 1000);
+        return;
+      }
+
+    } catch (error) {
+      if (window.toast) window.toast.error('❌ ' + error.message);
+      console.error('Erreur:', error);
+    } finally {
+      btn.disabled = false;
+      btn.textContent = originalText;
+    }
+  };
+
+  // Réinitialiser les bordures rouges à la saisie
+  ['cf-name','cf-email','cf-phone'].forEach(id => {
+    document.getElementById(id).addEventListener('input', function() {
+      this.style.borderColor = '';
+    });
+  });
+
+  renderCart();
+})();
+</script>
+
+<script src="utils.js"></script>
+<script src="script.js"></script>
+</body>
+</html>

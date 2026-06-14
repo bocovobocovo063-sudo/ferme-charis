@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+  <title>Avis clients - CHARISFERME</title>
+  <meta name="description" content="Témoignages et avis clients de CHARISFERME. Note moyenne 4.9/5 sur 85 avis vérifiés.">
+  <meta name="author" content="CHARISFERME">
+  <meta property="og:title" content="Avis clients - CHARISFERME">
+  <meta property="og:type" content="website">
+  <meta name="theme-color" content="#059669">
+  <script>(function(){try{var t=localStorage.getItem('charisferme-theme');if(t==='dark'||(!t&&window.matchMedia('(prefers-color-scheme: dark)').matches)){document.documentElement.classList.add('dark-mode');}}catch(e){}})();</script>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <a href="#main-content" class="skip-link">Aller au contenu principal</a>
+  <div class="page-progress" id="pageProgress" aria-hidden="true"></div>
+  <div class="toast-container" id="toastContainer" aria-live="polite" aria-atomic="true"></div>
+
+<header class="site-header">
+  <div class="container header-inner">
+    <a href="index.html" class="logo">CHARISFERME <span>ferme & artisanat local</span></a>
+    <nav class="main-nav" id="siteNav" aria-label="Navigation principale">
+      <div class="nav-links">
+        <a href="index.html">Accueil</a>
+        <a href="apropos.html">À propos</a>
+        <a href="activites.html">Activités</a>
+        <a href="produits.html">Produits</a>
+        <a href="blog.html">Blog</a>
+        <a href="galerie.html">Galerie</a>
+        <a href="avis.html" class="active">Avis</a>
+        <a href="contact.html">Contact</a>
+      </div>
+      <div class="nav-actions">
+        <button class="theme-toggle" id="themeToggle" aria-label="Basculer le mode sombre" title="Mode sombre">🌙</button>
+      </div>
+    </nav>
+    <button class="menu-toggle" aria-label="Menu" aria-controls="siteNav" aria-expanded="false" id="menuToggle">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</header>
+
+<main id="main-content">
+  <!-- Breadcrumbs -->
+  <nav class="breadcrumbs" aria-label="Chemin de navigation">
+    <a href="index.html">Accueil</a>
+    <span class="separator">/</span>
+    <span class="current">Avis clients</span>
+    <script type="application/ld+json">
+    {"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [
+      {"@type": "ListItem", "position": 1, "name": "Accueil", "item": "https://www.charisferme.fr"},
+      {"@type": "ListItem", "position": 2, "name": "Avis", "item": "https://www.charisferme.fr/avis.html"}
+    ]}
+    </script>
+  </nav>
+
+  <section class="page-hero" style="padding: 60px 20px; background: linear-gradient(135deg, #6a8a42 0%, #4a5a32 100%); color: white; text-align: center;">
+    <div class="container">
+      <h1>Avis clients</h1>
+      <p>Ce que nos clients disent de nous — témoignages authentiques et note vérifiée.</p>
+    </div>
+  </section>
+
+  <section id="temoignages" class="section section--light">
+    <div class="container">
+      <div class="section-header">
+        <h2>Témoignages</h2>
+        <p>Ils ont goûté nos produits et racontent leur expérience.</p>
+      </div>
+      <div class="testimonial-slider" aria-label="Carrousel de témoignages">
+        <button type="button" class="slider-btn prev" aria-label="Témoignage précédent">«</button>
+        <div class="testimonial-track">
+          <div class="testimony-card"><div class="stars">★★★★★</div><p>"Des produits de grande fraîcheur et un service très agréable. Nous revenons chaque semaine."</p><div class="testimony-author">– Claire, cliente locale</div></div>
+          <div class="testimony-card"><div class="stars">★★★★★</div><p>"Fromages exceptionnels et livraison fiable. Une vraie ferme de confiance."</p><div class="testimony-author">– Laurent</div></div>
+          <div class="testimony-card"><div class="stars">★★★★★</div><p>"Qualité constante et accueil chaleureux à chaque visite. Je recommande vivement."</p><div class="testimony-author">– Sophie</div></div>
+        </div>
+        <button type="button" class="slider-btn next" aria-label="Témoignage suivant">»</button>
+      </div>
+    </div>
+  </section>
+
+  <section id="avis" class="section">
+    <div class="container">
+      <div class="section-header">
+        <h2>Avis vérifiés</h2>
+        <p>Notre note moyenne et nos retours clients renforcent la confiance de nos visiteurs et de nos partenaires.</p>
+      </div>
+      <div class="review-summary">
+        <div class="review-score">4.9/5<span class="stars-display">★★★★★</span></div>
+        <div class="review-details">
+          <p class="review-badge">Note moyenne sur 85 avis vérifiés</p>
+          <p>Évaluation basée sur la qualité des produits, le service de livraison et le contact professionnel.</p>
+        </div>
+      </div>
+      <div class="review-filter">
+        <button type="button" class="filter-btn active" data-filter="all">Tous (85)</button>
+        <button type="button" class="filter-btn" data-filter="5">5★ (78)</button>
+        <button type="button" class="filter-btn" data-filter="4">4★ (5)</button>
+        <button type="button" class="filter-btn" data-filter="3">3★ (2)</button>
+      </div>
+      <div class="review-grid" id="reviewGrid">
+        <article class="review-card card">
+          <div class="stars">★★★★★</div>
+          <h3>Excellent service</h3>
+          <p>"Livraison rapide, produits frais et équipe très réactive. Je recommande à tous les restaurateurs locaux."</p>
+          <div class="review-author">Camille, restauratrice</div>
+        </article>
+        <article class="review-card card">
+          <div class="stars">★★★★★</div>
+          <h3>Produits de qualité</h3>
+          <p>"Des légumes savoureux et des fromages crémeux. Le panier personnalisé est parfait pour notre cuisine."</p>
+          <div class="review-author">Thomas, épicier</div>
+        </article>
+        <article class="review-card card">
+          <div class="stars">★★★★★</div>
+          <h3>Expérience rassurante</h3>
+          <p>"Service professionnel, réponse rapide et transparence totale sur nos commandes."</p>
+          <div class="review-author">Sophie, organisatrice d'événements</div>
+        </article>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="container footer-content">
+    <div class="footer-block">
+      <h4>CHARISFERME</h4>
+      <p>Ferme familiale dédiée à l'agriculture locale, durable et solidaire depuis 2001.</p>
+      <div class="footer-badges">
+        <span class="footer-badge">Agriculture Bio</span>
+        <span class="footer-badge">Circuit Court</span>
+        <span class="footer-badge">Label Rouge</span>
+      </div>
+    </div>
+    <div class="footer-block">
+      <h4>Navigation</h4>
+      <a href="apropos.html">À propos</a>
+      <a href="produits.html">Produits</a>
+      <a href="reservation.html">Réservation</a>
+      <a href="avis.html">Avis</a>
+    </div>
+    <div class="footer-block">
+      <h4>Contact & Réseaux</h4>
+      <p><a href="tel:0600000000">06 00 00 00 00</a><br><a href="mailto:contact@charisferme.fr">contact@charisferme.fr</a></p>
+      <div class="footer-links">
+        <a href="https://wa.me/33600000000?text=Bonjour%20CHARISFERME%20%21%20Je%20souhaite%20un%20contact" target="_blank" rel="noreferrer noopener">WhatsApp</a>
+      </div>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <div class="footer-legal">
+      <p>© 2026 CHARISFERME • Tous droits réservés</p>
+      <p>SIRET : 123 456 789 00012 | Ferme de Charis, 12345 Village, France</p>
+      <p><a href="mentions-legales.html">Mentions légales & Confidentialité</a></p>
+    </div>
+  </div>
+</footer>
+
+<a class="whatsapp-float" href="https://wa.me/33600000000?text=Bonjour%20CHARISFERME%20%21%20Je%20souhaite%20un%20contact" target="_blank" rel="noreferrer noopener" aria-label="Contact WhatsApp">WhatsApp</a>
+<button class="scroll-to-top" aria-label="Retour en haut">↑</button>
+<script src="utils.js"></script>
+<script src="script.js"></script>
+</body>
+</html>

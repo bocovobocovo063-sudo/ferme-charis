@@ -1,0 +1,52 @@
+[build]
+  publish = "."
+  command = ""
+  functions = "netlify/functions"
+
+# Formulaires Netlify (Submissions)
+[functions]
+  directory = "netlify/functions"
+  node_bundler = "esbuild"
+
+# Redirects pour SPA (404)
+[[redirects]]
+  from = "/*"
+  to = "/404.html"
+  status = 404
+
+# Headers de sécurité
+[[headers]]
+  for = "/*"
+  [headers.values]
+    X-Content-Type-Options = "nosniff"
+    X-Frame-Options = "DENY"
+    X-XSS-Protection = "1; mode=block"
+    Referrer-Policy = "no-referrer-when-downgrade"
+    Permissions-Policy = "camera=(), microphone=(), geolocation=()"
+
+# Cache images
+[[headers]]
+  for = "/images/*"
+  [headers.values]
+    Cache-Control = "public, max-age=31536000, immutable"
+
+# Cache CSS/JS
+[[headers]]
+  for = "/*.{css,js}"
+  [headers.values]
+    Cache-Control = "public, max-age=31536000, immutable"
+
+# Configuration des formulaires
+[context.production.environment]
+  # Variables à configurer via Netlify UI :
+  # - STRIPE_SECRET_KEY = sk_live_... (clé live Stripe)
+  # - STRIPE_PUBLISHABLE_KEY = pk_live_... (clé publique Stripe)
+  # - FORM_EMAIL = contact@charisferme.fr (email notifications)
+
+[context.deploy-preview]
+  # Preview utilise clés test
+  command = ""
+
+[context.branch-deploy]
+  command = ""
+

@@ -1,0 +1,1096 @@
+﻿<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+  <title>CHARISFERME - Ferme artisanale & produits locaux</title>
+  <meta name="description" content="CHARISFERME, ferme familiale sp�cialis�e dans les produits fermiers, circuits courts et agriculture responsable. D�couvrez nos l�gumes, fromages et offres locales.">
+  <meta name="keywords" content="ferme, produits fermiers, circuit court, l�gumes bio, fromages, viande locale, agriculture durable">
+  <meta name="author" content="CHARISFERME">
+  <meta property="og:title" content="CHARISFERME - Ferme artisanale & produits locaux">
+  <meta property="og:description" content="Produits fermiers, agriculture responsable et vente directe � la ferme. D�couvrez nos actualit�s, nos produits et nos visites.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://www.charisferme.fr">
+  <meta property="og:image" content="/images/hero.jpg">
+  <meta property="og:image:alt" content="Vue de la ferme CHARISFERME et ses champs de production">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:site" content="@charisferme">
+  <meta name="theme-color" content="#6a8a42">
+  <link rel="stylesheet" href="styles.css">
+  <script src="https://js.stripe.com/v3/"></script>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "LocalBusiness",
+    "name": "CHARISFERME",
+    "description": "Ferme artisanale proposant des produits locaux, des paniers sur mesure et des visites p�dagogiques.",
+    "url": "https://www.charisferme.fr",
+    "telephone": "+33600000000",
+    "email": "contact@charisferme.fr",
+    "address": {
+      "@type": "PostalAddress",
+      "streetAddress": "Ferme de Charis",
+      "addressLocality": "Village",
+      "postalCode": "12345",
+      "addressCountry": "FR"
+    },
+    "image": "/images/hero.jpg",
+    "priceRange": "�",
+    "openingHoursSpecification": [
+      {"@type": "OpeningHoursSpecification","dayOfWeek": ["Monday","Tuesday","Wednesday","Thursday","Friday","Saturday"],"opens": "09:00","closes": "18:00"},
+      {"@type": "OpeningHoursSpecification","dayOfWeek": "Sunday","opens": "10:00","closes": "14:00"}
+    ],
+    "sameAs": ["https://www.facebook.com/charisferme","https://www.instagram.com/charisferme"],
+    "aggregateRating": {
+      "@type": "AggregateRating",
+      "ratingValue": "4.9",
+      "reviewCount": "85"
+    },
+    "review": [
+      {
+        "@type": "Review",
+        "author": "Claire",
+        "datePublished": "2026-03-10",
+        "reviewBody": "Des produits de grande fra�cheur et un service tr�s agr�able. Nous revenons chaque semaine.",
+        "reviewRating": {"@type": "Rating","ratingValue": "5"}
+      },
+      {
+        "@type": "Review",
+        "author": "Laurent",
+        "datePublished": "2026-04-02",
+        "reviewBody": "Fromages exceptionnels et livraison fiable. Une vraie ferme de confiance.",
+        "reviewRating": {"@type": "Rating","ratingValue": "5"}
+      }
+    ]
+  }
+  </script>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Organization",
+    "name": "CHARISFERME",
+    "logo": "/images/hero.jpg",
+    "url": "https://www.charisferme.fr",
+    "sameAs": ["https://www.facebook.com/charisferme", "https://www.instagram.com/charisferme"],
+    "foundingDate": "2001",
+    "description": "Ferme familiale d�di�e � l'agriculture locale, durable et solidaire depuis 2001"
+  }
+  </script>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      {"@type": "ListItem","position": 1,"name": "Accueil","item": "https://www.charisferme.fr"},
+      {"@type": "ListItem","position": 2,"name": "Produits","item": "https://www.charisferme.fr/#produits"},
+      {"@type": "ListItem","position": 3,"name": "Blog","item": "https://www.charisferme.fr/#actualites"},
+      {"@type": "ListItem","position": 4,"name": "R�servation","item": "https://www.charisferme.fr/#reservation"}
+    ]
+  }
+  </script>
+</head>
+<body>
+  <div class="page-progress" id="pageProgress" aria-hidden="true"></div>
+
+<header class="site-header">
+  <div class="container header-inner">
+    <a href="#Accueil" class="logo">CHARISFERME <span>ferme & artisanat local</span></a>
+
+    <nav class="main-nav" id="siteNav" aria-label="Navigation principale">
+      <div class="nav-links">
+        <a href="#Accueil">Accueil</a>
+        <a href="#apropos">� propos</a>
+        <a href="#activites">Activit�s</a>
+        <a href="#produits">Produits</a>
+        <a href="#actualites">Blog</a>
+        <a href="#galerie">Galerie</a>
+        <a href="#avis">Avis</a>
+        <a href="#contact">Contact</a>
+      </div>
+      <div class="nav-actions">
+        <a class="whatsapp-link" href="https://wa.me/33600000000?text=Bonjour%20CHARISFERME%20%21%20Je%20souhaite%20un%20contact" target="_blank" rel="noreferrer noopener">WhatsApp</a>
+        <a class="btn btn-primary header-reserve" href="#reservation">R�server</a>
+      </div>
+    </nav>
+
+    <button class="menu-toggle" aria-label="Menu" aria-controls="siteNav" aria-expanded="false" id="menuToggle">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</header>
+
+<main>
+  <section id="Accueil" class="hero">
+    <div class="container hero-content">
+      <p class="eyebrow">Ferme familiale � Production locale</p>
+      <h1>CHARISFERME, le go�t du terroir livr� directement chez vous.</h1>
+      <p>De la production � la transformation, nous accompagnons chaque �tape pour vous proposer des produits frais, responsables et savoureux.</p>
+      <div class="hero-actions">
+        <a href="#produits" class="btn btn-primary">D�couvrir nos produits</a>
+        <a href="#contact" class="btn btn-secondary">Demander un devis</a>
+      </div>
+      <div class="hero-stats">
+        <div class="stat-pill"><strong>85%</strong><span>de production locale</span></div>
+        <div class="stat-pill"><strong>48h</strong><span>livraison rapide</span></div>
+        <div class="stat-pill"><strong>10+</strong><span>partenaires pro</span></div>
+        <div class="stat-pill"><strong>25 ans</strong><span>d�exp�rience</span></div>
+      </div>
+      <div class="hero-highlights">
+        <div class="highlight-card"><span>→</span><p>Production 100% locale et tra�abilit� totale</p></div>
+        <div class="highlight-card"><span>→</span><p>Livraison 48h et retrait � la ferme</p></div>
+        <div class="highlight-card"><span>→</span><p>Commandes sur mesure pour professionnels</p></div>
+        <div class="highlight-card"><span>→</span><p>Ateliers p�dagogiques et visites de groupe</p></div>
+      </div>
+    </div>
+  </section>
+
+  <section id="apropos" class="section section--light">
+    <div class="container">
+      <div class="section-header">
+        <h2>Notre philosophie</h2>
+        <p>Authenticit�, transparence et respect des saisons sont au c�ur de toutes nos cultures et de nos transformations.</p>
+      </div>
+      <div class="grid grid-3">
+        <div class="feature-card">
+          <h3>Culture responsable</h3>
+          <p>Des proc�d�s respectueux des sols et une agriculture qui prot�ge la biodiversit� locale.</p>
+        </div>
+        <div class="feature-card">
+          <h3>Qualit� artisanale</h3>
+          <p>Des produits �labor�s � la ferme, transform�s avec soin et sans additif industriel.</p>
+        </div>
+        <div class="feature-card">
+          <h3>Engagement local</h3>
+          <p>Vente directe, march�s de proximit� et livraison locale pour soutenir l��conomie du territoire.</p>
+        </div>
+      </div>
+      <div class="badges">
+        <span class="badge">Terroir authentique</span>
+        <span class="badge">circuits courts</span>
+        <span class="badge">�levage respectueux</span>
+        <span class="badge">Produits de saison</span>
+      </div>
+    </div>
+  </section>
+
+  <section id="equipe" class="section section--light">
+    <div class="container">
+      <div class="section-header">
+        <h2>�quipe & savoir-faire</h2>
+        <p>Rencontrez l��quipe passionn�e de CHARISFERME et les expertises agricoles qui garantissent la qualit� de nos produits.</p>
+      </div>
+      <div class="team-grid">
+        <article class="team-card card">
+          <div class="team-avatar">M</div>
+          <h3>Marie</h3>
+          <p>Mara�ch�re responsable des cultures biologiques et du calendrier de r�colte.</p>
+        </article>
+        <article class="team-card card">
+          <div class="team-avatar">A</div>
+          <h3>Antoine</h3>
+          <p>Ma�tre fromager, il transforme le lait de nos troupeaux en produits authentiques.</p>
+        </article>
+        <article class="team-card card">
+          <div class="team-avatar">L</div>
+          <h3>Lucas</h3>
+          <p>Logistique et vente, il organise les livraisons locales et les commandes professionnelles.</p>
+        </article>
+      </div>
+      <div class="skills-grid">
+        <div class="skill-card card">
+          <h3>Agriculture durable</h3>
+          <p>Pratiques respectueuses du sol, rotation des cultures et pr�servation de la biodiversit�.</p>
+        </div>
+        <div class="skill-card card">
+          <h3>Transformation artisanale</h3>
+          <p>Recettes maison, contr�le qualit� et produits pr�par�s dans le respect des traditions.</p>
+        </div>
+        <div class="skill-card card">
+          <h3>Service client pro</h3>
+          <p>Conseils personnalis�s, suivi de commande et support d�di� pour les projets professionnels.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="activites" class="section">
+    <div class="container">
+      <div class="section-header">
+        <h2>Nos activit�s</h2>
+        <p>D�couvrez l'ensemble de nos savoir-faire, du jardin � la table, en passant par l'�levage et la transformation.</p>
+      </div>
+      <div class="grid grid-3">
+        <div class="card"><h3>Jardin mara�cher</h3><p>Une production diversifi�e de l�gumes et aromates, cultiv�s selon les saisons.</p></div>
+        <div class="card"><h3>�levage local</h3><p>Des animaux �lev�s au grand air pour des produits plus savoureux et plus �thiques.</p></div>
+        <div class="card"><h3>Transformation maison</h3><p>Fromages, yaourts, terrines et conserves pr�par�s � la ferme selon nos recettes familiales.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <section id="garanties" class="section section--light">
+    <div class="container">
+      <div class="section-header">
+        <h2>Nos garanties qualit�</h2>
+        <p>Des engagements transparents, pens�s pour les clients exigeants et les partenaires professionnels.</p>
+      </div>
+      <div class="grid grid-4 trust-grid">
+        <div class="trust-card card"><h3>Qualit� certifi�e</h3><p>Contr�les r�guliers, recettes traditionnelles et tra�abilit� � chaque �tape.</p></div>
+        <div class="trust-card card"><h3>Service pro</h3><p>Offres personnalis�es, commandes group�es et accompagnement pour les restaurateurs.</p></div>
+        <div class="trust-card card"><h3>Transparence totale</h3><p>Origine, saisonnalit� et mode de production clairement affich�s pour chaque produit.</p></div>
+        <div class="trust-card card"><h3>Support local</h3><p>Relation de proximit�, conseils sur mesure et livraison dans un rayon de 40 km.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <section id="produits" class="section section--light">
+    <div class="container">
+      <div class="section-header">
+        <h2>Nos produits</h2>
+        <p>Des gammes compl�tes pour les gourmands, les familles et les restaurateurs en qu�te de fra�cheur.</p>
+      </div>
+      <div class="product-filter" role="tablist" aria-label="Filtrer les produits">
+        <button type="button" class="filter-btn active" data-filter="all">Tous</button>
+        <button type="button" class="filter-btn" data-filter="legumes">L�gumes</button>
+        <button type="button" class="filter-btn" data-filter="laitiers">Laitiers</button>
+        <button type="button" class="filter-btn" data-filter="viandes">Viandes</button>
+        <button type="button" class="filter-btn" data-filter="conserves">Conserves</button>
+      </div>
+      <div class="grid grid-4 product-grid">
+        <div class="card product-card" data-category="legumes" data-title="L�gumes de saison" data-image="/images/produit-legumes.jpg">
+          <h3>✓ L�gumes de saison</h3>
+          <p>Tomates, courgettes, poivrons et plus, cultiv�s sans pesticide de synth�se.</p>
+        </div>
+        <div class="card product-card" data-category="laitiers" data-title="Produits laitiers" data-image="/images/produit-laitiers.jpg">
+          <h3>✓ Produits laitiers</h3>
+          <p>Fromages, yaourts et faisselles fabriqu�s � partir du lait de nos troupeaux.</p>
+        </div>
+        <div class="card product-card" data-category="viandes" data-title="Viandes & volailles" data-image="/images/produit-viandes.jpg">
+          <h3>✓ Viandes & volailles</h3>
+          <p>�levage de qualit� pour des viandes tendres, savoureuses et trac�es.</p>
+        </div>
+        <div class="card product-card" data-category="conserves" data-title="Conserves maison" data-image="/images/produit-conserves.jpg">
+          <h3>✓ Conserves maison</h3>
+          <p>Confitures, terrines et cr�ations sucr�es-sal�es selon des recettes traditionnelles.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="boutique" class="section section--light">
+    <div class="container">
+      <div class="section-header">
+        <h2>Mini-boutique en ligne</h2>
+        <p>D�couvrez notre s�lection de produits frais disponibles � la vente directe. Stocks limit�s, r�servez d�s maintenant !</p>
+      </div>
+      <div class="boutique-grid">
+        <div class="boutique-card card" data-product="tomates" data-price="4.50" data-stock="25">
+          <div class="boutique-image">
+            <img src="/images/boutique-tomates.jpg" alt="Tomates bio">
+          </div>
+          <div class="boutique-info">
+            <h3>Tomates cerises bio</h3>
+            <p>Barquette de 500g - Production locale</p>
+            <div class="boutique-price">4,50 �</div>
+            <div class="stock-counter">
+              <span class="stock-label">Stock restant :</span>
+              <span class="stock-number" id="stock-tomates">25</span>
+            </div>
+            <div class="boutique-actions">
+              <button class="btn-stock minus" data-product="tomates">-</button>
+              <input type="number" class="quantity-input" id="qty-tomates" value="0" min="0" max="25">
+              <button class="btn-stock plus" data-product="tomates">+</button>
+              <button class="btn-add-cart" data-product="tomates">Ajouter au panier</button>
+            </div>
+          </div>
+        </div>
+
+        <div class="boutique-card card" data-product="fromage" data-price="8.90" data-stock="12">
+          <div class="boutique-image">
+            <img src="/images/boutique-fromage.jpg" alt="Fromage frais">
+          </div>
+          <div class="boutique-info">
+            <h3>Fromage frais de ch�vre</h3>
+            <p>200g - Fromage artisanal au lait cru</p>
+            <div class="boutique-price">8,90 �</div>
+            <div class="stock-counter">
+              <span class="stock-label">Stock restant :</span>
+              <span class="stock-number" id="stock-fromage">12</span>
+            </div>
+            <div class="boutique-actions">
+              <button class="btn-stock minus" data-product="fromage">-</button>
+              <input type="number" class="quantity-input" id="qty-fromage" value="0" min="0" max="12">
+              <button class="btn-stock plus" data-product="fromage">+</button>
+              <button class="btn-add-cart" data-product="fromage">Ajouter au panier</button>
+            </div>
+          </div>
+        </div>
+
+        <div class="boutique-card card" data-product="miel" data-price="6.20" data-stock="8">
+          <div class="boutique-image">
+            <img src="/images/boutique-miel.jpg" alt="Miel local">
+          </div>
+          <div class="boutique-info">
+            <h3>Miel de fleurs</h3>
+            <p>Pot de 250g - Miel pur et naturel</p>
+            <div class="boutique-price">6,20 �</div>
+            <div class="stock-counter">
+              <span class="stock-label">Stock restant :</span>
+              <span class="stock-number" id="stock-miel">8</span>
+            </div>
+            <div class="boutique-actions">
+              <button class="btn-stock minus" data-product="miel">-</button>
+              <input type="number" class="quantity-input" id="qty-miel" value="0" min="0" max="8">
+              <button class="btn-stock plus" data-product="miel">+</button>
+              <button class="btn-add-cart" data-product="miel">Ajouter au panier</button>
+            </div>
+          </div>
+        </div>
+
+        <div class="boutique-card card" data-product="oeufs" data-price="5.80" data-stock="30">
+          <div class="boutique-image">
+            <img src="/images/boutique-oeufs.jpg" alt="�ufs frais">
+          </div>
+          <div class="boutique-info">
+            <h3>�ufs frais</h3>
+            <p>Douzaine - �ufs de nos poules �lev�es en plein air</p>
+            <div class="boutique-price">5,80 �</div>
+            <div class="stock-counter">
+              <span class="stock-label">Stock restant :</span>
+              <span class="stock-number" id="stock-oeufs">30</span>
+            </div>
+            <div class="boutique-actions">
+              <button class="btn-stock minus" data-product="oeufs">-</button>
+              <input type="number" class="quantity-input" id="qty-oeufs" value="0" min="0" max="30">
+              <button class="btn-stock plus" data-product="oeufs">+</button>
+              <button class="btn-add-cart" data-product="oeufs">Ajouter au panier</button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="cart-summary" id="cartSummary" style="display: none;">
+        <h3>Votre panier</h3>
+        <div id="cartItems"></div>
+        <div class="cart-total">
+          <strong>Total : <span id="cartTotal">0,00 �</span></strong>
+        </div>
+        <button class="btn btn-primary" id="checkoutBtn">Commander</button>
+      </div>
+    </div>
+  </section>
+
+  <section id="offres" class="section">
+    <div class="container">
+      <div class="section-header">
+        <h2>Offres sur mesure</h2>
+        <p>Solutions adapt�es aux particuliers, aux restaurateurs et aux �v�nements de groupe.</p>
+      </div>
+      <div class="grid grid-3">
+        <div class="offer-card card"><h3>Paniers personnalis�s</h3><p>Composez un panier sur mesure avec l�gumes, laitiers et sp�cialit�s de la ferme.</p></div>
+        <div class="offer-card card"><h3>Livraison professionnelle</h3><p>D�lais rapides, emballages soign�s et conditions d�di�es aux commer�ants locaux.</p></div>
+        <div class="offer-card card"><h3>Ateliers et visites</h3><p>Team building, �cole et �v�nements priv�s autour de la ferme et de l'agriculture durable.</p></div>
+      </div>
+      <div class="offer-actions">
+        <a href="#devis" class="btn btn-primary">Demander un devis pro</a>
+      </div>
+    </div>
+  </section>
+
+  <section id="tarifs" class="section">
+    <div class="container">
+      <div class="section-header">
+        <h2>Tarifs & formules</h2>
+        <p>Choisissez la formule qui correspond le mieux � votre besoin, du panier local � la commande professionnelle.</p>
+      </div>
+      <div class="pricing-grid">
+        <div class="pricing-card card">
+          <span class="pricing-label">Formule D�couverte</span>
+          <h3>Paniers de saison</h3>
+          <p>Id�al pour les familles et les petits commerces, avec une s�lection de produits frais de la ferme.</p>
+          <ul>
+            <li>Livraison hebdomadaire</li>
+            <li>Produits renouvel�s selon saison</li>
+            <li>Emballage responsable</li>
+          </ul>
+          <div class="pricing-footer">� partir de <strong>39�</strong></div>
+        </div>
+        <div class="pricing-card card pricing-featured">
+          <span class="pricing-label">Formule Pro</span>
+          <h3>Commande en gros</h3>
+          <p>Offre d�di�e aux restaurateurs, aux �piceries et aux �v�nements avec des volumes ajust�s.</p>
+          <ul>
+            <li>Conditions prioritaires</li>
+            <li>Livraison d�di�e</li>
+            <li>Produits trac�s et recettes pro</li>
+          </ul>
+          <div class="pricing-footer">Sur devis</div>
+        </div>
+        <div class="pricing-card card">
+          <span class="pricing-label">Formule Atelier</span>
+          <h3>Visite & animation</h3>
+          <p>Intervention sur site pour des ateliers p�dagogiques ou des team building autour de l�agriculture.</p>
+          <ul>
+            <li>Visite guid�e de la ferme</li>
+            <li>D�gustation de produits</li>
+            <li>Atelier pratique</li>
+          </ul>
+          <div class="pricing-footer">� partir de <strong>120�</strong></div>
+        </div>
+      </div>
+      <div class="price-cta">
+        <a href="#devis" class="btn btn-secondary">Demander une offre personnalis�e</a>
+      </div>
+    </div>
+  </section>
+
+  <section id="commande" class="section">
+    <div class="container">
+      <div class="section-header">
+        <h2>Commande en ligne</h2>
+        <p>Commandez facilement vos produits de la ferme avec un panier sur mesure et une livraison locale.</p>
+      </div>
+      <div class="order-grid">
+        <form id="orderForm" class="contact-form card" name="order" method="POST" data-netlify="true">
+          <input type="hidden" name="form-name" value="order">
+          <div class="form-group">
+            <label for="orderName">Nom</label>
+            <input id="orderName" type="text" name="name" placeholder="Votre nom" required>
+          </div>
+          <div class="form-group">
+            <label for="orderEmail">Email</label>
+            <input id="orderEmail" type="email" name="email" placeholder="Votre email" required>
+          </div>
+          <div class="form-group">
+            <label for="orderPhone">T�l�phone</label>
+            <input id="orderPhone" type="tel" name="phone" placeholder="Votre num�ro" required>
+          </div>
+          <div class="order-items">
+            <div class="order-item" data-price="39">
+              <label>Panier de saison</label>
+              <input type="number" name="panier" min="0" value="0" data-price="39">
+              <span>39� / unit�</span>
+            </div>
+            <div class="order-item" data-price="18">
+              <label>Pack fromages</label>
+              <input type="number" name="fromages" min="0" value="0" data-price="18">
+              <span>18� / unit�</span>
+            </div>
+            <div class="order-item" data-price="24">
+              <label>Pack viandes</label>
+              <input type="number" name="viandes" min="0" value="0" data-price="24">
+              <span>24� / unit�</span>
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="orderNotes">Informations compl�mentaires</label>
+            <textarea id="orderNotes" name="notes" rows="4" placeholder="Ex : livraison le samedi matin"></textarea>
+          </div>
+          <button type="submit" class="btn btn-primary">Envoyer ma commande</button>
+          <p id="orderNote" class="form-note"></p>
+        </form>
+        <aside class="order-summary card">
+          <h3>R�capitulatif</h3>
+          <div class="summary-list" id="orderSummary"></div>
+          <div class="summary-total">Total estim� : <strong id="orderTotal">0�</strong></div>
+        </aside>
+      </div>
+    </div>
+  </section>
+
+  <section id="devis" class="section section--light">
+    <div class="container">
+      <div class="section-header">
+        <h2>Devis professionnel</h2>
+        <p>Obtenez une proposition personnalis�e pour votre commerce, �v�nement ou service de restauration.</p>
+      </div>
+      <div class="devis-grid">
+        <div class="card">
+          <h3>Pourquoi choisir CHARISFERME →</h3>
+          <ul class="devis-list">
+            <li>Offres sur mesure pour les restaurateurs et les �piceries</li>
+            <li>Livraison prioritaire en circuit court</li>
+            <li>Accompagnement projet et production fiable</li>
+            <li>Possibilit� de paniers r�guliers et commandes group�es</li>
+          </ul>
+        </div>
+        <form id="devisForm" class="contact-form card" name="devis" method="POST" data-netlify="true">
+          <input type="hidden" name="form-name" value="devis">
+          <div class="form-group">
+            <label for="company">Entreprise / structure</label>
+            <input id="company" type="text" name="company" placeholder="Nom de la soci�t� ou de l'association" required>
+          </div>
+          <div class="form-group">
+            <label for="projectType">Type de projet</label>
+            <select id="projectType" name="projectType" required>
+              <option value="">S�lectionner un type</option>
+              <option value="Commande pro">Commande pro</option>
+              <option value="Paniers r�guliers">Paniers r�guliers</option>
+              <option value="Atelier / visite">Atelier / visite</option>
+              <option value="�v�nement">�v�nement</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label for="quantity">Quantit� / budget estim�</label>
+            <input id="quantity" type="text" name="quantity" placeholder="Ex : 50 repas par semaine" required>
+          </div>
+          <div class="form-group">
+            <label for="deadline">D�lai souhait�</label>
+            <input id="deadline" type="text" name="deadline" placeholder="Ex : disponibilit� pour la semaine prochaine" required>
+          </div>
+          <div class="form-group">
+            <label for="nom">Nom</label>
+            <input id="nom" type="text" name="nom" placeholder="Votre nom" required>
+          </div>
+          <div class="form-group">
+            <label for="email">Email</label>
+            <input id="email" type="email" name="email" placeholder="Votre email" required>
+          </div>
+          <div class="form-group">
+            <label for="message">Message</label>
+            <textarea id="message" name="message" rows="5" placeholder="D�tails de votre projet" required></textarea>
+          </div>
+          <button type="submit" class="btn btn-primary">Envoyer ma demande</button>
+          <p id="devisNote" class="form-note"></p>
+        </form>
+      </div>
+    </div>
+  </section>
+
+  <section id="galerie" class="section">
+    <div class="container">
+      <div class="section-header">
+        <h2>Galerie photos</h2>
+        <p>Quelques instants captur�s au c�ur de CHARISFERME : champs, animaux et produits.</p>
+      </div>
+      <div class="gallery-filter">
+        <button type="button" class="filter-btn active" data-filter="all">Tous</button>
+        <button type="button" class="filter-btn" data-filter="cultures">Cultures</button>
+        <button type="button" class="filter-btn" data-filter="animaux">Animaux</button>
+        <button type="button" class="filter-btn" data-filter="produits">Produits</button>
+      </div>
+      <div class="gallery-grid" id="galleryGrid">
+        <button type="button" class="gallery-card" data-image="/images/blog-fromagerie.jpg" data-caption="R�colte fra�che" data-category="cultures"><div class="gallery-overlay"><h3>R�colte fra�che</h3></div></button>
+        <button type="button" class="gallery-card" data-image="/images/galerie-fromagerie.jpg" data-caption="Fromagerie" data-category="produits"><div class="gallery-overlay"><h3>Fromagerie</h3></div></button>
+        <button type="button" class="gallery-card" data-image="/images/galerie-elevage.jpg" data-caption="�levage en p�turage" data-category="animaux"><div class="gallery-overlay"><h3>�levage en p�turage</h3></div></button>
+        <button type="button" class="gallery-card" data-image="/images/galerie-atelier.jpg" data-caption="Atelier maison" data-category="produits"><div class="gallery-overlay"><h3>Atelier maison</h3></div></button>
+        <button type="button" class="gallery-card" data-image="/images/galerie-poules.jpg" data-caption="Poules en libert�" data-category="animaux"><div class="gallery-overlay"><h3>Poules en libert�</h3></div></button>
+        <button type="button" class="gallery-card" data-image="/images/galerie-champs.jpg" data-caption="Champ de cultures" data-category="cultures"><div class="gallery-overlay"><h3>Champ de cultures</h3></div></button>
+        <button type="button" class="gallery-card" data-image="/images/galerie-conserves.jpg" data-caption="Conserves maison" data-category="produits"><div class="gallery-overlay"><h3>Conserves maison</h3></div></button>
+        <button type="button" class="gallery-card" data-image="/images/galerie-troupeau.jpg" data-caption="Troupeau laitier" data-category="animaux"><div class="gallery-overlay"><h3>Troupeau laitier</h3></div></button>
+      </div>
+    </div>
+  </section>
+
+  <section id="actualites" class="section section--light">
+    <div class="container">
+      <div class="section-header">
+        <h2>Actualit�s & Blog</h2>
+        <p>Articles, astuces et actualit�s de la ferme. Restez inform�s de nos derni�res nouvelles et conseils fermiers.</p>
+      </div>
+      <div class="blog-filter">
+        <button type="button" class="filter-btn active" data-filter="all">Tous</button>
+        <button type="button" class="filter-btn" data-filter="conseil">Conseils</button>
+        <button type="button" class="filter-btn" data-filter="recette">Recettes</button>
+        <button type="button" class="filter-btn" data-filter="agenda">Agenda</button>
+      </div>
+      <div class="blog-grid" id="blogCards">
+        <article class="blog-card card" data-category="conseil">
+          <div class="blog-image" style="background-image: url('/images/blog-tomates.jpg')"></div>
+          <div class="blog-content">
+            <span class="blog-category">Conseil</span>
+            <h3>Comment cultiver des tomates biologique</h3>
+            <p>D�couvrez nos meilleures pratiques pour une r�colte abondante et saine, sans produits chimiques.</p>
+            <div class="blog-meta">
+              <time>2 mai 2026</time>
+              <span class="read-time">5 min de lecture</span>
+            </div>
+            <a href="#" class="read-more">Lire l'article →</a>
+          </div>
+        </article>
+
+        <article class="blog-card card" data-category="recette">
+          <div class="blog-image" style="background-image: url('/images/blog-fromage.jpg')"></div>
+          <div class="blog-content">
+            <span class="blog-category">Recette</span>
+            <h3>Fromage frais aux herbes aromatiques</h3>
+            <p>Une recette simple et d�licieuse pour pr�parer un fromage frais maison avec nos produits fermiers.</p>
+            <div class="blog-meta">
+              <time>28 avril 2026</time>
+              <span class="read-time">3 min de lecture</span>
+            </div>
+            <a href="#" class="read-more">Lire l'article →</a>
+          </div>
+        </article>
+
+        <article class="blog-card card" data-category="agenda">
+          <div class="blog-image" style="background-image: url('/images/blog-marche.jpg')"></div>
+          <div class="blog-content">
+            <span class="blog-category">Agenda</span>
+            <h3>March� fermier du dimanche - �dition sp�ciale</h3>
+            <p>Rejoignez-nous dimanche pour notre grande �dition sp�ciale avec ateliers gratuits et d�monstrations.</p>
+            <div class="blog-meta">
+              <time>9 mai 2026</time>
+              <span class="read-time">� venir</span>
+            </div>
+            <a href="#reservation" class="read-more">R�server →</a>
+          </div>
+        </article>
+
+        <article class="blog-card card" data-category="conseil">
+          <div class="blog-image" style="background-image: url('/images/blog-conservation.jpg')"></div>
+          <div class="blog-content">
+            <span class="blog-category">Conseil</span>
+            <h3>Pr�server la fra�cheur de vos produits fermiers</h3>
+            <p>Astuces et conseils pour conserver au maximum la qualit� et la fra�cheur de nos livraisons.</p>
+            <div class="blog-meta">
+              <time>25 avril 2026</time>
+              <span class="read-time">4 min de lecture</span>
+            </div>
+            <a href="#" class="read-more">Lire l'article →</a>
+          </div>
+        </article>
+
+        <article class="blog-card card" data-category="recette">
+          <div class="blog-image" style="background-image: url('/images/blog-soupe.jpg')"></div>
+          <div class="blog-content">
+            <span class="blog-category">Recette</span>
+            <h3>Soupe de l�gumes de saison traditionnelle</h3>
+            <p>Une recette g�n�reuse et r�confortante qui met en valeur la saveur de nos l�gumes frais.</p>
+            <div class="blog-meta">
+              <time>20 avril 2026</time>
+              <span class="read-time">6 min de lecture</span>
+            </div>
+            <a href="#" class="read-more">Lire l'article →</a>
+          </div>
+        </article>
+
+        <article class="blog-card card" data-category="agenda">
+          <div class="blog-image" style="background-image: url('/images/blog-fromagerie.jpg')"></div>
+          <div class="blog-content">
+            <span class="blog-category">Agenda</span>
+            <h3>Visite d�couverte et atelier fromagerie</h3>
+            <p>Plongez au c�ur de notre production laiti�re et apprenez � fabriquer votre propre fromage.</p>
+            <div class="blog-meta">
+              <time>5 mai 2026</time>
+              <span class="read-time">� venir</span>
+            </div>
+            <a href="#reservation" class="read-more">R�server →</a>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section id="reservation" class="section section--light">
+    <div class="container">
+      <div class="section-header">
+        <h2>R�server votre visite</h2>
+        <p>D�couvrez CHARISFERME lors d'une visite guid�e ou participez � nos ateliers p�dagogiques. R�servation en ligne simple et rapide.</p>
+      </div>
+
+      <div class="reservation-container">
+        <div class="reservation-options">
+          <div class="option-card card" data-type="visite">
+            <div class="option-icon">✓</div>
+            <h3>Visite guid�e de la ferme</h3>
+            <p>D�couvrez notre exploitation agricole, nos animaux et nos m�thodes de production durable.</p>
+            <div class="option-details">
+              <span class="duration">✓ 1h30</span>
+              <span class="price">15�/pers</span>
+            </div>
+            <button class="btn btn-primary select-option" data-type="visite">R�server</button>
+          </div>
+
+          <div class="option-card card" data-type="atelier">
+            <div class="option-icon">✓</div>
+            <h3>Atelier fromagerie</h3>
+            <p>Apprenez � faire votre propre fromage et d�couvrez les secrets de la transformation laiti�re.</p>
+            <div class="option-details">
+              <span class="duration">✓ 2h</span>
+              <span class="price">35�/pers</span>
+            </div>
+            <button class="btn btn-primary select-option" data-type="atelier">R�server</button>
+          </div>
+
+          <div class="option-card card" data-type="jardin">
+            <div class="option-icon">✓</div>
+            <h3>Atelier jardinage</h3>
+            <p>Initiez-vous aux techniques de culture bio et repartez avec vos semis.</p>
+            <div class="option-details">
+              <span class="duration">✓ 2h30</span>
+              <span class="price">28�/pers</span>
+            </div>
+            <button class="btn btn-primary select-option" data-type="jardin">R�server</button>
+          </div>
+        </div>
+
+        <div class="reservation-form-container" id="reservationForm" style="display: none;">
+          <div class="reservation-calendar">
+            <h3>S�lectionnez une date</h3>
+            <div class="calendar-header">
+              <button class="calendar-nav" id="prevMonth">�</button>
+              <h4 id="currentMonth">Mai 2026</h4>
+              <button class="calendar-nav" id="nextMonth">�</button>
+            </div>
+            <div class="calendar-grid" id="calendarGrid">
+              <!-- Le calendrier sera g�n�r� par JavaScript -->
+            </div>
+          </div>
+
+          <form id="bookingForm" class="reservation-form card" name="reservation" method="POST" data-netlify="true">
+            <input type="hidden" name="form-name" value="reservation">
+            <input type="hidden" name="reservation-type" id="reservationType">
+            <input type="hidden" name="selected-date" id="selectedDate">
+            <input type="hidden" name="time-slot" id="selectedTimeSlot">
+
+            <h3>D�tails de la r�servation</h3>
+
+            <div class="form-row">
+              <div class="form-group">
+                <label for="firstName">Pr�nom *</label>
+                <input type="text" id="firstName" name="firstName" required>
+              </div>
+              <div class="form-group">
+                <label for="lastName">Nom *</label>
+                <input type="text" id="lastName" name="lastName" required>
+              </div>
+            </div>
+
+            <div class="form-row">
+              <div class="form-group">
+                <label for="email">Email *</label>
+                <input type="email" id="email" name="email" required>
+              </div>
+              <div class="form-group">
+                <label for="phone">T�l�phone *</label>
+                <input type="tel" id="phone" name="phone" required>
+              </div>
+            </div>
+
+            <div class="form-group">
+              <label for="participants">Nombre de participants *</label>
+              <select id="participants" name="participants" required>
+                <option value="">S�lectionnez</option>
+                <option value="1">1 personne</option>
+                <option value="2">2 personnes</option>
+                <option value="3">3 personnes</option>
+                <option value="4">4 personnes</option>
+                <option value="5">5 personnes</option>
+                <option value="6+">6+ personnes (nous contacter)</option>
+              </select>
+            </div>
+
+            <div class="form-group">
+              <label for="timeSlot">Cr�neau horaire *</label>
+              <select id="timeSlot" name="timeSlot" required>
+                <option value="">S�lectionnez un cr�neau</option>
+                <option value="09:00-11:30">Matin - 9h00 � 11h30</option>
+                <option value="14:00-16:30">Apr�s-midi - 14h00 � 16h30</option>
+              </select>
+              <small id="slotAvailability" style="color: #6a8a42; margin-top: 4px;"></small>
+            </div>
+
+            <div class="form-group">
+              <label for="specialRequests">Demandes sp�ciales</label>
+              <textarea id="specialRequests" name="specialRequests" rows="3" placeholder="Allergies, r�gimes particuliers, accessibilit�..."></textarea>
+            </div>
+
+            <div class="reservation-summary" id="reservationSummary" style="display: none;">
+              <h4>R�capitulatif</h4>
+              <div class="summary-details">
+                <p><strong>Activit� :</strong> <span id="summaryType"></span></p>
+                <p><strong>Date :</strong> <span id="summaryDate"></span></p>
+                <p><strong>Participants :</strong> <span id="summaryParticipants"></span></p>
+                <p><strong>Cr�neau :</strong> <span id="summaryTimeSlot"></span></p>
+                <p><strong>Total :</strong> <span id="summaryTotal"></span></p>
+              </div>
+            </div>
+
+            <div id="paymentSection" style="display: none;">
+              <h3>Paiement s�curis�</h3>
+              <form id="paymentForm">
+                <div id="card-element" class="payment-element"></div>
+                <div id="card-errors" role="alert" class="form-note error"></div>
+                <button type="submit" class="btn btn-primary" id="submitPayment" style="margin-top: 1.5rem; width: 100%;">Payer <span id="paymentAmount">0</span>�</button>
+              </form>
+            </div>
+
+            <button type="submit" class="btn btn-primary" id="submitReservation" disabled>Confirmer la r�servation</button>
+            <p id="reservationNote" class="form-note"></p>
+          </form>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="partenaires" class="section">
+    <div class="container">
+      <div class="section-header">
+        <h2>Ils nous font confiance</h2>
+        <p>Des restaurateurs, des �piceries sp�cialis�es et des �v�nements locaux nous recommandent pour la qualit� de nos produits.</p>
+      </div>
+      <div class="partners-grid">
+        <div class="partner-logo">March� du Village</div>
+        <div class="partner-logo">Bistrot du Terroir</div>
+        <div class="partner-logo">Cantine �co</div>
+        <div class="partner-logo">�picerie Solidaire</div>
+        <div class="partner-logo">Chef local</div>
+        <div class="partner-logo">�v�nements &Traiteur</div>
+      </div>
+      <div class="partner-details">
+        <p><strong>10+</strong> partenaires professionnels en livraison r�guli�re</p>
+        <p><strong>80%</strong> de nos productions sont r�serv�es aux restaurateurs et commerces de proximit�.</p>
+      </div>
+    </div>
+  </section>
+
+  <section id="stats" class="section">
+    <div class="container">
+      <div class="stats-grid">
+        <div class="stat-card"><div class="stat-number">25</div><p>ans d'exp�rience</p></div>
+        <div class="stat-card"><div class="stat-number">850+</div><p>clients fid�les</p></div>
+        <div class="stat-card"><div class="stat-number">120</div><p>hectares cultiv�s</p></div>
+        <div class="stat-card"><div class="stat-number">4.9/5</div><p>satisfaction client</p></div>
+      </div>
+    </div>
+  </section>
+
+  <section id="temoignages" class="section section--light">
+    <div class="container">
+      <div class="section-header">
+        <h2>T�moignages</h2>
+        <p>Ils ont go�t� nos produits et racontent leur exp�rience.</p>
+      </div>
+      <div class="testimonial-slider" aria-label="Carrousel de t�moignages">
+        <button type="button" class="slider-btn prev" aria-label="T�moignage pr�c�dent">�</button>
+        <div class="testimonial-track">
+          <div class="testimony-card"><div class="stars">✓✓→</div><p>"Des produits de grande fra�cheur et un service tr�s agr�able. Nous revenons chaque semaine."</p><div class="testimony-author">� Claire, cliente locale</div></div>
+          <div class="testimony-card"><div class="stars">✓✓→</div><p>"Fromages exceptionnels et livraison fiable. Une vraie ferme de confiance."</p><div class="testimony-author">� Laurent</div></div>
+          <div class="testimony-card"><div class="stars">✓✓→</div><p>"Qualit� constante et Accueil chaleureux � chaque visite. Je recommande vivement."</p><div class="testimony-author">� Sophie</div></div>
+        </div>
+        <button type="button" class="slider-btn next" aria-label="T�moignage suivant">�</button>
+      </div>
+    </div>
+  </section>
+
+  <section id="avis" class="section">
+    <div class="container">
+      <div class="section-header">
+        <h2>Avis clients</h2>
+        <p>Notre note moyenne et nos retours clients renforcent la confiance de nos visiteurs et de nos partenaires.</p>
+      </div>
+      <div class="review-summary">
+        <div class="review-score">4.9/5<span class="stars-display">★★★★★</span></div>
+        <div class="review-details">
+          <p class="review-badge">Note moyenne sur 85 avis v�rifi�s</p>
+          <p>Evaluation bas�e sur la qualit� des produits, le service de livraison et le contact professionnel.</p>
+        </div>
+      </div>
+      <div class="review-filter">
+        <button type="button" class="filter-btn active" data-filter="all">Tous (85)</button>
+        <button type="button" class="filter-btn" data-filter="5">5★ (78)</button>
+        <button type="button" class="filter-btn" data-filter="4">4★ (5)</button>
+        <button type="button" class="filter-btn" data-filter="3">3★ (2)</button>
+      </div>
+      <div class="review-grid" id="reviewGrid">
+        <article class="review-card card">
+          <div class="stars">★★★★★</div>
+          <h3>Excellent service</h3>
+          <p>�Livraison rapide, produits frais et �quipe tr�s r�active. Je recommande � tous les restaurateurs locaux.�</p>
+          <div class="review-author">Camille, restauratrice</div>
+        </article>
+        <article class="review-card card">
+          <div class="stars">✓✓→</div>
+          <h3>Produits de qualit�</h3>
+          <p>�Des l�gumes savoureux et des fromages cr�meux. Le panier personnalis� est parfait pour notre cuisine.�</p>
+          <div class="review-author">Thomas, �picier</div>
+        </article>
+        <article class="review-card card">
+          <div class="stars">✓✓→</div>
+          <h3>Exp�rience rassurante</h3>
+          <p>�Service professionnel, r�ponse rapide et transparence totale sur nos commandes.�</p>
+          <div class="review-author">Sophie, organisatrice d'�v�nements</div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section id="faq" class="section">
+    <div class="container">
+      <div class="section-header">
+        <h2>Questions fr�quentes</h2>
+        <p>Tout ce qu�il faut savoir avant de commander ou de venir nous voir.</p>
+      </div>
+      <div class="faq-search">
+        <input id="faqSearch" type="search" placeholder="Rechercher une question..." aria-label="Rechercher dans la FAQ">
+      </div>
+      <div class="faq-list">
+        <details class="faq-item"><summary>Comment passer commande →</summary><p>Par t�l�phone, email ou directement � la ferme. Les commandes sont pr�par�es sous 24 � 48 heures.</p></details>
+        <details class="faq-item"><summary>Livrez-vous � domicile →</summary><p>Oui, livraison gratuite pour toute commande de plus de 50 � dans un rayon de 40 km.</p></details>
+        <details class="faq-item"><summary>Puis-je visiter la ferme →</summary><p>visites guid�es sur r�servation chaque dimanche apr�s-midi.</p></details>
+        <details class="faq-item"><summary>Quels moyens de paiement sont accept�s →</summary><p>Cartes bancaires, esp�ces et ch�ques sont accept�s � la ferme.</p></details>
+      </div>
+    </div>
+  </section>
+
+  <section id="newsletter" class="section section--light">
+    <div class="container newsletter-content">
+      <div>
+        <h2>Recevez nos actualit�s</h2>
+        <p>Inscrivez-vous � la newsletter pour recevoir nos offres de saison et les dates de march�s.</p>
+      </div>
+      <form id="newsletterForm" class="newsletter-form" name="newsletter" method="POST" data-netlify="true">
+        <input type="hidden" name="form-name" value="newsletter">
+        <input type="email" name="email" placeholder="Votre email" required>
+        <button type="submit" class="btn btn-primary">Je m'inscris</button>
+      </form>
+      <p id="newsletterNote" class="form-note"></p>
+    </div>
+  </section>
+
+  <section id="localisation" class="section">
+    <div class="container">
+      <div class="section-header">
+        <h2>Localisation</h2>
+        <p>Venez visiter la ferme ou retrouvez-nous sur les march�s locaux.</p>
+      </div>
+      <div class="map-container">
+        <iframe src="https://www.openstreetmap.org/export/embed.html?bbox=2.3%2C48.8%2C2.4%2C48.85&layer=mapnik" width="100%" height="450" style="border:0;" loading="lazy" referrerpolicy="no-referrer-when-downgrade" aria-label="Carte de localisation de CHARISFERME"></iframe>
+      </div>
+    </div>
+  </section>
+
+  <section id="contact" class="section section--light">
+    <div class="container">
+      <div class="section-header">
+        <h2>Contact</h2>
+        <p>Une question, une commande ou une visite → Contactez-nous.</p>
+      </div>
+      <div class="contact-grid">
+        <div class="card">
+          <h3>Informations</h3>
+          <p><strong>Adresse :</strong><br>Ferme de Charis, 12345 Village</p>
+          <p><strong>T�l�phone :</strong><br><a href="tel:0600000000">06 00 00 00 00</a></p>
+          <p><strong>Email :</strong><br><a href="mailto:contact@charisferme.fr">contact@charisferme.fr</a></p>
+          <p><strong>Horaires :</strong><br>Lun - Sam : 9h - 18h<br>Dimanche : 10h - 14h</p>
+          <div class="pro-benefits">
+            <h4>Service professionnel</h4>
+            <ul>
+              <li>Commandes en gros et offres adapt�es</li>
+              <li>Livraison prioritaire en circuit court</li>
+              <li>Accompagnement pour restaurateurs et �v�nements</li>
+            </ul>
+          </div>
+        </div>
+        <form id="contactForm" class="contact-form card" name="contact" method="POST" data-netlify="true">
+          <input type="hidden" name="form-name" value="contact">
+          <div class="form-group">
+            <label>Je suis</label>
+            <div class="radio-group">
+              <label><input type="radio" name="clientType" value="Professionnel" checked> Professionnel</label>
+              <label><input type="radio" name="clientType" value="Particulier"> Particulier</label>
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="projectType">Type de demande</label>
+            <select id="projectType" name="projectType" required>
+              <option value="">S�lectionner un projet</option>
+              <option value="Commande pro">Commande pro</option>
+              <option value="Atelier ou visite">Atelier ou visite</option>
+              <option value="Paniers r�guliers">Paniers r�guliers</option>
+              <option value="Autre">Autre</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label for="budget">Quantit� / budget estim�</label>
+            <input id="budget" type="text" name="budget" placeholder="Ex : 50 paniers par mois" required>
+          </div>
+          <div class="form-group">
+            <label for="nom">Nom</label>
+            <input id="nom" type="text" name="nom" placeholder="Votre nom" required>
+          </div>
+          <div class="form-group">
+            <label for="email">Email</label>
+            <input id="email" type="email" name="email" placeholder="Votre email" required>
+          </div>
+          <div class="form-group">
+            <label for="message">Message</label>
+            <textarea id="message" name="message" rows="5" placeholder="Votre message..." required></textarea>
+          </div>
+          <button type="submit" class="btn btn-primary">Envoyer</button>
+          <p id="contactNote" class="form-note"></p>
+        </form>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="container footer-content">
+    <div class="footer-block">
+      <h4>CHARISFERME</h4>
+      <p>Ferme familiale d�di�e � l'agriculture locale, durable et solidaire depuis 2001.</p>
+      <div class="footer-badges">
+        <span class="footer-badge">Agriculture Bio</span>
+        <span class="footer-badge">Circuit Court</span>
+        <span class="footer-badge">Label Rouge</span>
+      </div>
+    </div>
+    <div class="footer-block">
+      <h4>Navigation</h4>
+      <a href="#apropos">� propos</a>
+      <a href="#produits">Produits</a>
+      <a href="#boutique">Boutique</a>
+      <a href="#reservation">R�servation</a>
+      <a href="#faq">FAQ</a>
+    </div>
+    <div class="footer-block">
+      <h4>Horaires d'ouverture</h4>
+      <div class="opening-hours">
+        <p><strong>Lundi - Vendredi</strong><br>9h00 - 18h00</p>
+        <p><strong>Samedi</strong><br>9h00 - 17h00</p>
+        <p><strong>Dimanche</strong><br>10h00 - 14h00</p>
+        <p class="hours-note">Ferm� les jours f�ri�s</p>
+      </div>
+    </div>
+    <div class="footer-block">
+      <h4>Contact & R�seaux</h4>
+      <p><a href="tel:0600000000">06 00 00 00 00</a><br><a href="mailto:contact@charisferme.fr">contact@charisferme.fr</a></p>
+      <div class="footer-links">
+        <a href="#" aria-label="Facebook">Facebook</a>
+        <a href="#" aria-label="Instagram">Instagram</a>
+        <a href="https://wa.me/33600000000→text=Bonjour%20CHARISFERME%20%21%20Je%20souhaite%20un%20contact" target="_blank" rel="noreferrer noopener" aria-label="WhatsApp">WhatsApp</a>
+      </div>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <div class="footer-legal">
+      <p>� 2026 CHARISFERME � Tous droits r�serv�s | <a href="#mentions-legales">Mentions l�gales</a> | <a href="#politique-confidentialite">Politique de confidentialit�</a> | <a href="#cgv">CGV</a></p>
+      <p>SIRET : 123 456 789 00012 | Ferme de Charis, 12345 Village, France</p>
+    </div>
+  </div>
+</footer>
+
+<div class="sticky-cta-bar" role="region" aria-label="Contact rapide">
+  <p>Besoin d�une commande express ou d�une visite priv�e →</p>
+  <a href="#contact" class="btn btn-secondary">Contactez-nous</a>
+</div>
+
+<div class="modal-overlay" id="imageModal" aria-hidden="true">
+  <div class="modal-content">
+    <button class="modal-close" aria-label="Fermer le visuel">�</button>
+    <img src="" alt="" class="modal-image">
+    <div class="modal-details">
+      <h3 class="modal-title"></h3>
+      <p class="modal-caption"></p>
+    </div>
+  </div>
+</div>
+
+<a class="whatsapp-float" href="https://wa.me/33600000000?text=Bonjour%20CHARISFERME%20%21%20Je%20souhaite%20un%20contact" target="_blank" rel="noreferrer noopener" aria-label="Contact WhatsApp">WhatsApp</a>
+<button class="scroll-to-top" aria-label="Retour en haut">↑</button>
+<script src="script.js"></script>
+</body>
+</html>
+
+

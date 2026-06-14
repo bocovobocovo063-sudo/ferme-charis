@@ -1,0 +1,29 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 540 720">
+  <defs>
+    <linearGradient id="screenBg2" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#fef3c7;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#fde68a;stop-opacity:1" />
+    </linearGradient>
+  </defs>
+  <rect width="540" height="720" fill="url(#screenBg2)"/>
+  <!-- Barre supérieure -->
+  <rect width="540" height="80" fill="#d97706"/>
+  <text x="270" y="50" font-size="32" font-weight="bold" fill="#fff" text-anchor="middle" font-family="Arial, sans-serif">Panier</text>
+  <!-- Contenu panier -->
+  <rect x="20" y="120" width="500" height="480" rx="10" fill="#fff" opacity="0.95"/>
+  <line x1="40" y1="180" x2="500" y2="180" stroke="#e5e7eb" stroke-width="2"/>
+  <text x="40" y="165" font-size="14" font-weight="bold" fill="#333" font-family="Arial, sans-serif">Articles</text>
+  <!-- Éléments panier -->
+  <rect x="40" y="200" width="460" height="70" rx="5" fill="#f3f4f6"/>
+  <text x="60" y="225" font-size="14" font-weight="bold" fill="#059669" font-family="Arial, sans-serif">Produit 1</text>
+  <text x="60" y="250" font-size="12" fill="#666" font-family="Arial, sans-serif">Quantité: 2 x 12,50€</text>
+  <rect x="40" y="290" width="460" height="70" rx="5" fill="#f3f4f6"/>
+  <text x="60" y="315" font-size="14" font-weight="bold" fill="#059669" font-family="Arial, sans-serif">Produit 2</text>
+  <text x="60" y="340" font-size="12" fill="#666" font-family="Arial, sans-serif">Quantité: 1 x 25,00€</text>
+  <!-- Total -->
+  <line x1="40" y1="580" x2="500" y2="580" stroke="#e5e7eb" stroke-width="2"/>
+  <text x="500" y="615" font-size="20" font-weight="bold" fill="#059669" text-anchor="end" font-family="Arial, sans-serif">TOTAL: 49,50€</text>
+  <!-- Bouton -->
+  <rect x="40" y="650" width="460" height="50" rx="8" fill="#059669"/>
+  <text x="270" y="680" font-size="18" font-weight="bold" fill="#fff" text-anchor="middle" font-family="Arial, sans-serif">Passer la commande</text>
+</svg>

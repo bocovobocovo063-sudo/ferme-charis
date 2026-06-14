@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+  <title>Merci pour votre demande - CHARISFERME</title>
+  <meta name="robots" content="noindex, follow">
+  <meta name="theme-color" content="#059669">
+  <script>(function(){try{var t=localStorage.getItem('charisferme-theme');if(t==='dark'||(!t&&window.matchMedia('(prefers-color-scheme: dark)').matches)){document.documentElement.classList.add('dark-mode');}}catch(e){}})();</script>
+  <link rel="stylesheet" href="styles.css">
+  <style>
+    .merci-wrapper {
+      min-height: 70vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 3rem 1rem;
+    }
+    .merci-card {
+      max-width: 560px;
+      width: 100%;
+      text-align: center;
+      padding: 3rem 2.5rem;
+    }
+    .merci-icon {
+      font-size: 4rem;
+      margin-bottom: 1.25rem;
+      display: block;
+    }
+    .merci-card h1 {
+      font-size: 1.8rem;
+      font-weight: 800;
+      color: var(--text);
+      margin-bottom: 0.75rem;
+    }
+    .merci-card p {
+      color: var(--text-secondary);
+      font-size: 1rem;
+      line-height: 1.65;
+      margin-bottom: 1rem;
+    }
+    .merci-highlight {
+      background: rgba(5,150,105,0.07);
+      border: 1px solid rgba(5,150,105,0.2);
+      border-radius: 12px;
+      padding: 1rem 1.5rem;
+      margin: 1.5rem 0;
+      font-size: 0.9rem;
+      color: var(--primary-dark);
+      font-weight: 600;
+    }
+    .merci-actions {
+      display: flex;
+      gap: 0.75rem;
+      justify-content: center;
+      flex-wrap: wrap;
+      margin-top: 2rem;
+    }
+  </style>
+</head>
+<body>
+  <div class="page-progress" id="pageProgress" aria-hidden="true"></div>
+
+<header class="site-header">
+  <div class="container header-inner">
+    <a href="index.html" class="logo">CHARISFERME <span>ferme & artisanat local</span></a>
+    <nav class="main-nav" id="siteNav" aria-label="Navigation principale">
+      <div class="nav-links">
+        <a href="index.html">Accueil</a>
+        <a href="apropos.html">À propos</a>
+        <a href="activites.html">Activités</a>
+        <a href="produits.html">Produits</a>
+        <a href="abonnement.html">Abonnement</a>
+        <a href="blog.html">Blog</a>
+        <a href="galerie.html">Galerie</a>
+        <a href="avis.html">Avis</a>
+        <a href="contact.html">Contact</a>
+      </div>
+      <div class="nav-actions">
+        <button class="theme-toggle" id="themeToggle" aria-label="Basculer le mode sombre" title="Mode sombre">🌙</button>
+      </div>
+    </nav>
+    <button class="menu-toggle" aria-label="Menu" aria-controls="siteNav" aria-expanded="false" id="menuToggle">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</header>
+
+<main id="main-content">
+  <!-- Breadcrumbs -->
+  <nav class="breadcrumbs" aria-label="Chemin de navigation" style="margin-bottom: 2rem;">
+    <a href="index.html">Accueil</a>
+    <span class="separator">/</span>
+    <a href="produits.html">Produits</a>
+    <span class="separator">/</span>
+    <span class="current">Confirmation</span>
+    <script type="application/ld+json">
+    {"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [
+      {"@type": "ListItem", "position": 1, "name": "Accueil", "item": "https://www.charisferme.fr"},
+      {"@type": "ListItem", "position": 2, "name": "Produits", "item": "https://www.charisferme.fr/produits.html"},
+      {"@type": "ListItem", "position": 3, "name": "Confirmation", "item": "https://www.charisferme.fr/merci.html"}
+    ]}
+    </script>
+  </nav>
+
+  <div class="merci-wrapper">
+    <div class="card merci-card">
+      <span class="merci-icon" id="icon">✅</span>
+      <h1 id="title">Commande confirmée !</h1>
+      <p id="message">Merci pour votre confiance. Votre commande a bien été reçue et le paiement a été traité avec succès.</p>
+      <div class="merci-highlight">
+        <strong id="highlight-text">Numéro de commande : </strong><span id="order-id">--</span>
+      </div>
+      <p id="details"></p>
+      <div class="merci-actions">
+        <a href="produits.html" class="btn btn-primary">Voir nos produits</a>
+        <a href="index.html" class="btn btn-secondary">Retour à l'accueil</a>
+      </div>
+    </div>
+  </div>
+</main>
+
+<footer>
+  <div class="container footer-content">
+    <div class="footer-block">
+      <h4>CHARISFERME</h4>
+      <p>Ferme familiale dédiée à l'agriculture locale, durable et solidaire depuis 2001.</p>
+      <div class="footer-badges">
+        <span class="footer-badge">Agriculture Bio</span>
+        <span class="footer-badge">Circuit Court</span>
+        <span class="footer-badge">Label Rouge</span>
+      </div>
+    </div>
+    <div class="footer-block">
+      <h4>Navigation</h4>
+      <a href="apropos.html">À propos</a>
+      <a href="produits.html">Produits</a>
+      <a href="reservation.html">Réservation</a>
+      <a href="avis.html">Avis</a>
+    </div>
+    <div class="footer-block">
+      <h4>Contact & Réseaux</h4>
+      <p><a href="tel:0600000000">06 00 00 00 00</a><br><a href="mailto:contact@charisferme.fr">contact@charisferme.fr</a></p>
+      <div class="footer-links">
+        <a href="https://wa.me/33600000000?text=Bonjour%20CHARISFERME%20%21%20Je%20souhaite%20un%20contact" target="_blank" rel="noreferrer noopener">WhatsApp</a>
+      </div>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <div class="footer-legal">
+      <p>© 2026 CHARISFERME • Tous droits réservés</p>
+      <p>SIRET : 123 456 789 00012 | Ferme de Charis, 12345 Village, France</p>
+      <p><a href="mentions-legales.html">Mentions légales & Confidentialité</a></p>
+    </div>
+  </div>
+</footer>
+
+<a class="whatsapp-float" href="https://wa.me/33600000000?text=Bonjour%20CHARISFERME%20%21%20Je%20souhaite%20un%20contact" target="_blank" rel="noreferrer noopener" aria-label="Contact WhatsApp">WhatsApp</a>
+<button class="scroll-to-top" aria-label="Retour en haut">↑</button>
+<script src="utils.js"></script>
+<script src="script.js"></script>
+<script>
+  // ===== DYNAMIC THANK YOU PAGE =====
+  document.addEventListener('DOMContentLoaded', () => {
+    const urlParams = new URLSearchParams(window.location.search);
+    const orderId = urlParams.get('order') || 'ORD-' + Date.now();
+    const type = urlParams.get('type') || 'cart'; // cart, subscription, order
+    const email = urlParams.get('email');
+
+    const titleEl = document.getElementById('title');
+    const iconEl = document.getElementById('icon');
+    const messageEl = document.getElementById('message');
+    const highlightEl = document.getElementById('highlight-text');
+    const detailsEl = document.getElementById('details');
+    const orderIdEl = document.getElementById('order-id');
+
+    orderIdEl.textContent = orderId;
+
+    if (type === 'subscription') {
+      iconEl.textContent = '🎉';
+      titleEl.textContent = 'Abonnement activé !';
+      messageEl.textContent = 'Bienvenue dans la communauté CHARISFERME ! Votre abonnement est maintenant actif.';
+      highlightEl.textContent = 'Identifiant abonnement : ';
+      detailsEl.innerHTML = `
+        <strong>Vos prochaines livraisons:</strong><br>
+        Chaque semaine, à la même heure, vous recevrez votre panier frais à votre porte.<br><br>
+        <strong>Gestion:</strong> Vous pouvez modifier ou suspendre votre abonnement à tout moment via votre compte.
+      `;
+    } else if (type === 'order') {
+      iconEl.textContent = '✅';
+      titleEl.textContent = 'Commande reçue !';
+      messageEl.textContent = 'Merci pour votre commande! Nous l\'avons bien reçue.';
+      highlightEl.textContent = 'Numéro de commande : ';
+      detailsEl.innerHTML = `
+        <strong>📧 Confirmation envoyée</strong><br>
+        Un email de confirmation a été envoyé à <strong>${email || 'votre adresse'}</strong><br><br>
+        <strong>Prochaines étapes:</strong><br>
+        ✓ Notre équipe vous contactera sous 24h<br>
+        ✓ Nous confirmerons les détails de livraison<br>
+        ✓ Nous traiterons le paiement si nécessaire
+      `;
+    } else {
+      // cart ou défaut
+      iconEl.textContent = '✅';
+      titleEl.textContent = 'Commande confirmée !';
+      messageEl.textContent = 'Merci pour votre commande. Votre paiement a été traité avec succès.';
+      highlightEl.textContent = 'Numéro de commande : ';
+      detailsEl.innerHTML = `
+        <strong>Prochaines étapes:</strong><br>
+        Nous préparerons votre commande et vous contacterons sous 24h pour confirmer la livraison.<br><br>
+        <strong>Suivre:</strong> Vérifiez votre email pour le reçu et les détails de livraison.
+      `;
+    }
+
+    // Vider le panier
+    localStorage.removeItem('charisferme-cart');
+    localStorage.removeItem('charisferme-subscription-pending');
+    localStorage.removeItem('charisferme-cart-contact');
+  });
+</script>
+</body>
+</html>

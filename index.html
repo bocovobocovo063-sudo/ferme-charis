@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+  <meta name="theme-color" content="#059669">
+  <meta name="mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <meta name="color-scheme" content="light dark">
+  <meta name="apple-mobile-web-app-title" content="CHARISFERME">
+  <link rel="manifest" href="/manifest.json">
+  <link rel="icon" type="image/png" href="/images/icon-192.png">
+  <link rel="apple-touch-icon" href="/images/icon-192.png">
+  <title>CHARISFERME - Ferme artisanale & produits locaux</title>
+  <meta name="description" content="CHARISFERME, ferme familiale spécialisée dans les produits fermiers, circuits courts et agriculture responsable.">
+  <meta name="keywords" content="ferme, produits fermiers, circuit court, légumes bio, fromages, viande locale, agriculture durable">
+  <meta name="author" content="CHARISFERME">
+  <meta property="og:title" content="CHARISFERME - Ferme artisanale & produits locaux">
+  <meta property="og:description" content="Produits fermiers, agriculture responsable et vente directe à la ferme.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://www.charisferme.fr">
+  <meta property="og:image" content="/images/hero.jpg">
+  <meta name="twitter:card" content="summary_large_image">
+  <script>(function(){try{var t=localStorage.getItem('charisferme-theme');if(t==='dark'||(!t&&window.matchMedia('(prefers-color-scheme: dark)').matches)){document.documentElement.classList.add('dark-mode');}}catch(e){}})();</script>
+  <link rel="stylesheet" href="styles.css">
+  <script src="https://js.stripe.com/v3/"></script>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "LocalBusiness",
+    "name": "CHARISFERME",
+    "description": "Ferme artisanale proposant des produits locaux, des paniers sur mesure et des visites pédagogiques.",
+    "url": "https://www.charisferme.fr",
+    "telephone": "+33600000000",
+    "email": "contact@charisferme.fr",
+    "address": {
+      "@type": "PostalAddress",
+      "streetAddress": "Ferme de Charis",
+      "addressLocality": "Village",
+      "postalCode": "12345",
+      "addressCountry": "FR"
+    },
+    "image": "/images/hero.jpg",
+    "priceRange": "€",
+    "openingHoursSpecification": [
+      {"@type": "OpeningHoursSpecification","dayOfWeek": ["Monday","Tuesday","Wednesday","Thursday","Friday","Saturday"],"opens": "09:00","closes": "18:00"},
+      {"@type": "OpeningHoursSpecification","dayOfWeek": "Sunday","opens": "10:00","closes": "14:00"}
+    ],
+    "sameAs": ["https://www.facebook.com/charisferme","https://www.instagram.com/charisferme"],
+    "aggregateRating": {"@type": "AggregateRating","ratingValue": "4.9","reviewCount": "85"}
+  }
+  </script>
+</head>
+<body>
+  <a href="#main-content" class="skip-link">Aller au contenu principal</a>
+  <div class="page-progress" id="pageProgress" aria-hidden="true"></div>
+  <div class="toast-container" id="toastContainer" aria-live="polite" aria-atomic="true"></div>
+
+<div class="promo-bar" id="promoBar">
+  <p>🌿 <strong>Marché à la ferme — samedi 17 mai</strong> · Venez découvrir nos produits de saison !</p>
+  <button class="promo-bar-close" id="promoBarClose" aria-label="Fermer l'annonce">✕</button>
+</div>
+
+<header class="site-header">
+  <div class="container header-inner">
+    <a href="index.html" class="logo">CHARISFERME <span>ferme & artisanat local</span></a>
+    <nav class="main-nav" id="siteNav" aria-label="Navigation principale">
+      <div class="nav-links">
+        <a href="index.html">Accueil</a>
+        <a href="apropos.html">À propos</a>
+        <a href="activites.html">Activités</a>
+        <a href="produits.html">Produits</a>
+        <a href="abonnement.html">Abonnement</a>
+        <a href="blog.html">Blog</a>
+        <a href="galerie.html">Galerie</a>
+        <a href="avis.html">Avis</a>
+        <a href="contact.html">Contact</a>
+      </div>
+      <div class="nav-actions">
+        <button class="theme-toggle" id="themeToggle" aria-label="Basculer le mode sombre" title="Mode sombre">🌙</button>
+      </div>
+    </nav>
+    <button class="menu-toggle" aria-label="Menu" aria-controls="siteNav" aria-expanded="false" id="menuToggle">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</header>
+
+<main id="main-content">
+  <section id="accueil" class="hero">
+    <div class="container hero-content">
+      <p class="eyebrow">Ferme familiale • Production locale</p>
+      <h1>CHARISFERME, le goût du terroir livré directement chez vous.</h1>
+      <p class="hero-subtitle">De la production à la transformation, nous accompagnons chaque étape pour vous proposer des produits frais, responsables et savoureux.</p>
+      <div class="hero-actions">
+        <a href="produits.html" class="btn btn-primary">Découvrir nos produits</a>
+        <a href="contact.html" class="btn btn-secondary">Demander un devis</a>
+      </div>
+      <div class="hero-stats">
+        <div class="stat-pill"><strong>85%</strong><span>de production locale</span></div>
+        <div class="stat-pill"><strong>48h</strong><span>livraison rapide</span></div>
+        <div class="stat-pill"><strong>10+</strong><span>partenaires pro</span></div>
+        <div class="stat-pill"><strong>25 ans</strong><span>d'expérience</span></div>
+      </div>
+    </div>
+  </section>
+
+  <section id="stats" class="section">
+    <div class="container">
+      <div class="stats-grid">
+        <div class="stat-card"><div class="stat-number">25</div><p>ans d'expérience</p></div>
+        <div class="stat-card"><div class="stat-number">850+</div><p>clients fidèles</p></div>
+        <div class="stat-card"><div class="stat-number">120</div><p>hectares cultivés</p></div>
+        <div class="stat-card"><div class="stat-number">4.9/5</div><p>satisfaction client</p></div>
+      </div>
+    </div>
+  </section>
+
+  <section id="comment-ca-marche" class="section section--light">
+    <div class="container">
+      <div class="section-header">
+        <h2>Comment ça marche ?</h2>
+        <p>Commander chez CHARISFERME, c'est simple en 3 étapes.</p>
+      </div>
+      <div class="process-steps">
+        <div class="process-step">
+          <span class="step-icon">🛒</span>
+          <div class="step-number">1</div>
+          <h3>Choisissez vos produits</h3>
+          <p>Parcourez notre catalogue et sélectionnez vos produits frais de saison.</p>
+        </div>
+        <div class="process-arrow" aria-hidden="true"></div>
+        <div class="process-step">
+          <span class="step-icon">🧺</span>
+          <div class="step-number">2</div>
+          <h3>On prépare votre panier</h3>
+          <p>Notre équipe compose votre commande avec les meilleurs produits du jour.</p>
+        </div>
+        <div class="process-arrow" aria-hidden="true"></div>
+        <div class="process-step">
+          <span class="step-icon">🚗</span>
+          <div class="step-number">3</div>
+          <h3>Venez récupérer</h3>
+          <p>Passez à la ferme aux horaires qui vous conviennent ou optez pour la livraison locale.</p>
+        </div>
+      </div>
+      <div class="process-cta">
+        <a href="reservation.html" class="btn btn-primary">Commander maintenant →</a>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="container footer-content">
+    <div class="footer-block">
+      <h4>CHARISFERME</h4>
+      <p>Ferme familiale dédiée à l'agriculture locale, durable et solidaire depuis 2001.</p>
+      <div class="footer-badges">
+        <span class="footer-badge">Agriculture Bio</span>
+        <span class="footer-badge">Circuit Court</span>
+        <span class="footer-badge">Label Rouge</span>
+      </div>
+    </div>
+    <div class="footer-block">
+      <h4>Navigation</h4>
+      <a href="apropos.html">À propos</a>
+      <a href="produits.html">Produits</a>
+      <a href="reservation.html">Réservation</a>
+      <a href="avis.html">Avis</a>
+    </div>
+    <div class="footer-block">
+      <h4>Contact & Réseaux</h4>
+      <p><a href="tel:0600000000">06 00 00 00 00</a><br><a href="mailto:contact@charisferme.fr">contact@charisferme.fr</a></p>
+      <div class="footer-links">
+        <a href="https://wa.me/33600000000?text=Bonjour%20CHARISFERME%20%21%20Je%20souhaite%20un%20contact" target="_blank" rel="noreferrer noopener">WhatsApp</a>
+      </div>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <div class="footer-legal">
+      <p>© 2026 CHARISFERME • Tous droits réservés</p>
+      <p>SIRET : 123 456 789 00012 | Ferme de Charis, 12345 Village, France</p>
+      <p><a href="mentions-legales.html">Mentions légales & Confidentialité</a></p>
+    </div>
+  </div>
+</footer>
+
+<div class="popup-overlay" id="popupOverlay"></div>
+<div class="newsletter-popup" id="newsletterPopup" role="dialog" aria-modal="true" aria-label="Abonnez-vous à nos actualités">
+  <button class="popup-close" aria-label="Fermer">✕</button>
+  <span class="popup-decoration">🌿</span>
+  <h3>Restez connecté à la nature</h3>
+  <p class="popup-desc">Recevez nos recettes de saison, les disponibilités du moment et des offres exclusives directement dans votre boîte mail.</p>
+  <form id="popupNewsletterForm">
+    <input type="email" placeholder="Votre adresse email" required>
+    <button type="submit" class="btn btn-primary">Je m'abonne</button>
+  </form>
+  <p class="popup-note">Pas de spam. Désinscription libre à tout moment.</p>
+</div>
+
+<a class="whatsapp-float" href="https://wa.me/33600000000?text=Bonjour%20CHARISFERME%20%21%20Je%20souhaite%20un%20contact" target="_blank" rel="noreferrer noopener" aria-label="Contact WhatsApp">WhatsApp</a>
+<button class="scroll-to-top" aria-label="Retour en haut">↑</button>
+<script src="utils.js"></script>
+<script src="script.js"></script>
+</body>
+</html>

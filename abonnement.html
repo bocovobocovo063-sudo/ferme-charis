@@ -1,0 +1,652 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+  <title>Abonnement Paniers - CHARISFERME</title>
+  <meta name="description" content="Paniers de produits fermiers en abonnement - Hebdomadaire, bimensuel ou mensuel. Recevez directement à votre porte.">
+  <meta name="author" content="CHARISFERME">
+  <meta property="og:title" content="Paniers d'abonnement - CHARISFERME">
+  <meta property="og:type" content="website">
+  <meta name="theme-color" content="#059669">
+  <script>(function(){try{var t=localStorage.getItem('charisferme-theme');if(t==='dark'||(!t&&window.matchMedia('(prefers-color-scheme: dark)').matches)){document.documentElement.classList.add('dark-mode');}}catch(e){}})();</script>
+  <link rel="stylesheet" href="styles.css">
+  <style>
+    /* ── HERO ── */
+    .sub-hero {
+      background: linear-gradient(135deg, rgba(5, 150, 105, 0.08) 0%, rgba(245, 158, 11, 0.04) 100%);
+      padding: 4rem 0 3rem;
+      text-align: center;
+    }
+    .sub-hero h1 { font-size: clamp(2rem, 5vw, 2.8rem); font-weight: 800; margin-bottom: 0.75rem; }
+    .sub-hero p { font-size: 1.1rem; color: var(--text-secondary); max-width: 600px; margin: 0 auto 2rem; }
+
+    /* ── GRILLE PLANS ── */
+    .plans-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+      gap: 2rem;
+      margin: 2rem 0;
+    }
+
+    /* ── PLAN CARD ── */
+    .plan-card {
+      background: var(--surface);
+      border: 2px solid var(--border);
+      border-radius: 16px;
+      padding: 2rem 1.75rem;
+      display: flex;
+      flex-direction: column;
+      gap: 1.5rem;
+      position: relative;
+      transition: all 0.3s ease;
+    }
+    .plan-card:hover {
+      transform: translateY(-8px);
+      border-color: var(--primary);
+      box-shadow: 0 20px 40px rgba(5,150,105,0.2);
+    }
+    .plan-card.featured {
+      border-color: var(--primary);
+      box-shadow: 0 0 0 3px rgba(5,150,105,0.1);
+      transform: scale(1.02);
+    }
+    .plan-badge {
+      position: absolute;
+      top: -12px;
+      left: 50%;
+      transform: translateX(-50%);
+      background: var(--primary);
+      color: #fff;
+      padding: 0.4rem 1rem;
+      border-radius: 999px;
+      font-size: 0.75rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+    }
+
+    .plan-name { font-size: 1.3rem; font-weight: 800; color: var(--text); margin: 0; }
+    .plan-desc { font-size: 0.9rem; color: var(--text-secondary); margin: 0; line-height: 1.6; }
+
+    .plan-price {
+      display: flex;
+      align-items: baseline;
+      gap: 0.4rem;
+    }
+    .plan-price-main { font-size: 2.5rem; font-weight: 800; color: var(--primary); }
+    .plan-price-period { font-size: 0.95rem; color: var(--muted); }
+    .plan-price-unit { font-size: 0.8rem; color: var(--text-secondary); }
+
+    .plan-benefits {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+      display: flex;
+      flex-direction: column;
+      gap: 0.8rem;
+    }
+    .plan-benefits li {
+      display: flex;
+      align-items: center;
+      gap: 0.65rem;
+      font-size: 0.9rem;
+      color: var(--text);
+    }
+    .plan-benefits li::before {
+      content: '✓';
+      color: var(--primary);
+      font-weight: 800;
+      font-size: 1.1rem;
+      flex-shrink: 0;
+    }
+
+    .plan-cta {
+      margin-top: 1rem;
+      padding: 1rem;
+      background: var(--primary);
+      color: #fff;
+      border: none;
+      border-radius: 10px;
+      font-size: 1rem;
+      font-weight: 700;
+      cursor: pointer;
+      transition: all 0.2s;
+      text-align: center;
+      text-decoration: none;
+      font-family: inherit;
+      width: 100%;
+    }
+    .plan-cta:hover { background: var(--primary-dark); transform: translateY(-2px); }
+
+    /* ── FREQUENCY SELECTOR ── */
+    .frequency-selector {
+      display: flex;
+      justify-content: center;
+      gap: 1rem;
+      margin: 2rem 0 3rem;
+      flex-wrap: wrap;
+    }
+    .freq-btn {
+      padding: 0.7rem 1.5rem;
+      border: 2px solid var(--border);
+      background: #fff;
+      border-radius: 999px;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all 0.2s;
+      font-size: 0.95rem;
+    }
+    html.dark-mode .freq-btn { background: rgba(22,27,34,0.5); }
+    .freq-btn:hover { border-color: var(--primary); color: var(--primary); }
+    .freq-btn.active {
+      background: var(--primary);
+      border-color: var(--primary);
+      color: #fff;
+    }
+
+    /* ── COMPOSEUR PANIER ── */
+    .section-composer {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      padding: 2.5rem;
+      margin: 3rem 0;
+    }
+    .section-composer h3 {
+      font-size: 1.5rem;
+      font-weight: 800;
+      color: var(--text);
+      margin: 0 0 2rem;
+    }
+
+    .composer-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 1.5rem;
+      margin-bottom: 2rem;
+    }
+    .composer-item {
+      background: rgba(5,150,105,0.04);
+      border: 1px solid rgba(5,150,105,0.12);
+      border-radius: 12px;
+      padding: 1.25rem;
+      display: flex;
+      flex-direction: column;
+      gap: 0.75rem;
+    }
+    .composer-item-title {
+      font-weight: 700;
+      color: var(--text);
+      margin: 0;
+    }
+    .composer-item-desc {
+      font-size: 0.85rem;
+      color: var(--text-secondary);
+      margin: 0;
+    }
+    .composer-item-qty {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      font-size: 0.9rem;
+      color: var(--muted);
+    }
+
+    .composer-summary {
+      background: rgba(5,150,105,0.08);
+      border: 2px dashed var(--primary);
+      border-radius: 12px;
+      padding: 1.5rem;
+      text-align: center;
+    }
+    .composer-summary p { margin: 0; color: var(--text-secondary); font-size: 0.9rem; }
+    .composer-summary strong { font-size: 1.8rem; color: var(--primary); display: block; margin: 0.5rem 0 0; }
+
+    /* ── FAQ ABONNEMENT ── */
+    .sub-faq {
+      margin: 4rem 0;
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      padding: 2.5rem;
+    }
+    .sub-faq h3 { font-size: 1.5rem; font-weight: 800; margin: 0 0 2rem; }
+
+    .faq-sub-item {
+      padding: 1.5rem 0;
+      border-bottom: 1px solid var(--border);
+    }
+    .faq-sub-item:last-child { border-bottom: none; }
+    .faq-sub-btn {
+      width: 100%;
+      background: none;
+      border: none;
+      padding: 0;
+      text-align: left;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 1rem;
+      font-size: 1.05rem;
+      font-weight: 600;
+      color: var(--text);
+      transition: color 0.2s;
+      font-family: inherit;
+    }
+    .faq-sub-btn:hover { color: var(--primary); }
+    .faq-sub-btn::after {
+      content: '▼';
+      font-size: 0.75rem;
+      color: var(--muted);
+      transition: transform 0.3s;
+      flex-shrink: 0;
+    }
+    .faq-sub-item.open .faq-sub-btn::after { transform: rotateZ(180deg); }
+
+    .faq-sub-content {
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height 0.3s;
+      color: var(--text-secondary);
+      line-height: 1.7;
+    }
+    .faq-sub-item.open .faq-sub-content {
+      max-height: 500px;
+      margin-top: 1rem;
+    }
+
+    /* ── TESTIMONIALS ABONNEMENT ── */
+    .sub-testimonials {
+      margin: 4rem 0;
+    }
+    .sub-testimonials h3 { font-size: 1.5rem; font-weight: 800; margin: 0 0 2rem; text-align: center; }
+
+    .sub-testimonials-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 1.5rem;
+    }
+    .sub-testimonial-card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 1.75rem;
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+    }
+    .sub-testimonial-stars { font-size: 1rem; color: var(--accent); }
+    .sub-testimonial-quote { font-size: 0.95rem; color: var(--text); line-height: 1.6; font-style: italic; margin: 0; }
+    .sub-testimonial-author {
+      font-weight: 700;
+      color: var(--text);
+      margin: 0;
+    }
+    .sub-testimonial-role {
+      font-size: 0.85rem;
+      color: var(--muted);
+      margin: 0;
+    }
+
+    /* ── CALLOUT ── */
+    .sub-callout {
+      background: linear-gradient(135deg, rgba(5,150,105,0.1), rgba(245,158,11,0.05));
+      border: 2px solid var(--primary);
+      border-radius: 16px;
+      padding: 2rem;
+      margin: 3rem 0;
+      text-align: center;
+    }
+    .sub-callout h3 {
+      font-size: 1.5rem;
+      font-weight: 800;
+      color: var(--primary);
+      margin: 0 0 1rem;
+    }
+    .sub-callout p {
+      font-size: 1rem;
+      color: var(--text-secondary);
+      margin: 0 0 1.5rem;
+      line-height: 1.7;
+    }
+    .sub-callout .btn {
+      display: inline-block;
+    }
+
+    @media (max-width: 768px) {
+      .plan-card.featured { transform: scale(1); }
+      .plans-grid { gap: 1.5rem; }
+      .section-composer { padding: 1.5rem; }
+      .sub-faq { padding: 1.5rem; }
+    }
+  </style>
+</head>
+<body>
+  <a href="#main-content" class="skip-link">Aller au contenu principal</a>
+  <div class="page-progress" id="pageProgress" aria-hidden="true"></div>
+  <div class="toast-container" id="toastContainer" aria-live="polite" aria-atomic="true"></div>
+
+<header class="site-header">
+  <div class="container header-inner">
+    <a href="index.html" class="logo">CHARISFERME <span>ferme & artisanat local</span></a>
+    <nav class="main-nav" id="siteNav" aria-label="Navigation principale">
+      <div class="nav-links">
+        <a href="index.html">Accueil</a>
+        <a href="apropos.html">À propos</a>
+        <a href="activites.html">Activités</a>
+        <a href="produits.html">Produits</a>
+        <a href="abonnement.html" class="active">Abonnement</a>
+        <a href="blog.html">Blog</a>
+        <a href="galerie.html">Galerie</a>
+        <a href="contact.html">Contact</a>
+      </div>
+      <div class="nav-actions">
+        <button class="theme-toggle" id="themeToggle" aria-label="Basculer le mode sombre" title="Mode sombre">🌙</button>
+      </div>
+    </nav>
+    <button class="menu-toggle" aria-label="Menu" aria-controls="siteNav" aria-expanded="false" id="menuToggle">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</header>
+
+<main id="main-content">
+  <!-- Breadcrumbs -->
+  <nav class="breadcrumbs" aria-label="Chemin de navigation">
+    <a href="index.html">Accueil</a>
+    <span class="separator">/</span>
+    <span class="current">Abonnement</span>
+    <script type="application/ld+json">
+    {"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [
+      {"@type": "ListItem", "position": 1, "name": "Accueil", "item": "https://www.charisferme.fr"},
+      {"@type": "ListItem", "position": 2, "name": "Abonnement", "item": "https://www.charisferme.fr/abonnement.html"}
+    ]}
+    </script>
+  </nav>
+
+  <!-- HERO -->
+  <section class="sub-hero">
+    <div class="container">
+      <h1>Nos Paniers d'Abonnement</h1>
+      <p>Recevez chaque semaine une sélection de produits frais, saisonniers et cultivés à la ferme directement à votre porte.</p>
+    </div>
+  </section>
+
+  <!-- FREQUENCY SELECTOR -->
+  <section class="section">
+    <div class="container">
+      <div class="section-header" style="text-align: center; margin-bottom: 0;">
+        <h2 style="margin-bottom: 0;">Choisissez votre fréquence</h2>
+      </div>
+      <div class="frequency-selector">
+        <button class="freq-btn active" data-frequency="weekly">📅 Hebdomadaire</button>
+        <button class="freq-btn" data-frequency="biweekly">📅 Bimensuel</button>
+        <button class="freq-btn" data-frequency="monthly">📅 Mensuel</button>
+      </div>
+
+      <!-- PLANS GRID -->
+      <div class="plans-grid" id="plansGrid">
+        <!-- Généré par JavaScript -->
+      </div>
+    </div>
+  </section>
+
+  <!-- COMPOSEUR PANIER -->
+  <section class="section section--light">
+    <div class="container">
+      <div class="section-composer">
+        <h3>🎯 Composez Votre Panier</h3>
+        <p style="color: var(--text-secondary); margin: 0 0 1.5rem;">Personnalisez vos paniers selon vos préférences. Chaque formule inclut une sélection équilibrée de produits de saison.</p>
+        
+        <div class="composer-grid">
+          <div class="composer-item">
+            <p class="composer-item-title">🥬 Panier Légumes</p>
+            <p class="composer-item-desc">Légumes frais et biologiques de saison</p>
+            <div class="composer-item-qty">💚 5-7 variétés par semaine</div>
+          </div>
+          <div class="composer-item">
+            <p class="composer-item-title">🧀 Panier Laitiers</p>
+            <p class="composer-item-desc">Fromages, yaourts et crème fermière</p>
+            <div class="composer-item-qty">💛 3-4 produits laitiers</div>
+          </div>
+          <div class="composer-item">
+            <p class="composer-item-title">🥩 Panier Viandes</p>
+            <p class="composer-item-desc">Viandes fermières élevées localement</p>
+            <div class="composer-item-qty">🧡 2-3 kg par semaine</div>
+          </div>
+          <div class="composer-item">
+            <p class="composer-item-title">🥚 Panier Complet</p>
+            <p class="composer-item-desc">Tous nos produits : légumes + laitiers + viandes</p>
+            <div class="composer-item-qty">🌈 Le meilleur des deux mondes</div>
+          </div>
+        </div>
+
+        <div class="composer-summary">
+          <p>💡 <strong>Conseil :</strong> Vous pouvez modifier votre panier à tout moment. Pas de frais cachés, annulation simple.</p>
+          <strong style="color: var(--primary);">Première semaine à -20%</strong>
+        </div>
+      </div>
+    </section>
+
+  <!-- CALLOUT -->
+  <section class="section">
+    <div class="container">
+      <div class="sub-callout">
+        <h3>🚚 Livraison Rapide & Gratuite</h3>
+        <p>Nous livrons chaque lundi et jeudi dans un rayon de 15 km autour de la ferme. Livraison gratuite pour toute commande.</p>
+        <a href="contact.html" class="btn btn-primary">Vérifier ma zone de livraison</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- TESTIMONIALS -->
+  <section class="section section--light">
+    <div class="container">
+      <div class="sub-testimonials">
+        <h3>Ce que disent nos abonnés</h3>
+        <div class="sub-testimonials-grid">
+          <div class="sub-testimonial-card">
+            <div class="sub-testimonial-stars">⭐⭐⭐⭐⭐</div>
+            <p class="sub-testimonial-quote">"Les produits sont frais et savoureux. Nous avons économisé 30% en supermarché !"</p>
+            <p class="sub-testimonial-author">Marie D.</p>
+            <p class="sub-testimonial-role">Abonnée depuis 8 mois</p>
+          </div>
+          <div class="sub-testimonial-card">
+            <div class="sub-testimonial-stars">⭐⭐⭐⭐⭐</div>
+            <p class="sub-testimonial-quote">"Super pratique ! Pas besoin d'aller faire les courses, tout est livré à ma porte."</p>
+            <p class="sub-testimonial-author">Jean M.</p>
+            <p class="sub-testimonial-role">Abonné depuis 1 an</p>
+          </div>
+          <div class="sub-testimonial-card">
+            <div class="sub-testimonial-stars">⭐⭐⭐⭐⭐</div>
+            <p class="sub-testimonial-quote">"J'adore soutenir l'agriculture locale. Les recettes hebdomadaires m'inspirent beaucoup !"</p>
+            <p class="sub-testimonial-author">Sophie R.</p>
+            <p class="sub-testimonial-role">Abonnée depuis 3 mois</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section class="section">
+    <div class="container">
+      <div class="sub-faq">
+        <h3>Questions Fréquentes sur nos Abonnements</h3>
+        
+        <div class="faq-sub-item">
+          <button class="faq-sub-btn">Puis-je modifier ou annuler mon abonnement à tout moment ?</button>
+          <div class="faq-sub-content">
+            <p>Oui, absolument ! Vous pouvez modifier la fréquence de votre panier ou annuler votre abonnement sans frais, sans engagement d'une durée minimum.</p>
+          </div>
+        </div>
+
+        <div class="faq-sub-item">
+          <button class="faq-sub-btn">Comment fonctionne la première livraison ?</button>
+          <div class="faq-sub-content">
+            <p>Vous recevrez un email de confirmation avec tous les détails. Votre premier panier vous sera livré le lundi ou jeudi suivant votre commande. Les frais de livraison sont gratuits.</p>
+          </div>
+        </div>
+
+        <div class="faq-sub-item">
+          <button class="faq-sub-btn">Puis-je personnaliser mon panier chaque semaine ?</button>
+          <div class="faq-sub-content">
+            <p>Vous recevrez chaque semaine une suggestion basée sur votre préférence. Vous pouvez ajuster vos choix via votre compte client une semaine avant la livraison.</p>
+          </div>
+        </div>
+
+        <div class="faq-sub-item">
+          <button class="faq-sub-btn">Quels sont les moyens de paiement acceptés ?</button>
+          <div class="faq-sub-content">
+            <p>Nous acceptons les cartes bancaires (Visa, Mastercard, American Express) et les virements bancaires. Les paiements par abonnement sont automatiques selon votre fréquence choisie.</p>
+          </div>
+        </div>
+
+        <div class="faq-sub-item">
+          <button class="faq-sub-btn">Et si je dois sauter une livraison ?</button>
+          <div class="faq-sub-content">
+            <p>Pas de problème ! Vous pouvez suspendre votre abonnement pour une ou plusieurs semaines directement via votre compte. Aucune pénalité.</p>
+          </div>
+        </div>
+
+        <div class="faq-sub-item">
+          <button class="faq-sub-btn">Quels sont les tarifs appliqués ?</button>
+          <div class="faq-sub-content">
+            <p>Nos tarifs d'abonnement offrent une réduction de 15% par rapport aux prix unitaires. Les abonnés bénéficient également de produits exclusifs et de -20% sur la première commande.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="container footer-content">
+    <div class="footer-block">
+      <h4>CHARISFERME</h4>
+      <p>Ferme familiale dédiée à l'agriculture locale, durable et solidaire depuis 2001.</p>
+      <div class="footer-badges">
+        <span class="footer-badge">Agriculture Bio</span>
+        <span class="footer-badge">Circuit Court</span>
+        <span class="footer-badge">Label Rouge</span>
+      </div>
+    </div>
+    <div class="footer-block">
+      <h4>Navigation</h4>
+      <a href="apropos.html">À propos</a>
+      <a href="produits.html">Produits</a>
+      <a href="abonnement.html">Abonnement</a>
+      <a href="avis.html">Avis</a>
+    </div>
+    <div class="footer-block">
+      <h4>Contact & Réseaux</h4>
+      <p><a href="tel:0600000000">06 00 00 00 00</a><br><a href="mailto:contact@charisferme.fr">contact@charisferme.fr</a></p>
+      <div class="footer-links">
+        <a href="https://wa.me/33600000000?text=Bonjour%20CHARISFERME%20%21%20Je%20souhaite%20un%20contact" target="_blank" rel="noreferrer noopener">WhatsApp</a>
+      </div>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <div class="footer-legal">
+      <p>© 2026 CHARISFERME • Tous droits réservés</p>
+      <p>SIRET : 123 456 789 00012 | Ferme de Charis, 12345 Village, France</p>
+      <p><a href="mentions-legales.html">Mentions légales & Confidentialité</a></p>
+    </div>
+  </div>
+</footer>
+
+<a class="whatsapp-float" href="https://wa.me/33600000000?text=Bonjour%20CHARISFERME%20%21%20Je%20souhaite%20un%20contact" target="_blank" rel="noreferrer noopener" aria-label="Contact WhatsApp">WhatsApp</a>
+<button class="scroll-to-top" aria-label="Retour en haut">↑</button>
+<script src="utils.js"></script>
+<script src="script.js"></script>
+<script>
+  // ===== SUBSCRIPTION PAGE LOGIC =====
+  document.addEventListener('DOMContentLoaded', () => {
+    const frequencyBtns = document.querySelectorAll('.freq-btn');
+    const plansGrid = document.getElementById('plansGrid');
+    const faqBtns = document.querySelectorAll('.faq-sub-btn');
+
+    // ===== FREQUENCY FILTER =====
+    frequencyBtns.forEach(btn => {
+      btn.addEventListener('click', () => {
+        frequencyBtns.forEach(b => b.classList.remove('active'));
+        btn.classList.add('active');
+        renderPlans(btn.dataset.frequency);
+      });
+    });
+
+    // ===== RENDER PLANS =====
+    const plans = {
+      weekly: [
+        { name: 'Découverte', price: 18, period: '/semaine', benefits: ['3-4 légumes frais', 'Produit laitier fermier', 'Livraison gratuite', 'Annulation libre'] },
+        { name: 'Gourmand', price: 32, period: '/semaine', benefits: ['5-7 légumes frais', '2 produits laitiers', '0.5kg viande fermière', '1 produit maison'], featured: true },
+        { name: 'Complet', price: 48, period: '/semaine', benefits: ['7-9 légumes frais', '3 produits laitiers', '1kg viande fermière', '2 produits maison', 'Œufs frais'] }
+      ],
+      biweekly: [
+        { name: 'Découverte', price: 32, period: '/2 semaines', benefits: ['6-8 légumes frais', '2 produits laitiers', 'Livraison gratuite', 'Annulation libre'] },
+        { name: 'Gourmand', price: 58, period: '/2 semaines', benefits: ['10-14 légumes frais', '4 produits laitiers', '1kg viande fermière', '2 produits maison'], featured: true },
+        { name: 'Complet', price: 88, period: '/2 semaines', benefits: ['14-18 légumes frais', '6 produits laitiers', '2kg viande fermière', '4 produits maison', 'Œufs frais'] }
+      ],
+      monthly: [
+        { name: 'Découverte', price: 128, period: '/mois', benefits: ['24-32 légumes frais', '8 produits laitiers', 'Livraison gratuite', 'Annulation libre'] },
+        { name: 'Gourmand', price: 232, period: '/mois', benefits: ['40-56 légumes frais', '16 produits laitiers', '4kg viande fermière', '8 produits maison'], featured: true },
+        { name: 'Complet', price: 352, period: '/mois', benefits: ['56-72 légumes frais', '24 produits laitiers', '8kg viande fermière', '16 produits maison', 'Œufs frais'] }
+      ]
+    };
+
+    function renderPlans(frequency) {
+      const plansList = plans[frequency];
+      plansGrid.innerHTML = plansList.map((plan, idx) => `
+        <div class="plan-card${plan.featured ? ' featured' : ''}">
+          ${plan.featured ? '<span class="plan-badge">💎 Populaire</span>' : ''}
+          <h3 class="plan-name">${plan.name}</h3>
+          <p class="plan-desc">Parfait pour les ${plan.name.toLowerCase()}s</p>
+          <div class="plan-price">
+            <span class="plan-price-main">€${plan.price}</span>
+            <span class="plan-price-period">${plan.period}</span>
+          </div>
+          <ul class="plan-benefits">
+            ${plan.benefits.map(b => `<li>${b}</li>`).join('')}
+          </ul>
+          <button class="plan-cta" onclick="subscribeToplan('${plan.name}', ${plan.price}, '${frequency}')">
+            S'abonner maintenant
+          </button>
+        </div>
+      `).join('');
+    }
+
+    // ===== FAQ ACCORDION =====
+    faqBtns.forEach(btn => {
+      btn.addEventListener('click', () => {
+        const item = btn.parentElement;
+        const isOpen = item.classList.contains('open');
+        document.querySelectorAll('.faq-sub-item').forEach(i => i.classList.remove('open'));
+        if (!isOpen) item.classList.add('open');
+      });
+    });
+
+    // ===== INIT =====
+    renderPlans('weekly');
+
+    // ===== SUBSCRIBE FUNCTION =====
+    window.subscribeToplan = (name, price, frequency) => {
+      const subscription = {
+        id: 'sub_' + Date.now(),
+        planName: name,
+        price: price,
+        frequency: frequency,
+        startDate: new Date().toISOString(),
+        status: 'pending'
+      };
+      localStorage.setItem('charisferme-subscription-pending', JSON.stringify(subscription));
+      if (window.toast) window.toast.success(`Plan "${name}" sélectionné ! Redirection vers le paiement...`);
+      setTimeout(() => {
+        window.location.href = 'checkout.html?type=subscription&id=' + subscription.id;
+      }, 1500);
+    };
+  });
+</script>
+</body>
+</html>

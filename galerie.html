@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+  <title>Galerie Photos - CHARISFERME</title>
+  <meta name="description" content="Découvrez la galerie photos de CHARISFERME. Images de nos champs, récoltes, transformation artisanale et moments à la ferme.">
+  <meta name="keywords" content="galerie, photos, ferme, champs, récolte, produits fermiers, visites">
+  <meta name="author" content="CHARISFERME">
+  <meta property="og:title" content="Galerie Photos - CHARISFERME">
+  <meta property="og:description" content="Galerie photos de la ferme CHARISFERME">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://www.charisferme.fr/galerie.html">
+  <meta property="og:image" content="/images/hero.jpg">
+  <meta name="theme-color" content="#059669">
+  <script>(function(){try{var t=localStorage.getItem('charisferme-theme');if(t==='dark'||(!t&&window.matchMedia('(prefers-color-scheme: dark)').matches)){document.documentElement.classList.add('dark-mode');}}catch(e){}})();</script>
+  <link rel="stylesheet" href="styles.css">
+  <style>
+    .gallery-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+      gap: 20px;
+      margin: 40px 0;
+    }
+    .gallery-item {
+      position: relative;
+      overflow: hidden;
+      border-radius: 8px;
+      aspect-ratio: 1;
+      background: #f0f0f0;
+      cursor: pointer;
+      transition: transform 0.3s ease;
+    }
+    .gallery-item:hover {
+      transform: scale(1.05);
+    }
+    .gallery-item img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+    .lightbox {
+      display: none;
+      position: fixed;
+      z-index: 1000;
+      left: 0;
+      top: 0;
+      width: 100%;
+      height: 100%;
+      background-color: rgba(0, 0, 0, 0.9);
+      animation: fadeIn 0.3s;
+    }
+    .lightbox.active {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .lightbox-content {
+      max-width: 90%;
+      max-height: 90%;
+      position: relative;
+    }
+    .lightbox-content img {
+      max-width: 100%;
+      max-height: 100%;
+      border-radius: 8px;
+    }
+    .lightbox-close {
+      position: absolute;
+      top: 20px;
+      right: 40px;
+      color: white;
+      font-size: 40px;
+      font-weight: bold;
+      cursor: pointer;
+      background: none;
+      border: none;
+      padding: 0;
+    }
+    .lightbox-close:hover {
+      color: #ccc;
+    }
+    @keyframes fadeIn {
+      from { opacity: 0; }
+      to { opacity: 1; }
+    }
+  </style>
+</head>
+<body>
+  <div class="page-progress" id="pageProgress" aria-hidden="true"></div>
+
+<header class="site-header">
+  <div class="container header-inner">
+    <a href="index.html" class="logo">CHARISFERME <span>ferme & artisanat local</span></a>
+
+    <nav class="main-nav" id="siteNav" aria-label="Navigation principale">
+      <div class="nav-links">
+        <a href="index.html">Accueil</a>
+        <a href="apropos.html">À propos</a>
+        <a href="activites.html">Activités</a>
+        <a href="produits.html">Produits</a>
+        <a href="blog.html">Blog</a>
+        <a href="galerie.html">Galerie</a>
+        <a href="avis.html">Avis</a>
+        <a href="contact.html">Contact</a>
+      </div>
+      <div class="nav-actions">
+        <button class="theme-toggle" id="themeToggle" aria-label="Basculer le mode sombre" title="Mode sombre">🌙</button>
+      </div>
+    </nav>
+
+    <button class="menu-toggle" aria-label="Menu" aria-controls="siteNav" aria-expanded="false" id="menuToggle">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</header>
+
+<main id="main-content">
+  <!-- Breadcrumbs -->
+  <nav class="breadcrumbs" aria-label="Chemin de navigation">
+    <a href="index.html">Accueil</a>
+    <span class="separator">/</span>
+    <span class="current">Galerie</span>
+    <script type="application/ld+json">
+    {"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [
+      {"@type": "ListItem", "position": 1, "name": "Accueil", "item": "https://www.charisferme.fr"},
+      {"@type": "ListItem", "position": 2, "name": "Galerie", "item": "https://www.charisferme.fr/galerie.html"}
+    ]}
+    </script>
+  </nav>
+
+  <section class="gallery-hero" style="padding: 60px 20px; background: linear-gradient(135deg, #6a8a42 0%, #4a5a32 100%); color: white; text-align: center;">
+    <div class="container">
+      <h1>Galerie Photos</h1>
+      <p>Plongez dans le quotidien de notre ferme : champs, récoltes, transformation et moments de partage.</p>
+    </div>
+  </section>
+
+  <section class="section section--light">
+    <div class="container">
+      <div class="gallery-filter" role="tablist" aria-label="Filtrer la galerie">
+        <button class="filter-btn active" data-filter="all" type="button">Tout voir</button>
+        <button class="filter-btn" data-filter="champs" type="button">🌿 Champs</button>
+        <button class="filter-btn" data-filter="produits" type="button">🧀 Produits</button>
+        <button class="filter-btn" data-filter="visites" type="button">👥 Visites</button>
+        <button class="filter-btn" data-filter="elevage" type="button">🐓 Élevage</button>
+      </div>
+      <div class="gallery-grid" id="gallery">
+        <div class="gallery-item" data-category="champs" onclick="openLightbox('/images/galerie-1.jpg', 'Vue des champs cultivés')">
+          <img src="/images/galerie-1.jpg" alt="Vue des champs cultivés">
+        </div>
+        <div class="gallery-item" data-category="champs" onclick="openLightbox('/images/galerie-2.jpg', 'Récolte des légumes')">
+          <img src="/images/galerie-2.jpg" alt="Récolte des légumes">
+        </div>
+        <div class="gallery-item" data-category="produits" onclick="openLightbox('/images/galerie-3.jpg', 'Fromages en affinement')">
+          <img src="/images/galerie-3.jpg" alt="Fromages en affinement">
+        </div>
+        <div class="gallery-item" data-category="visites" onclick="openLightbox('/images/galerie-4.jpg', 'Atelier pédagogique')">
+          <img src="/images/galerie-4.jpg" alt="Atelier pédagogique">
+        </div>
+        <div class="gallery-item" data-category="visites" onclick="openLightbox('/images/galerie-5.jpg', 'Marché local CHARISFERME')">
+          <img src="/images/galerie-5.jpg" alt="Marché local CHARISFERME">
+        </div>
+        <div class="gallery-item" data-category="visites" onclick="openLightbox('/images/galerie-6.jpg', 'Équipe à la ferme')">
+          <img src="/images/galerie-6.jpg" alt="Équipe à la ferme">
+        </div>
+        <div class="gallery-item" data-category="produits" onclick="openLightbox('/images/galerie-7.jpg', 'Produits fermiers frais')">
+          <img src="/images/galerie-7.jpg" alt="Produits fermiers frais">
+        </div>
+        <div class="gallery-item" data-category="visites" onclick="openLightbox('/images/galerie-8.jpg', 'Visite de groupe')">
+          <img src="/images/galerie-8.jpg" alt="Visite de groupe">
+        </div>
+        <div class="gallery-item" data-category="champs" onclick="openLightbox('/images/galerie-9.jpg', 'Plantes aromatiques')">
+          <img src="/images/galerie-9.jpg" alt="Plantes aromatiques">
+        </div>
+        <div class="gallery-item" data-category="elevage" onclick="openLightbox('/images/galerie-10.jpg', 'Élevage respectueux')">
+          <img src="/images/galerie-10.jpg" alt="Élevage respectueux">
+        </div>
+        <div class="gallery-item" data-category="produits" onclick="openLightbox('/images/galerie-11.jpg', 'Préparation des commandes')">
+          <img src="/images/galerie-11.jpg" alt="Préparation des commandes">
+        </div>
+        <div class="gallery-item" data-category="champs" onclick="openLightbox('/images/galerie-12.jpg', 'Coucher de soleil à la ferme')">
+          <img src="/images/galerie-12.jpg" alt="Coucher de soleil à la ferme">
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div class="lightbox" id="lightbox">
+    <div class="lightbox-content">
+      <button class="lightbox-close" onclick="closeLightbox()">×</button>
+      <img id="lightbox-image" src="" alt="">
+    </div>
+  </div>
+</main>
+
+<footer>
+  <div class="container footer-content">
+    <div class="footer-block">
+      <h4>CHARISFERME</h4>
+      <p>Ferme familiale dédiée à l'agriculture locale, durable et solidaire depuis 2001.</p>
+      <div class="footer-badges">
+        <span class="footer-badge">Agriculture Bio</span>
+        <span class="footer-badge">Circuit Court</span>
+        <span class="footer-badge">Label Rouge</span>
+      </div>
+    </div>
+    <div class="footer-block">
+      <h4>Navigation</h4>
+      <a href="index.html#apropos">À propos</a>
+      <a href="index.html#produits">Produits</a>
+      <a href="reservation.html">Réservation</a>
+      <a href="index.html#avis">Avis</a>
+    </div>
+    <div class="footer-block">
+      <h4>Contact & Réseaux</h4>
+      <p><a href="tel:0600000000">06 00 00 00 00</a><br><a href="mailto:contact@charisferme.fr">contact@charisferme.fr</a></p>
+      <div class="footer-links">
+        <a href="https://wa.me/33600000000?text=Bonjour%20CHARISFERME%20%21%20Je%20souhaite%20un%20contact" target="_blank" rel="noreferrer noopener">WhatsApp</a>
+      </div>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <div class="footer-legal">
+      <p>© 2026 CHARISFERME • Tous droits réservés</p>
+      <p>SIRET : 123 456 789 00012 | Ferme de Charis, 12345 Village, France</p>
+      <p><a href="mentions-legales.html">Mentions légales & Confidentialité</a></p>
+    </div>
+  </div>
+</footer>
+
+<a class="whatsapp-float" href="https://wa.me/33600000000?text=Bonjour%20CHARISFERME%20%21%20Je%20souhaite%20un%20contact" target="_blank" rel="noreferrer noopener" aria-label="Contact WhatsApp">WhatsApp</a>
+<button class="scroll-to-top" aria-label="Retour en haut">↑</button>
+
+<script>
+function openLightbox(imageSrc, imageAlt) {
+  document.getElementById('lightbox-image').src = imageSrc;
+  document.getElementById('lightbox-image').alt = imageAlt;
+  document.getElementById('lightbox').classList.add('active');
+}
+
+function closeLightbox() {
+  document.getElementById('lightbox').classList.remove('active');
+}
+
+document.getElementById('lightbox').addEventListener('click', function(e) {
+  if (e.target === this) {
+    closeLightbox();
+  }
+});
+</script>
+<script src="utils.js"></script>
+<script src="script.js"></script>
+</body>
+</html>
