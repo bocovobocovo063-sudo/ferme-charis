@@ -6,7 +6,7 @@
 # Formulaires Netlify (Submissions)
 [functions]
   directory = "netlify/functions"
-  node_bundler = "esbuild"
+  node_bundler = "nft"
 
 # Redirects pour SPA (404)
 [[redirects]]
