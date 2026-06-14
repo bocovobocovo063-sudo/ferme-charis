@@ -77,44 +77,164 @@
 
   <section class="section section--light">
     <div class="container">
-      <div class="grid grid-3">
-        <article class="card">
-          <h3>Récolte de printemps</h3>
-          <p class="article-date">7 mai 2026</p>
-          <p>Découvrez les légumes de saison qui arrivent à la ferme en mai : asperges, fraises et jeunes pousses. Notre calendrier de récolte suit la nature.</p>
-          <a href="blog.html" class="card-link">Lire l'article →</a>
-        </article>
-        <article class="card">
-          <h3>Conseil : bien conserver ses produits</h3>
-          <p class="article-date">24 avril 2026</p>
-          <p>Nos astuces pour garder plus longtemps la fraîcheur de vos légumes et fromages à la maison. Stockage, température, emballage : tous nos secrets.</p>
-          <a href="blog.html" class="card-link">Lire l'article →</a>
-        </article>
-        <article class="card">
-          <h3>Visite de groupe : ateliers à la ferme</h3>
-          <p class="article-date">10 avril 2026</p>
-          <p>Découvrez nos ateliers pédagogiques pour les écoles et groupes. Fabrication de fromage, visite des champs et dégustation. Réservez votre date dès maintenant.</p>
-          <a href="blog.html" class="card-link">Lire l'article →</a>
-        </article>
-        <article class="card">
-          <h3>Nouveaux produits : conserves bio</h3>
-          <p class="article-date">2 avril 2026</p>
-          <p>Nous lançons notre nouvelle gamme de conserves bio : confitures sans sucre raffiné, pickles maison et terrines gastronomiques. Disponibles dès cette semaine.</p>
-          <a href="blog.html" class="card-link">Lire l'article →</a>
-        </article>
-        <article class="card">
-          <h3>Interview : Marie nous parle de ses cultures</h3>
-          <p class="article-date">18 mars 2026</p>
-          <p>Rencontre avec Marie, notre maraîchère. Elle revient sur ses techniques de culture écologique et ses projets pour cette année.</p>
-          <a href="blog.html" class="card-link">Lire l'article →</a>
-        </article>
-        <article class="card">
-          <h3>Les bienfaits des produits fermiers</h3>
-          <p class="article-date">5 mars 2026</p>
-          <p>Pourquoi choisir les produits fermiers ? Qualité nutritionnelle, traçabilité, impact environnemental : les vraies différences expliquées.</p>
-          <a href="blog.html" class="card-link">Lire l'article →</a>
-        </article>
-      </div>
+      <style>
+        .blog-article {
+          background: white;
+          border-radius: 12px;
+          padding: 2rem;
+          margin-bottom: 2rem;
+          border-left: 4px solid var(--primary);
+        }
+        html.dark-mode .blog-article {
+          background: rgba(22,27,34,0.85);
+        }
+        .blog-article h3 {
+          margin-top: 0;
+          color: var(--primary);
+          font-size: 1.5rem;
+        }
+        .blog-article .article-date {
+          display: inline-block;
+          background: rgba(5,150,105,0.1);
+          padding: 0.25rem 0.75rem;
+          border-radius: 20px;
+          font-size: 0.85rem;
+          margin-bottom: 1rem;
+        }
+        .blog-article .article-content {
+          line-height: 1.8;
+          color: var(--text);
+        }
+        .blog-article .article-content strong {
+          color: var(--primary);
+        }
+      </style>
+
+      <article class="blog-article">
+        <h3>🌱 Juin 2026 : Les récoltes de saison en pleine action</h3>
+        <div class="article-date">14 juin 2026</div>
+        <div class="article-content">
+          <p>Nous rentrons dans la saison la plus riche de l'année ! Les champs sont en pleine production et nos équipes travaillent sans relâche pour récolter les meilleurs légumes.</p>
+          <p><strong>Ce mois-ci, découvrez :</strong></p>
+          <ul>
+            <li><strong>Tomates héritagères</strong> - Nos variétés anciennes révèlent enfin toute leur saveur</li>
+            <li><strong>Courgettes et aubergines</strong> - Fraîches du jour, idéales pour vos grillades</li>
+            <li><strong>Petits pois sucré-salé</strong> - Une douceur naturelle incomparable</li>
+            <li><strong>Fraises et framboises</strong> - Les dernières récoltes avant l'été</li>
+          </ul>
+          <p>Comme chaque année, nous respectons les cycles naturels de la nature. Pas de production forcée, pas de serre chauffée : juste des produits authentiques, cultivés selon les vraies saisons.</p>
+          <p><em>📌 Conseil du mois : Commandez vos paniers en avance pour avoir les meilleurs choix ! Disponibilité limitée pour les récoltes de qualité extra.</em></p>
+        </div>
+      </article>
+
+      <article class="blog-article">
+        <h3>💚 Nos techniques de culture biologique expliquées</h3>
+        <div class="article-date">1er juin 2026</div>
+        <div class="article-content">
+          <p>Vous vous demandez comment nous obtenons des produits si savoureux sans pesticides ? C'est notre engagement en faveur de l'agriculture biologique qui fait la différence.</p>
+          <p><strong>Nos trois piliers :</strong></p>
+          <ul>
+            <li><strong>Rotation des cultures</strong> - Chaque parcelle change de culture chaque année pour régénérer le sol naturellement</li>
+            <li><strong>Compostage maison</strong> - Tous nos déchets organiques deviennent engrais naturel</li>
+            <li><strong>Lutte biologique</strong> - Nous favorisons les prédateurs naturels plutôt que les pesticides</li>
+          </ul>
+          <p>Nos sols sont vivants, riches en biodiversité, et c'est ça qui fait la différence au goût. Les nutriments absorbés par nos légumes sont bien supérieurs à ceux de l'agriculture intensive.</p>
+        </div>
+      </article>
+
+      <article class="blog-article">
+        <h3>🧀 Du fromage fermier : le savoir-faire de trois générations</h3>
+        <div class="article-date">20 mai 2026</div>
+        <div class="article-content">
+          <p>Nos fromages ne sont pas fabriqués à l'usine : ils sont nés dans notre fromagerie artisanale, selon des recettes transmises par nos grands-parents.</p>
+          <p><strong>Pourquoi nos fromages sont différents :</strong></p>
+          <ul>
+            <li><strong>Lait 100% fermier</strong> - Provenant uniquement de nos vaches et de nos chèvres élevées en liberté</li>
+            <li><strong>Affinage lent</strong> - Entre 2 et 8 mois selon le fromage, pour un développement naturel des saveurs</li>
+            <li><strong>Mains humaines</strong> - Chaque fromage est tourné à la main régulièrement</li>
+            <li><strong>Zéro additif</strong> - Juste du lait, du sel de mer, des cultures bactériennes naturelles</li>
+          </ul>
+          <p>Cette patience et ce soin donnent des fromages d'exception, reconnaissables à leur texture crémeuse et leurs saveurs complexes.</p>
+          <p><em>💡 Saviez-vous ? Un bon fromage fermier peut se conserver 3-4 semaines au réfrigérateur s'il est bien emballé.</em></p>
+        </div>
+      </article>
+
+      <article class="blog-article">
+        <h3>👨‍🌾 Interview : Pierre, 40 ans de passion pour la terre</h3>
+        <div class="article-date">5 mai 2026</div>
+        <div class="article-content">
+          <p><strong>Q: Pourquoi avez-vous choisi l'agriculture biologique ?</strong></p>
+          <p>R: C'était une évidence. J'ai grandi à la ferme et j'ai vu les impact des pesticides. Quand mon père a pris sa retraite, j'ai décidé de faire différemment. C'était en 1995. Aujourd'hui, mes clients nous font confiance parce qu'ils savent que nos produits sont sains.</p>
+          <p><strong>Q: Quel est votre plus beau souvenir à la ferme ?</strong></p>
+          <p>R: Voir mes enfants jouer dans les champs pendant la récolte. Savoir que cette terre sera encore fertile pour leur génération. C'est pour ça qu'on préserve les sols.</p>
+          <p><strong>Q: Quel conseil donneriez-vous aux jeunes agriculteurs ?</strong></p>
+          <p>R: Écoutez la nature. Chaque saison vous enseigne quelque chose. Et surtout, restez connectés à vos clients. Quand quelqu'un déguste vos tomates et vous remercie, vous comprenez pourquoi vous travaillez dur.</p>
+        </div>
+      </article>
+
+      <article class="blog-article">
+        <h3>📚 Recette maison : Ratatouille provençale fermière</h3>
+        <div class="article-date">18 avril 2026</div>
+        <div class="article-content">
+          <p><strong>Ingrédients (pour 4 personnes) :</strong></p>
+          <ul>
+            <li>2 aubergines fermières</li>
+            <li>2 courgettes fraîches</li>
+            <li>3 tomates héritagères bien mûres</li>
+            <li>1 poivron rouge</li>
+            <li>2 oignons fermiers</li>
+            <li>3 gousses d'ail (notre ail fermier)</li>
+            <li>Huile d'olive bio</li>
+            <li>Herbes de Provence</li>
+            <li>Sel et poivre</li>
+          </ul>
+          <p><strong>Préparation :</strong></p>
+          <ol>
+            <li>Coupez tous les légumes en cubes</li>
+            <li>Faites revenir les oignons et l'ail à l'huile</li>
+            <li>Ajoutez les aubergines et courgettes, laissez cuire 10 min</li>
+            <li>Versez les tomates et poivrons, laissez mijoter 30 min</li>
+            <li>Assaisonnez et servez chaud ou froid</li>
+          </ol>
+          <p><em>💚 Conseil : Cette recette est encore meilleure le jour suivant. Parfait pour les pique-niques !</em></p>
+        </div>
+      </article>
+
+      <article class="blog-article">
+        <h3>🎓 Ateliers pédagogiques : L'agriculture, c'est apprendre en s'amusant</h3>
+        <div class="article-date">30 mars 2026</div>
+        <div class="article-content">
+          <p>Vous cherchez une activité éducative pour vos enfants ? Nos ateliers fermiers allient découverte, plaisir et apprentissage pratique.</p>
+          <p><strong>Nos ateliers proposent :</strong></p>
+          <ul>
+            <li><strong>Visite des champs</strong> - Comprendre comment poussent les légumes en vrai</li>
+            <li><strong>Fabrication de fromage</strong> - Faire du fromage avec les mains pendant 2 heures</li>
+            <li><strong>Récolte participante</strong> - Cueillir les légumes soi-même et repartir avec son panier</li>
+            <li><strong>Rencontre avec les animaux</strong> - Nourrir les chèvres, comprendre leur rôle</li>
+            <li><strong>Dégustation didactique</strong> - Goûter et comprendre les différences de saveur</li>
+          </ul>
+          <p>Ces ateliers créent des souvenirs inoubliables tout en enseignant les vraies valeurs de l'agriculture responsable.</p>
+          <p>📞 <strong>Réservation sur <a href="reservation.html">notre page réservation</a> (groupes à partir de 8 personnes).</strong></p>
+        </div>
+      </article>
+
+      <article class="blog-article">
+        <h3>🌍 Notre engagement environnemental : Plus que des mots</h3>
+        <div class="article-date">15 mars 2026</div>
+        <div class="article-content">
+          <p>À CHARISFERME, la durabilité n'est pas un slogan marketing : c'est notre raison d'être.</p>
+          <p><strong>Ce que nous faisons concrètement :</strong></p>
+          <ul>
+            <li><strong>Zéro pesticide</strong> - Certification bio depuis 15 ans</li>
+            <li><strong>Économie d'eau</strong> - Irrigation goutte-à-goutte, collecte de pluie</li>
+            <li><strong>Énergies renouvelables</strong> - Panneaux solaires sur la fromagerie</li>
+            <li><strong>Pas d'emballage jetable</strong> - Nous utilisons des caisses réutilisables pour les livraisons</li>
+            <li><strong>Circuits courts</strong> - Livraison dans un rayon de 30km pour réduire les transports</li>
+            <li><strong>Préservation de la biodiversité</strong> - 5% de nos terres sont des zones sauvages pour les insectes utiles</li>
+          </ul>
+          <p>Chaque achat chez nous, c'est un vote pour une agriculture meilleure et pour la préservation de la planète.</p>
+        </div>
+      </article>
     </div>
   </section>
 

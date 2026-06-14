@@ -77,20 +77,127 @@
         <h2>Nos activités</h2>
         <p>Découvrez l'ensemble de nos savoir-faire, du jardin à la table, en passant par l'élevage et la transformation.</p>
       </div>
-      <div class="grid grid-3">
-        <div class="card">
-          <h3>Jardin maraîcher</h3>
-          <p>Une production diversifiée de légumes et aromates, cultivés selon les saisons.</p>
-        </div>
-        <div class="card">
-          <h3>Élevage local</h3>
-          <p>Des animaux élevés au grand air pour des produits plus savoureux et plus éthiques.</p>
-        </div>
-        <div class="card">
-          <h3>Transformation maison</h3>
-          <p>Fromages, yaourts, terrines et conserves préparés à la ferme selon nos recettes familiales.</p>
-        </div>
-      </div>
+      
+      <style>
+        .activity-card {
+          background: white;
+          border-radius: 12px;
+          padding: 2rem;
+          margin-bottom: 2rem;
+          border-left: 5px solid var(--primary);
+        }
+        html.dark-mode .activity-card {
+          background: rgba(22,27,34,0.85);
+        }
+        .activity-card h3 {
+          margin-top: 0;
+          color: var(--primary);
+          font-size: 1.8rem;
+        }
+        .activity-list {
+          list-style: none;
+          padding: 0;
+        }
+        .activity-list li {
+          padding: 0.75rem 0;
+          border-bottom: 1px solid rgba(5,150,105,0.2);
+        }
+        .activity-list li:before {
+          content: "✓ ";
+          color: var(--primary);
+          font-weight: bold;
+          margin-right: 0.5rem;
+        }
+      </style>
+
+      <article class="activity-card">
+        <h3>🌱 Jardin maraîcher — Diversité et saison</h3>
+        <p>Notre production maraîchère repose sur la rotation des cultures et le respect des cycles naturels. Pas d'accélération forcée, juste la nature qui travaille comme elle l'entend.</p>
+        <p><strong>Nos cultures principales :</strong></p>
+        <ul class="activity-list">
+          <li>Tomates héritagées (25+ variétés anciennes en saison)</li>
+          <li>Légumes-feuilles : laitues, roquettes, épinards</li>
+          <li>Légumes-racines : carottes, betteraves, navets</li>
+          <li>Légumes-fruits : courgettes, aubergines, poivrons</li>
+          <li>Petits pois, fèves, haricots verts et secs</li>
+          <li>Plantes aromatiques et médicinales : thym, basilic, sauge</li>
+          <li>Champignons de couche (production contrôlée)</li>
+        </ul>
+        <p><strong>Notre approche :</strong> Zéro pesticide, compostage sur place, récupération d'eau de pluie, allées enherbées pour la biodiversité. Nous préservons volontairement 5% de nos terres pour les "mauvaises herbes" utiles aux pollinisateurs.</p>
+        <p><strong>Calendrier récolte :</strong> Janvier-Mars (légumes racines, poireaux) | Avril-Mai (asperges, fraises) | Juin-Septembre (tomates, courgettes, aubergines) | Octobre-Décembre (courges, champignons, derniers légumes)</p>
+      </article>
+
+      <article class="activity-card">
+        <h3>🐓 Élevage — Bien-être animal avant tout</h3>
+        <p>Nos animaux ne sont pas des machines de production : ce sont des êtres vivants qui méritent le respect.</p>
+        <p><strong>Notre cheptel :</strong></p>
+        <ul class="activity-list">
+          <li><strong>Vaches laitières (12)</strong> — Race Normande, traite 2x par jour, libre parcours</li>
+          <li><strong>Chèvres laitières (20)</strong> — Races mixtes, pâture permanente, traite matinale</li>
+          <li><strong>Poules pondeuses (50)</strong> — Races anciennes, liberté totale, nid individuel</li>
+          <li><strong>Brebis (8)</strong> — Pour les terrines et la laine (vente artisanale)</li>
+          <li><strong>Cochons fermiers (4-6/an)</strong> — Nourriture bio locale, pas de confinement</li>
+        </ul>
+        <p><strong>Notre engagement :</strong> Tous les animaux sortent chaque jour. Les vaches pâturent 6 mois/an. Les chèvres ont une bergerie spacieuse avec vue sur les champs. Les poules picotent librement. Aucun antibiotique préventif, uniquement vétérinaire si besoin.</p>
+        <p><strong>Bien-être animal certifié :</strong> Label "Bien-être animal" vérifié annuellement par organisme indépendant.</p>
+      </article>
+
+      <article class="activity-card">
+        <h3>🧀 Transformation artisanale — Savoir-faire familial</h3>
+        <p>La fromagerie est notre fierté. Chaque fromage raconte l'histoire d'une recette transmise de génération en génération.</p>
+        <p><strong>Nos productions :</strong></p>
+        <ul class="activity-list">
+          <li><strong>Fromages au lait cru</strong> — Camembert, tomme, chèvre frais et affiné (2-8 mois)</li>
+          <li><strong>Yaourts et fromage blanc</strong> — Nature ou aromatisés (miel, fruits)</li>
+          <li><strong>Terrines fermières</strong> — Foie gras maison, pâté de campagne, rillettes</li>
+          <li><strong>Conserves maison</strong> — Confitures sans sucre raffiné, pickles bio, sauces</li>
+          <li><strong>Beurre artisanal</strong> — Écrémage lent, malaxage traditionnel</li>
+        </ul>
+        <p><strong>Normes qualité :</strong> Certification bio depuis 2010 | Certifié pour la vente à emporter | Tous nos emballages compostables ou réutilisables | Traçabilité complète du lait à la vente</p>
+        <p><strong>Horaires production :</strong> Réception du lait : 5h-7h (traite du matin) | Fromagerie active : 7h-14h (fermentation lente, affinage) | Contrôle qualité : quotidien avant emballage</p>
+      </article>
+
+      <article class="activity-card">
+        <h3>👨‍💼 Vente et services professionnels</h3>
+        <p>Nous ne vendons pas qu'au détail. Notre approche professionnelle sert restaurateurs, épiceries fines et entreprises de catering.</p>
+        <ul class="activity-list">
+          <li><strong>Paniers personnalisés</strong> — À la semaine, au mois, ou à la carte</li>
+          <li><strong>Contrats restaurateurs</strong> — Approvisionnement régulier en fruits/légumes frais</li>
+          <li><strong>Packs événementiels</strong> — Plateaux de fromage, paniers picnic, tables de produits</li>
+          <li><strong>Livraison 30km rayon</strong> — Circuits optimisés, emballage écologique</li>
+          <li><strong>Atelier pédagogique</strong> — Fabrication de fromage (groupes 8-30 pers)</li>
+          <li><strong>Visites guidées</strong> — Découverte complète (2-3h), tarif groupe</li>
+        </ul>
+        <p><strong>Conditions pro :</strong> Tarifs dégressifs selon volumes | Facturation mensuelle | Assistance technique | Étiquetage personnalisé possible</p>
+      </article>
+
+      <article class="activity-card">
+        <h3>🎓 Activités éducatives & événements</h3>
+        <p>La ferme est aussi un lieu d'apprentissage où petits et grands découvrent l'agriculture réelle.</p>
+        <ul class="activity-list">
+          <li><strong>Ateliers scolaires</strong> — Visite champs, fabrication fromage, rencontre animaux (40€/enfant)</li>
+          <li><strong>Ateliers familiaux</strong> — Dimanche et vacances scolaires (visite + dégustation)</li>
+          <li><strong>Stage été (15-17 ans)</strong> — Immersion 1-2 semaines, apprentissage agriculture</li>
+          <li><strong>Événements à la ferme</strong> — Mariages champêtres, réceptions privées (80 personnes max)</li>
+          <li><strong>Marché fermier hebdomadaire</strong> — Chaque samedi matin au cœur du village</li>
+        </ul>
+        <p><strong>Réservation requise :</strong> Tous nos ateliers doivent être réservés 2 semaines à l'avance. Tarifs groupe disponibles pour 15+ personnes.</p>
+      </article>
+
+      <article class="activity-card">
+        <h3>🌍 Engagement environnemental — Actions concrètes</h3>
+        <p>Pas juste des promesses : voici ce que nous faisons vraiment pour l'environnement.</p>
+        <ul class="activity-list">
+          <li>Zéro pesticide depuis 25 ans (certification bio officielle)</li>
+          <li>Panneaux solaires 6kW pour la fromagerie (40% de nos besoins énergétiques)</li>
+          <li>Récupération eau pluie : 15 000L/an pour irrigation</li>
+          <li>Compost in-situ : 100% de nos déchets organiques = engrais naturel</li>
+          <li>Transport limité : rayon livraison max 30km</li>
+          <li>Emballages : 100% réutilisables ou compostables</li>
+          <li>Biodiversité : 5 ruches, prairie fleurie, petits bois</li>
+        </ul>
+        <p><strong>Certification/Labels :</strong> Agriculture Bio (certifié 2010-continu) | Slow Food Convivium | Commerce Équitable Locale</p>
+      </article>
     </div>
   </section>
 

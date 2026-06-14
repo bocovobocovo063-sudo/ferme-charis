@@ -155,42 +155,119 @@
         <button class="filter-btn" data-filter="visites" type="button">👥 Visites</button>
         <button class="filter-btn" data-filter="elevage" type="button">🐓 Élevage</button>
       </div>
+      <style>
+        .gallery-item {
+          position: relative;
+          overflow: hidden;
+          border-radius: 8px;
+        }
+        .gallery-item-info {
+          position: absolute;
+          bottom: 0;
+          left: 0;
+          right: 0;
+          background: linear-gradient(180deg, transparent 0%, rgba(0,0,0,0.8) 100%);
+          color: white;
+          padding: 20px;
+          transform: translateY(100%);
+          transition: transform 0.3s;
+        }
+        .gallery-item:hover .gallery-item-info {
+          transform: translateY(0);
+        }
+        .gallery-item-title {
+          font-weight: bold;
+          margin: 0 0 5px 0;
+        }
+        .gallery-item-desc {
+          font-size: 0.9rem;
+          margin: 0;
+        }
+      </style>
       <div class="gallery-grid" id="gallery">
-        <div class="gallery-item" data-category="champs" onclick="openLightbox('/images/galerie-1.jpg', 'Vue des champs cultivés')">
+        <div class="gallery-item" data-category="champs" onclick="openLightbox('/images/galerie-1.jpg', 'Vue des champs cultivés - Les legumes poussent dans nos champs en rotation annuelle')">
           <img src="/images/galerie-1.jpg" alt="Vue des champs cultivés">
+          <div class="gallery-item-info">
+            <div class="gallery-item-title">Champs cultivés</div>
+            <div class="gallery-item-desc">Rotation naturelle selon les saisons</div>
+          </div>
         </div>
-        <div class="gallery-item" data-category="champs" onclick="openLightbox('/images/galerie-2.jpg', 'Récolte des légumes')">
+        <div class="gallery-item" data-category="champs" onclick="openLightbox('/images/galerie-2.jpg', 'Recolte des legumes - Nos equipes recoltent tous les legumes a la main pour preserver leur qualite')">
           <img src="/images/galerie-2.jpg" alt="Récolte des légumes">
+          <div class="gallery-item-info">
+            <div class="gallery-item-title">Récolte manuelle</div>
+            <div class="gallery-item-desc">Tous les légumes cueillis à la main</div>
+          </div>
         </div>
-        <div class="gallery-item" data-category="produits" onclick="openLightbox('/images/galerie-3.jpg', 'Fromages en affinement')">
+        <div class="gallery-item" data-category="produits" onclick="openLightbox('/images/galerie-3.jpg', 'Fromages en affinement - Notre fromagerie produit des fromages de qualite fermiere')">
           <img src="/images/galerie-3.jpg" alt="Fromages en affinement">
+          <div class="gallery-item-info">
+            <div class="gallery-item-title">Fromagerie</div>
+            <div class="gallery-item-desc">Affinage naturel, 2 à 8 mois</div>
+          </div>
         </div>
-        <div class="gallery-item" data-category="visites" onclick="openLightbox('/images/galerie-4.jpg', 'Atelier pédagogique')">
+        <div class="gallery-item" data-category="visites" onclick="openLightbox('/images/galerie-4.jpg', 'Atelier pedagogique - Les enfants apprennent a faire du fromage lors de nos ateliers educatifs')">
           <img src="/images/galerie-4.jpg" alt="Atelier pédagogique">
+          <div class="gallery-item-info">
+            <div class="gallery-item-title">Atelier pédagogique</div>
+            <div class="gallery-item-desc">Fabrication de fromage en direct</div>
+          </div>
         </div>
-        <div class="gallery-item" data-category="visites" onclick="openLightbox('/images/galerie-5.jpg', 'Marché local CHARISFERME')">
+        <div class="gallery-item" data-category="visites" onclick="openLightbox('/images/galerie-5.jpg', 'Marche local CHARISFERME - Retrouvez-nous chaque weekend sur les marches locaux')">
           <img src="/images/galerie-5.jpg" alt="Marché local CHARISFERME">
+          <div class="gallery-item-info">
+            <div class="gallery-item-title">Marché local</div>
+            <div class="gallery-item-desc">Chaque weekend, produits frais</div>
+          </div>
         </div>
-        <div class="gallery-item" data-category="visites" onclick="openLightbox('/images/galerie-6.jpg', 'Équipe à la ferme')">
+        <div class="gallery-item" data-category="visites" onclick="openLightbox('/images/galerie-6.jpg', 'Equipe a la ferme - L\'equipe dynamique de CHARISFERME qui travaille quotidiennement')">
           <img src="/images/galerie-6.jpg" alt="Équipe à la ferme">
+          <div class="gallery-item-info">
+            <div class="gallery-item-title">Notre équipe</div>
+            <div class="gallery-item-desc">Passionnée par l'agriculture de qualité</div>
+          </div>
         </div>
-        <div class="gallery-item" data-category="produits" onclick="openLightbox('/images/galerie-7.jpg', 'Produits fermiers frais')">
+        <div class="gallery-item" data-category="produits" onclick="openLightbox('/images/galerie-7.jpg', 'Produits fermiers frais - Paniers composes avec soin et livres rapidement')">
           <img src="/images/galerie-7.jpg" alt="Produits fermiers frais">
+          <div class="gallery-item-info">
+            <div class="gallery-item-title">Paniers frais</div>
+            <div class="gallery-item-desc">Sélection de saison composée avec soin</div>
+          </div>
         </div>
-        <div class="gallery-item" data-category="visites" onclick="openLightbox('/images/galerie-8.jpg', 'Visite de groupe')">
+        <div class="gallery-item" data-category="visites" onclick="openLightbox('/images/galerie-8.jpg', 'Visite de groupe - Les groupes sont les bienvenus a la ferme pour decouvrir notre travail')">
           <img src="/images/galerie-8.jpg" alt="Visite de groupe">
+          <div class="gallery-item-info">
+            <div class="gallery-item-title">Visites de groupe</div>
+            <div class="gallery-item-desc">Découverte complète de la ferme</div>
+          </div>
         </div>
-        <div class="gallery-item" data-category="champs" onclick="openLightbox('/images/galerie-9.jpg', 'Plantes aromatiques')">
+        <div class="gallery-item" data-category="champs" onclick="openLightbox('/images/galerie-9.jpg', 'Plantes aromatiques - Herbes de Provence et aromates cultives a la ferme')">
           <img src="/images/galerie-9.jpg" alt="Plantes aromatiques">
+          <div class="gallery-item-info">
+            <div class="gallery-item-title">Plantes aromatiques</div>
+            <div class="gallery-item-desc">Herbes bio, fraîches et parfumées</div>
+          </div>
         </div>
-        <div class="gallery-item" data-category="elevage" onclick="openLightbox('/images/galerie-10.jpg', 'Élevage respectueux')">
+        <div class="gallery-item" data-category="elevage" onclick="openLightbox('/images/galerie-10.jpg', 'Elevage respectueux - Nos animaux sont eleves en plein air avec beaucoup de soin')">
           <img src="/images/galerie-10.jpg" alt="Élevage respectueux">
+          <div class="gallery-item-info">
+            <div class="gallery-item-title">Élevage</div>
+            <div class="gallery-item-desc">Animaux libres et respectés</div>
+          </div>
         </div>
-        <div class="gallery-item" data-category="produits" onclick="openLightbox('/images/galerie-11.jpg', 'Préparation des commandes')">
+        <div class="gallery-item" data-category="produits" onclick="openLightbox('/images/galerie-11.jpg', 'Preparation des commandes - Chaque commande est preparee avec precision et amour')">
           <img src="/images/galerie-11.jpg" alt="Préparation des commandes">
+          <div class="gallery-item-info">
+            <div class="gallery-item-title">Préparation des commandes</div>
+            <div class="gallery-item-desc">Assemblage méticuleux, avec soin</div>
+          </div>
         </div>
-        <div class="gallery-item" data-category="champs" onclick="openLightbox('/images/galerie-12.jpg', 'Coucher de soleil à la ferme')">
+        <div class="gallery-item" data-category="champs" onclick="openLightbox('/images/galerie-12.jpg', 'Coucher de soleil a la ferme - Moment de beaute et de serenite a la ferme CHARISFERME')">
           <img src="/images/galerie-12.jpg" alt="Coucher de soleil à la ferme">
+          <div class="gallery-item-info">
+            <div class="gallery-item-title">Le cœur de la ferme</div>
+            <div class="gallery-item-desc">Où tout est possible avec passion</div>
+          </div>
         </div>
       </div>
     </div>

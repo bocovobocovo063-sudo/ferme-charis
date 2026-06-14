@@ -74,6 +74,67 @@
   <section id="apropos" class="section section--light">
     <div class="container">
       <div class="section-header">
+        <h2>Notre histoire</h2>
+        <p>25 ans de passion pour la terre, l'agriculture respons able et la création de lien entre producteurs et consommateurs.</p>
+      </div>
+      
+      <style>
+        .story-block {
+          background: white;
+          border-radius: 12px;
+          padding: 2rem;
+          margin-bottom: 2rem;
+          border-left: 5px solid var(--primary);
+          line-height: 1.8;
+        }
+        html.dark-mode .story-block {
+          background: rgba(22,27,34,0.85);
+        }
+        .story-block h3 {
+          margin-top: 0;
+          color: var(--primary);
+        }
+      </style>
+
+      <article class="story-block">
+        <h3>🌿 Les origines (2001-2010)</h3>
+        <p>Pierre a grandi à la ferme familiale, où son père cultivait selon les méthodes intensives de l'époque. En 1995, après avoir constaté l'impact des pesticides sur les sols et les nappes phréatiques locales, il a pris une décision : changer complètement de système.</p>
+        <p><strong>"Je ne voulais pas cultiver pour produire toujours plus, je voulais cultiver pour produire mieux."</strong></p>
+        <p>Les 6 premières années ont été difficiles : restructuration des champs, certification bio, apprentissage des nouvelles techniques. En 2001, CHARISFERME était officiellement née. La famille vivait largement des revenus de vente directe à la ferme. Les clients revenaient pour la qualité et la transparence.</p>
+      </article>
+
+      <article class="story-block">
+        <h3>📈 L'expansion (2010-2018)</h3>
+        <p>Petit à petit, la réputation s'est construite. Les chefs restaurants locaux recherchaient activement nos produits. Les écoles voulaient faire visiter la ferme. Les clients revenaient chaque semaine.</p>
+        <p>En 2010, après 10 ans, la ferme a obtenu sa certification bio officielle. Pierre a investi dans une fromagerie artisanale, recréant les recettes de sa grand-mère. Les fromages ont remporté des prix régionaux. Les terrines et conserves ont suivi.</p>
+        <p>C'était le moment de structurer : embauche de Marie comme maraîchère (2012), Antoine en fromagerie (2014), puis Lucas pour la logistique (2016).</p>
+      </article>
+
+      <article class="story-block">
+        <h3>🚀 La modernité (2018-2026)</h3>
+        <p>CHARISFERME s'est transformée : tout en gardant ses valeurs artisanales, nous avons adopté les outils modernes. Site web, système de commande en ligne, livraison organisée, mais sans renier nos principes.</p>
+        <p>Aujourd'hui (2026), nous fournissons :</p>
+        <ul style="list-style: none; padding: 0;">
+          <li>✓ 150+ clients réguliers (paniers hebdomadaires)</li>
+          <li>✓ 35+ clients professionnels (restaurateurs, épiceries, caterers)</li>
+          <li>✓ 50+ écoles/groupes (ateliers pédagogiques annuels)</li>
+          <li>✓ 200+ visiteurs/an à la ferme</li>
+        </ul>
+        <p>Notre rayon de livraison s'est étendu à 40km. Nos ateliers pédagogiques sont devenus une référence régionale. Et nous continuons à refuser les demandes qui compromettaient nos principes.</p>
+      </article>
+
+      <article class="story-block">
+        <h3>💚 Nos valeurs immuables</h3>
+        <ul style="list-style: none; padding: 0;">
+          <li>🌱 <strong>Respect de la nature</strong> — Pas de pesticide, jamais. Biodiversité protégée. Sols enrichis chaque année.</li>
+          <li>🤝 <strong>Transparence totale</strong> — Chaque client peut visiter, poser des questions, comprendre où va son argent.</li>
+          <li>🎯 <strong>Qualité avant quantité</strong> — Refuser une récolte si elle ne correspond pas à nos standards, même si ça coûte cher.</li>
+          <li>👥 <strong>Équipe heureuse</strong> — Nos employés sont bien rémunérés, pas surmenés, et AIMENT ce qu'ils font.</li>
+          <li>🌍 <strong>Circuits courts</strong> — Livraison locale max 40km, pour réduire transport et soutenir le territoire.</li>
+        </ul>
+      </article>
+
+      <div class="section-header" style="margin-top: 4rem;">
         <h2>Notre philosophie</h2>
         <p>Authenticité, transparence et respect des saisons sont au cœur de toutes nos cultures et de nos transformations.</p>
       </div>
@@ -93,8 +154,8 @@
       </div>
       <div class="badges">
         <span class="badge">Terroir authentique</span>
-        <span class="badge">circuits courts</span>
-        <span class="badge">élevage respectueux</span>
+        <span class="badge">Circuits courts</span>
+        <span class="badge">Élevage respectueux</span>
         <span class="badge">Produits de saison</span>
       </div>
     </div>
@@ -103,39 +164,91 @@
   <section id="equipe" class="section">
     <div class="container">
       <div class="section-header">
-        <h2>Équipe & savoir-faire</h2>
-        <p>Rencontrez l'équipe passionnée de CHARISFERME et les expertises agricoles qui garantissent la qualité de nos produits.</p>
+        <h2>L'équipe de CHARISFERME</h2>
+        <p>Des passionnés qui travaillent quotidiennement pour que chaque produit soit une réussite.</p>
       </div>
+      
+      <style>
+        .team-card .team-avatar {
+          width: 80px;
+          height: 80px;
+          border-radius: 50%;
+          background: linear-gradient(135deg, var(--primary), #10b981);
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          color: white;
+          font-size: 2rem;
+          font-weight: bold;
+          margin: 0 auto 1rem;
+        }
+        .team-card h3 {
+          text-align: center;
+          color: var(--primary);
+        }
+        .team-card .team-role {
+          text-align: center;
+          font-weight: bold;
+          color: var(--primary);
+          margin: 0.5rem 0;
+        }
+        .team-card .team-experience {
+          font-size: 0.9rem;
+          text-align: center;
+          color: var(--text-secondary);
+          margin: 0.5rem 0;
+        }
+      </style>
+
       <div class="team-grid">
         <article class="team-card card">
-          <div class="team-avatar">M</div>
+          <div class="team-avatar">🧑</div>
+          <h3>Pierre</h3>
+          <div class="team-role">Fondateur & Directeur</div>
+          <div class="team-experience">25+ ans en agriculture bio</div>
+          <p>Pierre est né à la ferme et a lancé la transformation en bio en 2001. Vigie des standards qualité, il refuse une récolte si elle n'est pas parfaite. <strong>Passion :</strong> perfectionnisme et innovation biologique.</p>
+        </article>
+        <article class="team-card card">
+          <div class="team-avatar">👩</div>
           <h3>Marie</h3>
-          <p>Maraîchère responsable des cultures biologiques et du calendrier de récolte.</p>
+          <div class="team-role">Responsable Maraîchage</div>
+          <div class="team-experience">12 ans d'expérience</div>
+          <p>Maraîchère passionnée de permaculture et de biodiversité. Elle gère les 8 hectares de champs, la rotation des cultures et l'affichage du calendrier de récolte. <strong>Spécialité :</strong> légumes anciens et variétés rares.</p>
         </article>
         <article class="team-card card">
-          <div class="team-avatar">A</div>
+          <div class="team-avatar">👨</div>
           <h3>Antoine</h3>
-          <p>Maître fromager, il transforme le lait de nos troupeaux en produits authentiques.</p>
+          <div class="team-role">Maître Fromager</div>
+          <div class="team-experience">14 ans, formation Suisse</div>
+          <p>Fromager certifié, formé en Suisse. Il maîtrise chaque étape : traite, fermentation, affinage. Ses fromages remportent régulièrement des prix régionaux. <strong>Signature :</strong> Tomme de CHARIS (médaille d'or 2024).</p>
         </article>
         <article class="team-card card">
-          <div class="team-avatar">L</div>
+          <div class="team-avatar">👨</div>
           <h3>Lucas</h3>
-          <p>Logistique et vente, il organise les livraisons locales et les commandes professionnelles.</p>
+          <div class="team-role">Logistique & Vente</div>
+          <div class="team-experience">8 ans à la ferme</div>
+          <p>Lucas organise livraisons, commandes en ligne et relations clients. Très à l'écoute, il personnalise chaque panier et gère les demandes spéciales. <strong>Focus :</strong> satisfaction client 100%.</p>
+        </article>
+        <article class="team-card card">
+          <div class="team-avatar">👩</div>
+          <h3>Sophie</h3>
+          <div class="team-role">Assistante Fromagerie</div>
+          <div class="team-experience">4 ans, en formation continue</div>
+          <p>Sophie aide Antoine en fromagerie et gère les conserves maison (confitures, pickles). Elle apprend les recettes ancestrales et crée de nouveaux produits. <strong>Passion :</strong> gastronomie fermière.</p>
+        </article>
+        <article class="team-card card">
+          <div class="team-avatar">🌾</div>
+          <h3>L'équipe saisonnière</h3>
+          <div class="team-role">Juin à septembre</div>
+          <div class="team-experience">Étudiants & stagiaires</div>
+          <p>Chaque été, nous accueillons 3-4 jeunes pour les récoltes d'été. Ils apprennent les techniques et l'amour du travail de la terre. Beaucoup reviennent l'année suivante !</p>
         </article>
       </div>
-      <div class="skills-grid">
-        <div class="skill-card card">
-          <h3>Agriculture durable</h3>
-          <p>Pratiques respectueuses du sol, rotation des cultures et préservation de la biodiversité.</p>
-        </div>
-        <div class="skill-card card">
-          <h3>Transformation artisanale</h3>
-          <p>Recettes maison, contrôle qualité et produits préparés dans le respect des traditions.</p>
-        </div>
-        <div class="skill-card card">
-          <h3>Service client pro</h3>
-          <p>Conseils personnalisés, suivi de commande et support dédié pour les projets professionnels.</p>
-        </div>
+
+      <div style="background: rgba(5,150,105,0.08); border-radius: 12px; padding: 2rem; margin-top: 2rem; text-align: center;">
+        <h3 style="color: var(--primary);">Travaillez avec nous ?</h3>
+        <p>CHARISFERME cherche régulièrement de nouveaux talents passionnés. Envoyez-nous votre CV et votre lettre de motivation.</p>
+        <p><a href="mailto:contact@charisferme.fr?subject=Candidature%20CHARISFERME" style="color: var(--primary); font-weight: bold;">📧 contact@charisferme.fr</a></p>
       </div>
     </div>
   </section>
