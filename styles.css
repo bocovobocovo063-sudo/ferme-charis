@@ -95,9 +95,9 @@ body {
 .feature-card:hover,
 .contact-card:hover,
 .gallery-card:hover {
-  transform: translateY(-4px);
-  box-shadow: var(--shadow-lg);
-  border-color: rgba(5, 150, 105, 0.3);
+  transform: translateY(-6px);
+  box-shadow: 0 20px 40px rgba(5, 150, 105, 0.15);
+  border-color: rgba(5, 150, 105, 0.4);
   background: var(--surface-elevated);
 }
 
@@ -457,9 +457,10 @@ textarea {
   font-size: 0.875rem;
   cursor: pointer;
   transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-  box-shadow: 0 4px 14px 0 rgba(5, 150, 105, 0.3);
+  box-shadow: 0 4px 20px rgba(5, 150, 105, 0.35);
   position: relative;
   overflow: hidden;
+  letter-spacing: 0.3px;
 }
 
 .btn::before {
@@ -479,7 +480,7 @@ textarea {
 
 .btn:hover {
   transform: translateY(-3px);
-  box-shadow: 0 8px 25px 0 rgba(5, 150, 105, 0.4);
+  box-shadow: 0 12px 30px rgba(5, 150, 105, 0.4);
   background: var(--gradient-primary);
 }
 
@@ -493,8 +494,9 @@ textarea {
 
 .btn-secondary:hover {
   background: rgba(255, 255, 255, 1);
-  border-color: rgba(5, 150, 105, 0.3);
-  box-shadow: 0 8px 25px 0 rgba(0, 0, 0, 0.12);
+  border-color: var(--primary);
+  color: var(--primary);
+  box-shadow: 0 12px 30px rgba(5, 150, 105, 0.2);
   transform: translateY(-3px);
 }
 

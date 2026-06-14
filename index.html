@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="fr">
 <head>
   <meta charset="UTF-8">
@@ -50,6 +50,14 @@
     "sameAs": ["https://www.facebook.com/charisferme","https://www.instagram.com/charisferme"],
     "aggregateRating": {"@type": "AggregateRating","ratingValue": "4.9","reviewCount": "85"}
   }
+  </script>
+  <!-- Google Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-XXXXXXXXXX', { 'anonymize_ip': true });
   </script>
 </head>
 <body>
