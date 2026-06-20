@@ -1,16 +1,16 @@
 // CHARISFERME - Configuration & Environment Variables
 // ✅ Production Ready Configuration
 
-export const CONFIG = {
-  // ===== SITE METADATA =====
-  SITE_NAME: 'CHARISFERME',
-  SITE_URL: 'https://www.charisferme.fr',
-  SITE_DOMAIN: 'charisferme.fr',
-  BUSINESS_NAME: 'CHARISFERME - Ferme Artisanale',
-  BUSINESS_PHONE: '+33600000000',
-  BUSINESS_EMAIL: 'contact@charisferme.fr',
-  BUSINESS_ADDRESS: 'Ferme de Charis, 12345 Village, France',
-  BUSINESS_SIRET: '123456789000012',
+const CONFIG = {
+    // ===== SITE METADATA =====
+    SITE_NAME: 'CHARISFERME',
+    SITE_URL: 'https://www.charisferme.fr',
+    SITE_DOMAIN: 'charisferme.fr',
+    BUSINESS_NAME: 'CHARISFERME - Ferme Artisanale',
+    BUSINESS_PHONE: '+33600000000',
+    BUSINESS_EMAIL: 'contact@charisferme.fr',
+    BUSINESS_ADDRESS: 'Ferme de Charis, 12345 Village, France',
+    BUSINESS_SIRET: '123456789000012',
 
   // ===== ANALYTICS =====
   GA_ID: 'G-XXXXXXXXXX', // Remplacer par votre ID Google Analytics
@@ -132,25 +132,48 @@ export const CONFIG = {
   }
 };
 
-// ===== HELPER FUNCTIONS =====
+if (typeof window !== 'undefined') {
+  window.CONFIG = CONFIG;
+  window.getEnv = (key) => CONFIG[key] || (typeof process !== 'undefined' ? process.env[key] : undefined);
+  window.isProduction = () => CONFIG.ENVIRONMENT === 'production';
+  window.isDevelopment = () => CONFIG.ENVIRONMENT === 'development';
+  window.isFeatureEnabled = (feature) => CONFIG.FEATURES[feature] === true;
+  window.logConfig = (level, message, data = null) => {
+    const levels = { error: 0, warn: 1, info: 2, debug: 3 };
+    const configLevel = levels[CONFIG.LOG_LEVEL] || 2;
+    const messageLevel = levels[level] || 2;
 
-export function getEnv(key) {
-  return CONFIG[key] || process.env[key];
+    if (messageLevel <= configLevel) {
+      const timestamp = new Date().toISOString();
+      const prefix = `[${timestamp}] [${level.toUpperCase()}]`;
+      if (data) {
+        console.log(`${prefix} ${message}`, data);
+      } else {
+        console.log(`${prefix} ${message}`);
+      }
+    }
+  };
 }
 
-export function isProduction() {
+// ===== HELPER FUNCTIONS =====
+
+function getEnv(key) {
+  return CONFIG[key] || (typeof process !== 'undefined' ? process.env[key] : undefined);
+}
+
+function isProduction() {
   return CONFIG.ENVIRONMENT === 'production';
 }
 
-export function isDevelopment() {
+function isDevelopment() {
   return CONFIG.ENVIRONMENT === 'development';
 }
 
-export function isFeatureEnabled(feature) {
+function isFeatureEnabled(feature) {
   return CONFIG.FEATURES[feature] === true;
 }
 
-export function log(level, message, data = null) {
+function log(level, message, data = null) {
   const levels = { error: 0, warn: 1, info: 2, debug: 3 };
   const configLevel = levels[CONFIG.LOG_LEVEL] || 2;
   const messageLevel = levels[level] || 2;

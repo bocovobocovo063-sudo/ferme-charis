@@ -24,7 +24,7 @@
   <meta property="og:image" content="/images/hero.jpg">
   <meta name="twitter:card" content="summary_large_image">
   <script>(function(){try{var t=localStorage.getItem('charisferme-theme');if(t==='dark'||(!t&&window.matchMedia('(prefers-color-scheme: dark)').matches)){document.documentElement.classList.add('dark-mode');}}catch(e){}})();</script>
-  <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="styles.min.css">
   <script src="https://js.stripe.com/v3/"></script>
   <script type="application/ld+json">
   {
@@ -73,7 +73,7 @@
 
 <header class="site-header">
   <div class="container header-inner">
-    <a href="index.html" class="logo">CHARISFERME <span>ferme & artisanat local</span></a>
+    <a href="index.html" class="logo"><img src="/images/logo.svg" alt="CHARISFERME" style="height:36px; vertical-align:middle;"></a>
     <nav class="main-nav" id="siteNav" aria-label="Navigation principale">
       <div class="nav-links">
         <a href="index.html">Accueil</a>
@@ -105,6 +105,7 @@
       <div class="hero-actions">
         <a href="produits.html" class="btn btn-primary">Découvrir nos produits</a>
         <a href="contact.html" class="btn btn-secondary">Demander un devis</a>
+        <a href="reservation.html" class="btn btn-primary cta-reserve">Réserver un panier</a>
       </div>
       <div class="hero-stats">
         <div class="stat-pill"><strong>85%</strong><span>de production locale</span></div>
@@ -112,6 +113,13 @@
         <div class="stat-pill"><strong>10+</strong><span>partenaires pro</span></div>
         <div class="stat-pill"><strong>25 ans</strong><span>d'expérience</span></div>
       </div>
+    </div>
+  </section>
+  <section id="cta-quick" class="section section--cta" style="background:var(--gradient-primary); color:white; padding:48px 0; text-align:center;">
+    <div class="container">
+      <h2 style="color:white;">Envie de produits frais ce week-end ?</h2>
+      <p style="color:rgba(255,255,255,0.9); max-width:800px; margin: 0.5rem auto 1rem;">Réservez votre panier de saison en quelques clics — préparation rapide et retrait à la ferme ou livraison locale.</p>
+      <a href="reservation.html" class="btn btn-accent" style="margin-top:8px;">Réserver maintenant</a>
     </div>
   </section>
 
@@ -154,6 +162,8 @@
           <p>Passez à la ferme aux horaires qui vous conviennent ou optez pour la livraison locale.</p>
         </div>
       </div>
+    </div>
+  </section>
   <section id="temoignages" class="section">
     <div class="container">
       <div class="section-header">
@@ -199,6 +209,7 @@
       </div>
     </div>
   </section>
+</main>
 
 <footer>
   <div class="container footer-content">
@@ -251,6 +262,6 @@
 <a class="whatsapp-float" href="https://wa.me/33600000000?text=Bonjour%20CHARISFERME%20%21%20Je%20souhaite%20un%20contact" target="_blank" rel="noreferrer noopener" aria-label="Contact WhatsApp">WhatsApp</a>
 <button class="scroll-to-top" aria-label="Retour en haut">↑</button>
 <script src="utils.js"></script>
-<script src="script.js"></script>
+<script src="script.min.js"></script>
 </body>
 </html>
