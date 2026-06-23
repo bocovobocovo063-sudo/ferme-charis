@@ -11,7 +11,7 @@
   <meta property="og:type" content="website">
   <meta name="theme-color" content="#059669">
   <script>(function(){try{var t=localStorage.getItem('charisferme-theme');if(t==='dark'||(!t&&window.matchMedia('(prefers-color-scheme: dark)').matches)){document.documentElement.classList.add('dark-mode');}}catch(e){}})();</script>
-  <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="styles.min.css">
   <style>
     /* ── HERO ── */
     .sub-hero {
@@ -339,7 +339,7 @@
 
 <header class="site-header">
   <div class="container header-inner">
-    <a href="index.html" class="logo">CHARISFERME <span>ferme & artisanat local</span></a>
+    <a href="index.html" class="logo"><img src="/images/logo.svg" alt="CHARISFERME" class="logo-img"></a>
     <nav class="main-nav" id="siteNav" aria-label="Navigation principale">
       <div class="nav-links">
         <a href="index.html">Accueil</a>
@@ -386,8 +386,8 @@
   <!-- FREQUENCY SELECTOR -->
   <section class="section">
     <div class="container">
-      <div class="section-header" style="text-align: center; margin-bottom: 0;">
-        <h2 style="margin-bottom: 0;">Choisissez votre fréquence</h2>
+      <div class="section-header text-center">
+        <h2 class="mb-0">Choisissez votre fréquence</h2>
       </div>
       <div class="frequency-selector">
         <button class="freq-btn active" data-frequency="weekly">📅 Hebdomadaire</button>
@@ -407,7 +407,7 @@
     <div class="container">
       <div class="section-composer">
         <h3>🎯 Composez Votre Panier</h3>
-        <p style="color: var(--text-secondary); margin: 0 0 1.5rem;">Personnalisez vos paniers selon vos préférences. Chaque formule inclut une sélection équilibrée de produits de saison.</p>
+        <p class="small-muted mb-1">Personnalisez vos paniers selon vos préférences. Chaque formule inclut une sélection équilibrée de produits de saison.</p>
         
         <div class="composer-grid">
           <div class="composer-item">
@@ -434,7 +434,7 @@
 
         <div class="composer-summary">
           <p>💡 <strong>Conseil :</strong> Vous pouvez modifier votre panier à tout moment. Pas de frais cachés, annulation simple.</p>
-          <strong style="color: var(--primary);">Première semaine à -20%</strong>
+          <strong class="primary-link-strong">Première semaine à -20%</strong>
         </div>
       </div>
     </section>
@@ -569,7 +569,7 @@
 <a class="whatsapp-float" href="https://wa.me/33600000000?text=Bonjour%20CHARISFERME%20%21%20Je%20souhaite%20un%20contact" target="_blank" rel="noreferrer noopener" aria-label="Contact WhatsApp">WhatsApp</a>
 <button class="scroll-to-top" aria-label="Retour en haut">↑</button>
 <script src="utils.js"></script>
-<script src="script.js"></script>
+<script src="script.min.js"></script>
 <script>
   // ===== SUBSCRIPTION PAGE LOGIC =====
   document.addEventListener('DOMContentLoaded', () => {

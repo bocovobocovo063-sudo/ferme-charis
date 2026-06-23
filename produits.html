@@ -11,9 +11,26 @@
   <meta property="og:type" content="website">
   <meta name="theme-color" content="#059669">
   <script>(function(){try{var t=localStorage.getItem('charisferme-theme');if(t==='dark'||(!t&&window.matchMedia('(prefers-color-scheme: dark)').matches)){document.documentElement.classList.add('dark-mode');}}catch(e){}})();</script>
-  <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="styles.min.css">
   <style>
     /* ── HERO ── */
+    .page-hero {
+      padding: 60px 20px 50px;
+      background: linear-gradient(135deg, #6a8a42 0%, #4a5a32 100%);
+      color: white;
+      text-align: center;
+    }
+    .page-hero p {
+      opacity: .88;
+      font-size: 1.05rem;
+      max-width: 860px;
+      margin: 0.75rem auto 0;
+    }
+    .pcard-actions {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
     .products-hero-inner {
       max-width: 640px;
       margin: 0 auto;
@@ -249,6 +266,7 @@
       inset: 0;
       background: rgba(0,0,0,0.45);
       z-index: 200;
+      -webkit-backdrop-filter: blur(2px);
       backdrop-filter: blur(2px);
     }
     .cart-overlay.open { display: block; }
@@ -487,7 +505,7 @@
 
 <header class="site-header">
   <div class="container header-inner">
-    <a href="index.html" class="logo">CHARISFERME <span>ferme & artisanat local</span></a>
+    <a href="index.html" class="logo"><img src="/images/logo.svg" alt="CHARISFERME" class="logo-img"></a>
     <nav class="main-nav" id="siteNav" aria-label="Navigation principale">
       <div class="nav-links">
         <a href="index.html">Accueil</a>
@@ -525,11 +543,11 @@
   </nav>
 
   <!-- HERO -->
-  <section class="page-hero" style="padding: 60px 20px 50px; background: linear-gradient(135deg, #6a8a42 0%, #4a5a32 100%); color: white; text-align: center;">
+  <section class="page-hero">
     <div class="container products-hero-inner">
       <h1>Nos produits</h1>
-      <p style="opacity: .88; font-size: 1.05rem;">Sélectionnez vos produits, choisissez vos quantités et passez commande directement depuis cette page.</p>
-      <div class="quality-strip" style="color: rgba(255,255,255,0.85);">
+      <p>Sélectionnez vos produits, choisissez vos quantités et passez commande directement depuis cette page.</p>
+      <div class="quality-strip">
         <div class="quality-pill"><span>🌿</span> Agriculture biologique</div>
         <div class="quality-pill"><span>🚚</span> Livraison 48h</div>
         <div class="quality-pill"><span>📍</span> Circuit court local</div>
@@ -544,7 +562,7 @@
 
       <!-- Barre filtre + imprimer -->
       <div class="filter-bar">
-        <div class="filter-group product-filter" role="tablist" aria-label="Filtrer les produits">
+        <div class="filter-group product-filter" role="group" aria-label="Filtrer les produits">
           <button type="button" class="filter-btn active" data-filter="all">Tous</button>
           <button type="button" class="filter-btn" data-filter="legumes">🥬 Légumes</button>
           <button type="button" class="filter-btn" data-filter="laitiers">🧀 Laitiers</button>
@@ -572,7 +590,7 @@
             <p class="pcard-unit">Unité : panier 2 kg</p>
             <div class="pcard-footer">
               <span class="pcard-price">2,50 € / kg</span>
-              <div style="display:flex;align-items:center;gap:0.5rem;">
+              <div class="pcard-actions">
                 <div class="qty-stepper">
                   <button type="button" class="qty-btn" data-action="minus" aria-label="Diminuer">−</button>
                   <span class="qty-value">1</span>
@@ -599,7 +617,7 @@
             <p class="pcard-unit">Unité : assortiment 300 g</p>
             <div class="pcard-footer">
               <span class="pcard-price">Dès 3,80 €</span>
-              <div style="display:flex;align-items:center;gap:0.5rem;">
+              <div class="pcard-actions">
                 <div class="qty-stepper">
                   <button type="button" class="qty-btn" data-action="minus" aria-label="Diminuer">−</button>
                   <span class="qty-value">1</span>
@@ -626,7 +644,7 @@
             <p class="pcard-unit">Unité : volaille entière ~1,5 kg</p>
             <div class="pcard-footer">
               <span class="pcard-price">Dès 12 € / kg</span>
-              <div style="display:flex;align-items:center;gap:0.5rem;">
+              <div class="pcard-actions">
                 <div class="qty-stepper">
                   <button type="button" class="qty-btn" data-action="minus" aria-label="Diminuer">−</button>
                   <span class="qty-value">1</span>
@@ -653,7 +671,7 @@
             <p class="pcard-unit">Unité : boîte de 12 œufs</p>
             <div class="pcard-footer">
               <span class="pcard-price">4,50 € / douzaine</span>
-              <div style="display:flex;align-items:center;gap:0.5rem;">
+              <div class="pcard-actions">
                 <div class="qty-stepper">
                   <button type="button" class="qty-btn" data-action="minus" aria-label="Diminuer">−</button>
                   <span class="qty-value">1</span>
@@ -680,7 +698,7 @@
             <p class="pcard-unit">Unité : bocal 350 g</p>
             <div class="pcard-footer">
               <span class="pcard-price">Dès 4,50 €</span>
-              <div style="display:flex;align-items:center;gap:0.5rem;">
+              <div class="pcard-actions">
                 <div class="qty-stepper">
                   <button type="button" class="qty-btn" data-action="minus" aria-label="Diminuer">−</button>
                   <span class="qty-value">1</span>
@@ -707,7 +725,7 @@
             <p class="pcard-unit">Unité : botte fraîche</p>
             <div class="pcard-footer">
               <span class="pcard-price">1,80 € / botte</span>
-              <div style="display:flex;align-items:center;gap:0.5rem;">
+              <div class="pcard-actions">
                 <div class="qty-stepper">
                   <button type="button" class="qty-btn" data-action="minus" aria-label="Diminuer">−</button>
                   <span class="qty-value">1</span>
@@ -749,7 +767,7 @@
       <div class="cart-items" id="cartItems">
         <p class="cart-empty">Aucun produit sélectionné.</p>
       </div>
-      <button class="cart-clear" id="cartClear" style="display:none;">Vider le panier</button>
+      <button class="cart-clear" id="cartClear">Vider le panier</button>
     </div>
 
     <hr class="cart-divider">
@@ -789,10 +807,10 @@
   </div>
 
   <div class="cart-footer">
-    <button class="btn-send" id="btnSend" disabled onclick="sendOrder('email')">
+    <button type="button" class="btn-send" id="btnSend" disabled onclick="sendOrder('email')">
       📧 Envoyer la commande
     </button>
-    <button class="btn-send" style="background: linear-gradient(135deg, #7c3aed 0%, #5b21b6 100%); margin-top: 0.6rem;" id="btnPayment" disabled onclick="sendOrder('payment')">
+    <button type="button" class="btn-send" id="btnPayment" disabled onclick="sendOrder('payment')">
       💳 Payer maintenant (Stripe)
     </button>
     <p class="cart-note">Choisissez votre mode: Email pour devis, ou Paiement direct</p>
@@ -850,7 +868,24 @@
   const countEl  = document.getElementById('cartCount');
   const clearBtn = document.getElementById('cartClear');
   const sendBtn  = document.getElementById('btnSend');
+  const payBtn   = document.getElementById('btnPayment');
   const form     = document.getElementById('cartForm');
+
+  const loadCart = () => {
+    try {
+      const saved = JSON.parse(localStorage.getItem('charisferme-cart') || '[]');
+      return Array.isArray(saved) ? saved : [];
+    } catch (err) {
+      console.warn('Panier localStorage invalide, réinitialisation.', err);
+      return [];
+    }
+  };
+
+  const saveCart = () => {
+    localStorage.setItem('charisferme-cart', JSON.stringify(cart));
+  };
+
+  cart = loadCart();
 
   // ── Ouvrir / Fermer tiroir ──
   function openDrawer() {
@@ -880,7 +915,10 @@
     countEl.textContent = total;
     fab.classList.toggle('visible', total > 0);
     sendBtn.disabled = total === 0;
+    payBtn.disabled = total === 0;
     clearBtn.style.display = total > 0 ? 'inline' : 'none';
+
+    saveCart();
 
     if (cart.length === 0) {
       itemsEl.innerHTML = '<p class="cart-empty">Aucun produit sélectionné.</p>';
@@ -901,6 +939,7 @@
     itemsEl.querySelectorAll('.cart-item-remove').forEach(btn => {
       btn.addEventListener('click', () => {
         cart.splice(parseInt(btn.dataset.idx, 10), 1);
+        saveCart();
         renderCart();
       });
     });
@@ -926,15 +965,18 @@
       const name    = btn.dataset.name;
       const emoji   = btn.dataset.emoji;
       const qty     = parseInt(card.querySelector('.qty-value').textContent, 10);
+      const priceText = card.querySelector('.pcard-price')?.textContent || '';
+      const price = parseFloat(priceText.replace(/,/g, '.').replace(/[^0-9.]/g, '')) || 0;
 
       const existing = cart.find(i => i.name === name);
       if (existing) {
         existing.qty += qty;
       } else {
-        cart.push({ name, emoji, qty });
+        cart.push({ name, emoji, qty, price });
       }
 
       btn.textContent = '✓ Ajouté';
+      saveCart();
       btn.classList.add('added');
       setTimeout(() => {
         btn.textContent = '+ Ajouter';
@@ -948,6 +990,7 @@
   // ── Vider le panier ──
   clearBtn.addEventListener('click', () => {
     cart = [];
+    saveCart();
     renderCart();
   });
 
@@ -1066,6 +1109,7 @@
 </script>
 
 <script src="utils.js"></script>
-<script src="script.js"></script>
+<script>window.hasInlineProductCart = true;</script>
+<script src="script.min.js"></script>
 </body>
 </html>

@@ -417,6 +417,10 @@ document.addEventListener('DOMContentLoaded', () => {
 
   // ===== ECOMMERCE CART SYSTEM =====
   const initEcommerceCart = () => {
+    if (window.hasInlineProductCart) {
+      console.log('⚠️ Inline produits cart active: skipping duplicate ecommerce cart init');
+      return;
+    }
     const cartFab = document.querySelector('.cart-fab');
     const cartOverlay = document.querySelector('.cart-overlay');
     const cartDrawer = document.querySelector('.cart-drawer');
@@ -474,6 +478,19 @@ document.addEventListener('DOMContentLoaded', () => {
       }
     };
 
+    const parsePrice = (priceText) => {
+      if (!priceText) return 0;
+      const normalized = priceText.replace(/,/g, '.').replace(/€/g, '').trim();
+      const match = normalized.match(/(\d+(?:\.\d+)?)/);
+      return match ? parseFloat(match[0]) : 0;
+    };
+
+    const parseQuantity = (card) => {
+      const qtyEl = card.querySelector('.qty-value');
+      const qty = qtyEl ? parseInt(qtyEl.textContent, 10) : NaN;
+      return Number.isFinite(qty) && qty > 0 ? qty : 1;
+    };
+
     // ===== ADD TO CART =====
     addButtons.forEach(btn => {
       btn.addEventListener('click', () => {
@@ -481,7 +498,8 @@ document.addEventListener('DOMContentLoaded', () => {
         if (!card) return;
 
         const title = card.querySelector('.pcard-title')?.textContent || 'Produit';
-        const price = parseFloat(card.querySelector('.pcard-price')?.textContent.replace('€', '').replace(',', '.')) || 0;
+        const price = parsePrice(card.querySelector('.pcard-price')?.textContent);
+        const qty = parseQuantity(card);
         const category = card.dataset.category || 'produit';
         const emoji = ['🥬', '🥕', '🥦', '🧀', '🥩', '🐔', '🥚'][Math.floor(Math.random() * 7)];
 
@@ -489,9 +507,9 @@ document.addEventListener('DOMContentLoaded', () => {
         const existing = cart.findIndex(item => item.name === title);
 
         if (existing >= 0) {
-          cart[existing].qty += 1;
+          cart[existing].qty += qty;
         } else {
-          cart.push({ name: title, price: price, qty: 1, emoji: emoji, category: category });
+          cart.push({ name: title, price: price, qty: qty, emoji: emoji, category: category });
         }
 
         saveCart(cart);
@@ -505,7 +523,7 @@ document.addEventListener('DOMContentLoaded', () => {
       });
     });
 
-    // ===== CART DRAWER =====
+    /* CART DRAWER */
     if (cartFab) {
       cartFab.addEventListener('click', () => {
         cartOverlay?.classList.add('open');
@@ -523,7 +541,7 @@ document.addEventListener('DOMContentLoaded', () => {
       cartDrawer.classList.remove('open');
     });
 
-    // ===== CLEAR CART =====
+    /* CLEAR CART */
     clearCartBtn?.addEventListener('click', () => {
       if (confirm('Êtes-vous sûr ? Votre panier sera vidé.')) {
         localStorage.setItem('charisferme-cart', '[]');
@@ -532,7 +550,7 @@ document.addEventListener('DOMContentLoaded', () => {
       }
     });
 
-    // ===== SUBMIT CART =====
+    /* SUBMIT CART */
     submitCartBtn?.addEventListener('click', async (e) => {
       e.preventDefault();
       
@@ -555,9 +573,9 @@ document.addEventListener('DOMContentLoaded', () => {
       submitCartBtn.textContent = '⏳ Traitement...';
 
       try {
-        // Enregistrer et rediriger vers checkout
+        // Enregistrer et rediriger vers la page de paiement
         localStorage.setItem('charisferme-cart-contact', JSON.stringify({ email, name, note }));
-        window.location.href = 'checkout.html?type=cart';
+        window.location.href = './checkout.html?type=cart';
       } catch (err) {
         if (window.toast) window.toast.error('Erreur : ' + err.message);
         submitCartBtn.disabled = false;

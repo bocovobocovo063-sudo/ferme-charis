@@ -7,8 +7,9 @@
   <title>Paiement - CHARISFERME</title>
   <meta name="author" content="CHARISFERME">
   <script>(function(){try{var t=localStorage.getItem('charisferme-theme');if(t==='dark'||(!t&&window.matchMedia('(prefers-color-scheme: dark)').matches)){document.documentElement.classList.add('dark-mode');}}catch(e){}})();</script>
-  <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="styles.min.css">
   <script src="https://js.stripe.com/v3/"></script>
+  <script src="config.js"></script>
   <style>
     .checkout-wrapper {
       min-height: 100vh;
@@ -33,7 +34,8 @@
       border: 1px solid var(--border);
       border-radius: 16px;
       padding: 2rem;
-      height: fit-content;
+      min-height: -webkit-fill-available;
+      height: auto;
       position: sticky;
       top: 100px;
     }
@@ -204,7 +206,7 @@
 
 <header class="site-header">
   <div class="container header-inner">
-    <a href="index.html" class="logo">CHARISFERME <span>ferme & artisanat local</span></a>
+    <a href="index.html" class="logo"><img src="/images/logo.svg" alt="CHARISFERME" class="logo-img"></a>
     <nav class="main-nav" id="siteNav" aria-label="Navigation principale">
       <div class="nav-links">
         <a href="index.html">Accueil</a>
@@ -224,7 +226,7 @@
 
 <main id="main-content" class="checkout-wrapper">
   <!-- Breadcrumbs -->
-  <nav class="breadcrumbs" aria-label="Chemin de navigation" style="grid-column: 1 / -1;">
+  <nav class="breadcrumbs grid-full" aria-label="Chemin de navigation">
     <a href="index.html">Accueil</a>
     <span class="separator">/</span>
     <a href="produits.html">Produits</a>
@@ -241,7 +243,7 @@
 
   <!-- FORMULAIRE PAIEMENT -->
   <div class="checkout-main">
-    <h1 style="margin-top: 0;">Finaliser votre commande</h1>
+    <h1 class="mt-0">Finaliser votre commande</h1>
     
     <div class="error-message" id="errorMessage"></div>
     <div class="success-message" id="successMessage"></div>
@@ -280,8 +282,9 @@
 
       <div class="form-row">
         <div class="form-group">
-          <label for="postal">Code postal</label>
-          <input type="text" id="postal" name="postal" required placeholder="75001">
+          <label for="postal">Code postal (4-5 caractères)</label>
+          <input type="text" id="postal" name="postal" minlength="4" maxlength="5" pattern="[0-9]{4,5}" required placeholder="75001">
+          <small class="small-muted d-block">Format: 4 à 5 chiffres</small>
         </div>
         <div class="form-group">
           <label for="city">Ville</label>
@@ -289,21 +292,21 @@
         </div>
       </div>
 
-      <hr style="border: none; border-top: 1px solid var(--border); margin: 1rem 0;">
+      <hr class="hr-sep">
 
-      <h3 style="margin: 0 0 1rem;">Paiement Sécurisé</h3>
+      <h3 class="mb-1">Paiement Sécurisé</h3>
 
       <div id="card-element" class="stripe-element"></div>
-      <div id="card-errors" class="error-message" style="margin-top: 0.5rem;"></div>
+      <div id="card-errors" class="error-message mt-small"></div>
 
-      <label style="display: flex; gap: 0.5rem; font-size: 0.85rem; color: var(--text-secondary); align-items: flex-start;">
-        <input type="checkbox" id="terms" required style="margin-top: 0.2rem;">
+      <label class="label-inline">
+        <input type="checkbox" id="terms" required class="mt-2px">
         <span>J'accepte les conditions d'utilisation et politique de confidentialité</span>
       </label>
 
       <button type="submit" class="checkout-btn" id="submitBtn">
         <span id="btnText">Payer maintenant</span>
-        <span id="btnSpinner" class="loading-spinner" style="display: none; margin-left: 0.5rem;"></span>
+        <span id="btnSpinner" class="loading-spinner display-none ml-05"></span>
       </button>
 
       <div class="checkout-info">
@@ -315,18 +318,18 @@
 
   <!-- RÉSUMÉ COMMANDE -->
   <div class="checkout-side">
-    <h3 style="margin-top: 0;">Résumé de commande</h3>
+    <h3 class="mt-0">Résumé de commande</h3>
     
-    <div id="orderSummary" style="display: flex; flex-direction: column; gap: 1rem;">
+    <div id="orderSummary" class="flex-col-gap">
       <!-- Généré par JavaScript -->
     </div>
 
-    <div class="summary-total" style="border-top: 2px solid var(--border); margin-top: 1.5rem; padding-top: 1rem;">
+    <div class="summary-total">
       <span>Total TTC :</span>
       <span id="totalAmount">€0,00</span>
     </div>
 
-    <div style="background: rgba(5,150,105,0.08); border-radius: 10px; padding: 1rem; margin-top: 1rem; font-size: 0.85rem; color: var(--text-secondary);">
+    <div class="highlight-panel">
       <strong>✓ Livraison gratuite</strong><br>
       <strong>✓ TVA incluse</strong><br>
       <strong>✓ Assurance client</strong>
@@ -334,7 +337,7 @@
   </div>
 </main>
 
-<footer style="margin-top: 4rem;">
+<footer class="footer-spacing">
   <div class="container footer-content">
     <div class="footer-block">
       <h4>CHARISFERME</h4>
@@ -355,93 +358,160 @@
 </footer>
 
 <script src="utils.js"></script>
-<script src="script.js"></script>
+<script src="script.min.js"></script>
 <script>
   // ===== CONFIGURATION STRIPE =====
-  window.STRIPE_PUBLIC_KEY = 'pk_test_51234567890abcdef'; // À remplacer avec vraie clé publique Stripe
+  const isLocalhost = window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1';
+  const localStripeTestKey = 'pk_test_51Tjm0JRwG5FPFo0qHbNEHVphuRzG1lvyyeNuYpWkQkVx9ZhRcOSBCTcqyYhoB6xUuJheCfIeFxgH3Mz3QBwB37qE00yOy5WVdh';
+  const configuredStripeKey = (window.CONFIG && window.CONFIG.STRIPE_PUBLIC_KEY) || '';
 
-  // ===== CHECKOUT PAGE LOGIC =====
-  document.addEventListener('DOMContentLoaded', async () => {
-    const stripe = Stripe(window.STRIPE_PUBLIC_KEY); // Clé à configurer
-    const elements = stripe.elements();
-    const cardElement = elements.create('card');
-    cardElement.mount('#card-element');
+  window.STRIPE_PUBLIC_KEY = isLocalhost
+    ? localStripeTestKey
+    : (configuredStripeKey || 'pk_live_XXXXXX');
 
-    const form = document.getElementById('checkoutForm');
-    const errorDiv = document.getElementById('card-errors');
-    const checkoutForm = document.getElementById('checkoutForm');
+  if (isLocalhost) {
+    console.log('🔐 Mode TEST Stripe (localhost) - Stripe key configurée');
+  } else {
+    console.log('🔐 Mode LIVE Stripe (production)');
+  }
 
-    // ===== CHARGER LE PANIER OU L'ABONNEMENT =====
-    const urlParams = new URLSearchParams(window.location.search);
-    const type = urlParams.get('type') || 'cart';
-    const id = urlParams.get('id');
+  const stripe = Stripe(window.STRIPE_PUBLIC_KEY);
+  const elements = stripe.elements();
+  const cardElement = elements.create('card');
+  cardElement.mount('#card-element');
 
-    let cartData = [];
-    let total = 0;
-    let orderType = type;
+  const form = document.getElementById('checkoutForm');
+  const pageError = document.getElementById('errorMessage');
+  const errorDiv = document.getElementById('card-errors');
+  const submitBtn = document.getElementById('submitBtn');
 
-    if (type === 'cart') {
-      cartData = JSON.parse(localStorage.getItem('charisferme-cart') || '[]');
-      total = cartData.reduce((sum, item) => sum + (item.price * item.qty), 0);
-    } else if (type === 'subscription') {
-      const sub = JSON.parse(localStorage.getItem('charisferme-subscription-pending') || '{}');
-      cartData = [{
-        name: `Abonnement ${sub.planName}`,
-        price: sub.price,
-        qty: 1,
-        frequency: sub.frequency
-      }];
-      total = sub.price;
+  const urlParams = new URLSearchParams(window.location.search);
+  const type = urlParams.get('type') || 'cart';
+  const cartContact = JSON.parse(localStorage.getItem('charisferme-cart-contact') || '{}');
+
+  const normalizeCartItems = (items) => Array.isArray(items)
+    ? items
+        .map(item => ({
+          name: item?.name ? String(item.name) : 'Produit',
+          price: Math.max(0, Number(item?.price) || 0),
+          qty: Math.max(0, Math.floor(Number(item?.qty) || 0)),
+          frequency: item?.frequency || ''
+        }))
+        .filter(item => item.name && item.price > 0 && item.qty > 0)
+    : [];
+
+  let cartData = [];
+  let total = 0;
+
+  if (type === 'cart') {
+    try {
+      const savedCart = JSON.parse(localStorage.getItem('charisferme-cart') || '[]');
+      cartData = normalizeCartItems(savedCart);
+    } catch (err) {
+      cartData = [];
+      console.warn('Impossible de lire le panier localStorage', err);
     }
+    total = cartData.reduce((sum, item) => sum + item.price * item.qty, 0);
+  } else if (type === 'subscription') {
+    try {
+      const sub = JSON.parse(localStorage.getItem('charisferme-subscription-pending') || '{}');
+      const normalized = {
+        name: `Abonnement ${sub.planName || 'personnalisé'}`,
+        price: Math.max(0, Number(sub.price) || 0),
+        qty: 1,
+        frequency: sub.frequency || 'mensuel'
+      };
+      if (normalized.price > 0) cartData = [normalized];
+    } catch (err) {
+      cartData = [];
+      console.warn('Impossible de lire l’abonnement localStorage', err);
+    }
+    total = cartData.reduce((sum, item) => sum + item.price * item.qty, 0);
+  }
 
-    // ===== AFFICHER LE RÉSUMÉ =====
-    const summaryDiv = document.getElementById('orderSummary');
+  if (cartContact.email) {
+    document.getElementById('email').value = cartContact.email;
+  }
+
+  if (cartContact.name) {
+    document.getElementById('fullname').value = cartContact.name;
+  }
+
+  if (cartContact.phone) {
+    document.getElementById('phone').value = cartContact.phone;
+  }
+
+  if (cartContact.address) {
+    document.getElementById('address').value = cartContact.address;
+  }
+
+  if (cartContact.city) {
+    document.getElementById('city').value = cartContact.city;
+  }
+
+  if (cartContact.postal) {
+    document.getElementById('postal').value = cartContact.postal;
+  }
+
+  console.log('⚙️ Checkout data', { type, cartData, total, contact: cartContact });
+
+  const isCartValid = cartData.length > 0 && total > 0;
+  if (!isCartValid) {
+    pageError.textContent = 'Votre panier est vide ou invalide. Redirection vers la page Produits...';
+    pageError.classList.add('show');
+    submitBtn.disabled = true;
+    if (form) {
+      Array.from(form.elements).forEach(el => { if (el.tagName !== 'BUTTON') el.disabled = true; });
+    }
+    setTimeout(() => {
+      window.location.replace('produits.html');
+    }, 1200);
+  }
+
+  const summaryDiv = document.getElementById('orderSummary');
+  if (summaryDiv && cartData.length > 0) {
     summaryDiv.innerHTML = cartData.map(item => `
       <div class="summary-item">
         <span>${item.name}${item.frequency ? ' (' + item.frequency + ')' : ''}${item.qty > 1 ? ' x' + item.qty : ''}</span>
         <strong>€${(item.price * item.qty).toFixed(2).replace('.', ',')}</strong>
       </div>
     `).join('');
+  }
 
-    document.getElementById('totalAmount').textContent = '€' + total.toFixed(2).replace('.', ',');
+  const totalAmount = document.getElementById('totalAmount');
+  if (totalAmount) {
+    totalAmount.textContent = '€' + total.toFixed(2).replace('.', ',');
+  }
 
-    // ===== GESTION ERREURS STRIPE =====
-    cardElement.addEventListener('change', (event) => {
-      if (event.error) {
-        errorDiv.textContent = event.error.message;
-        errorDiv.classList.add('show');
-      } else {
-        errorDiv.classList.remove('show');
-      }
-    });
+  if (!isCartValid) {
+    console.warn('Checkout blocked: cart invalid or empty', { cartData, total });
+  }
 
-    // ===== SOUMISSION FORMULAIRE =====
+  cardElement.addEventListener('change', (event) => {
+    if (event.error) {
+      errorDiv.textContent = event.error.message;
+      errorDiv.classList.add('show');
+    } else {
+      errorDiv.classList.remove('show');
+    }
+  });
+
+  if (form) {
     form.addEventListener('submit', async (e) => {
       e.preventDefault();
 
-      const submitBtn = document.getElementById('submitBtn');
       const btnText = document.getElementById('btnText');
       const btnSpinner = document.getElementById('btnSpinner');
-      const errorDiv = document.getElementById('errorMessage');
 
       submitBtn.disabled = true;
       btnText.style.display = 'none';
       btnSpinner.style.display = 'inline-block';
 
       try {
-        // Créer token de paiement
-        const { token } = await stripe.createToken(cardElement);
-
-        if (token.error) {
-          throw new Error(token.error.message);
-        }
-
-        // Envoyer au serveur (appel API Netlify Function)
-        const response = await fetch('/.netlify/functions/create-payment-intent', {
+        const createResp = await fetch('/.netlify/functions/create-payment-intent', {
           method: 'POST',
           headers: { 'Content-Type': 'application/json' },
           body: JSON.stringify({
-            token: token.id,
             amount: Math.round(total * 100),
             email: document.getElementById('email').value,
             name: document.getElementById('fullname').value,
@@ -449,41 +519,84 @@
             city: document.getElementById('city').value,
             postal: document.getElementById('postal').value,
             phone: document.getElementById('phone').value,
-            orderType: orderType,
+            orderType: type,
             planName: cartData[0]?.name || 'Panier',
             frequency: cartData[0]?.frequency,
             items: cartData
           })
         });
 
-        const result = await response.json();
+        const createResult = await createResp.json();
+        if (!createResult.success || !createResult.clientSecret) {
+          throw new Error(createResult.error || createResult.message || 'Impossible de créer PaymentIntent');
+        }
 
-        if (result.success) {
-          // Succès !
+        const billingDetails = {
+          name: document.getElementById('fullname').value,
+          email: document.getElementById('email').value,
+          phone: document.getElementById('phone').value,
+          address: {
+            line1: document.getElementById('address').value,
+            postal_code: document.getElementById('postal').value,
+            city: document.getElementById('city').value,
+            country: document.getElementById('country').value
+          }
+        };
+
+        const confirmResult = await stripe.confirmCardPayment(createResult.clientSecret, {
+          payment_method: {
+            card: cardElement,
+            billing_details: billingDetails
+          }
+        });
+
+        if (confirmResult.error) {
+          throw new Error(confirmResult.error.message || 'Échec de la confirmation du paiement');
+        }
+
+        if (confirmResult.paymentIntent && confirmResult.paymentIntent.status === 'succeeded') {
+          const submitResp = await fetch('/.netlify/functions/submit-order', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({
+              name: document.getElementById('fullname').value,
+              email: document.getElementById('email').value,
+              phone: document.getElementById('phone').value,
+              address: document.getElementById('address').value,
+              items: cartData,
+              type: 'paid',
+              paymentIntentId: createResult.paymentIntentId || confirmResult.paymentIntent.id,
+              platformOrderId: createResult.orderId
+            })
+          });
+
+          const submitResult = await submitResp.json();
           localStorage.removeItem('charisferme-cart');
           localStorage.removeItem('charisferme-subscription-pending');
-          document.getElementById('successMessage').textContent = '✓ Paiement réussi ! Redirection...';
+
+          document.getElementById('successMessage').textContent = '✓ Paiement confirmé ! Redirection...';
           document.getElementById('successMessage').classList.add('show');
-          
           if (window.toast) window.toast.success('Commande confirmée ! 🎉');
+
+          const redirectOrderId = submitResult.commandeId || createResult.orderId || confirmResult.paymentIntent.id;
           setTimeout(() => {
-            window.location.href = 'merci.html?order=' + result.orderId + '&type=' + orderType;
-          }, 2000);
+            window.location.href = 'merci.html?order=' + encodeURIComponent(redirectOrderId) + '&type=' + type;
+          }, 1500);
         } else {
-          throw new Error(result.message || 'Erreur du paiement');
+          throw new Error('Paiement non confirmé. Statut: ' + (confirmResult.paymentIntent && confirmResult.paymentIntent.status));
         }
       } catch (error) {
-        errorDiv.textContent = '❌ ' + error.message;
-        errorDiv.classList.add('show');
+        pageError.textContent = '❌ ' + error.message;
+        pageError.classList.add('show');
       } finally {
         submitBtn.disabled = false;
         btnText.style.display = 'inline';
         btnSpinner.style.display = 'none';
       }
     });
+  }
 
-    console.log('✅ Checkout initialized');
-  });
+  console.log('✅ Checkout initialized');
 </script>
 </body>
 </html>

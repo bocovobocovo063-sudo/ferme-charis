@@ -12,6 +12,11 @@ if (!stripeSecretKey) {
 
 const stripe = stripeSecretKey ? require('stripe')(stripeSecretKey) : null;
 
+// Basic runtime info (ne pas logger les clés elles-mêmes)
+console.log('Function create-payment-intent loaded.');
+console.log('STRIPE configured:', !!stripeSecretKey);
+console.log('SENDGRID configured:', !!sendgridApiKey);
+
 // ===== CONFIG EMAIL (SendGrid ou Nodemailer) =====
 let mailService = null;
 
@@ -167,48 +172,60 @@ exports.handler = async (event) => {
   }
 
   try {
-    const data = JSON.parse(event.body);
+    console.log('create-payment-intent invoked. method=', event.httpMethod);
+    const data = JSON.parse(event.body || '{}');
+    // Log high-level incoming payload keys (mask sensitive fields)
+    console.log('payload keys:', Object.keys(data));
     const { token, amount, email, name, address, city, postal, phone, orderType, items } = data;
+    console.log('orderType=', orderType, 'amount=', amount, 'email=', email ? (email.slice(0,2) + '***' + email.split('@')[1]) : null);
 
-    if (!token || !amount || !email || !name) {
+    const amountValue = Number(amount);
+
+    if (!amountValue || !email || !name) {
       return {
         statusCode: 400,
-        body: JSON.stringify({ error: 'Données manquantes: token, amount, email, name requis' })
+        body: JSON.stringify({ error: 'Données manquantes: amount, email, name requis' })
       };
     }
 
-    // ===== CRÉER PAYMENT METHOD =====
-    const paymentMethod = await stripe.paymentMethods.create({
-      type: 'card',
-      card: { token: token }
-    });
+    if (orderType === 'cart' && (!Number.isFinite(amountValue) || amountValue <= 0)) {
+      return {
+        statusCode: 400,
+        body: JSON.stringify({ error: 'Montant invalide pour le paiement' })
+      };
+    }
 
-    // ===== CAS 1: COMMANDE SIMPLE =====
+    // ===== CAS 1: COMMANDE SIMPLE (PaymentIntent) =====
     if (orderType === 'cart') {
-      const charge = await stripe.charges.create({
-        amount: Math.round(amount),
-        currency: 'eur',
-        source: token,
-        receipt_email: email,
-        metadata: {
-          customer_name: name,
-          customer_email: email,
-          customer_phone: phone,
-          delivery_address: address || city || postal,
-          order_type: 'cart'
-        }
-      });
-
+      // Créer un identifiant de commande local
       const orderId = 'ORD-' + Date.now();
 
-      // Envoyer email de confirmation
-      await sendConfirmationEmail(email, name, {
-        orderId: orderId,
-        amount: amount,
-        items: items || [],
-        address: address || city
-      });
+      // Créer PaymentIntent pour gérer SCA/3DS via Stripe.js côté client
+      let paymentIntent;
+      try {
+        paymentIntent = await stripe.paymentIntents.create({
+          amount: Math.round(amountValue),
+          currency: 'eur',
+          receipt_email: email,
+          metadata: {
+            order_id: orderId,
+            customer_name: name,
+            customer_email: email,
+            customer_phone: phone || '',
+            delivery_address: address || city || postal || ''
+          }
+        });
+        console.log('PaymentIntent created:', paymentIntent.id);
+      } catch (stripeErr) {
+        console.error('Stripe API error:', stripeErr && stripeErr.message ? stripeErr.message : stripeErr);
+        return {
+          statusCode: 502,
+          headers: { 'Content-Type': 'application/json', 'Access-Control-Allow-Origin': '*' },
+          body: JSON.stringify({ success: false, error: 'Stripe API error', detail: stripeErr && stripeErr.message })
+        };
+      }
 
+      // Retourner client_secret au client pour confirmation via Stripe.js
       return {
         statusCode: 200,
         headers: {
@@ -218,104 +235,9 @@ exports.handler = async (event) => {
         body: JSON.stringify({
           success: true,
           orderId: orderId,
-          chargeId: charge.id,
-          message: 'Paiement réussi et commande enregistrée'
-        })
-      };
-    }
-
-    // ===== CAS 2: ABONNEMENT RÉCURRENT =====
-    if (orderType === 'subscription') {
-      const frequencyMap = {
-        weekly: { interval: 'week', interval_count: 1 },
-        biweekly: { interval: 'week', interval_count: 2 },
-        monthly: { interval: 'month', interval_count: 1 }
-      };
-
-      const frequency = data.frequency || 'weekly';
-      const freqConfig = frequencyMap[frequency] || frequencyMap.weekly;
-
-      // Créer ou récupérer customer Stripe
-      const customers = await stripe.customers.list({ email: email, limit: 1 });
-      let customerId;
-
-      if (customers.data.length > 0) {
-        customerId = customers.data[0].id;
-      } else {
-        const customer = await stripe.customers.create({
-          email: email,
-          name: name,
-
-// ===== MAIN HANDLER =====
-exports.handler = async (event) => {
-  if (!stripe) {
-    return {
-      statusCode: 500,
-      body: JSON.stringify({ error: 'Stripe non configuré' })
-    };
-  }
-
-  if (event.httpMethod !== 'POST') {
-    return {
-      statusCode: 405,
-      body: JSON.stringify({ error: 'Méthode non autorisée' })
-    };
-  }
-
-  try {
-    const data = JSON.parse(event.body);
-    const { token, amount, email, name, address, city, postal, phone, orderType, items } = data;
-
-    if (!token || !amount || !email || !name) {
-      return {
-        statusCode: 400,
-        body: JSON.stringify({ error: 'Données manquantes: token, amount, email, name requis' })
-      };
-    }
-
-    // ===== CRÉER PAYMENT METHOD =====
-    const paymentMethod = await stripe.paymentMethods.create({
-      type: 'card',
-      card: { token: token }
-    });
-
-    // ===== CAS 1: COMMANDE SIMPLE =====
-    if (orderType === 'cart') {
-      const charge = await stripe.charges.create({
-        amount: Math.round(amount),
-        currency: 'eur',
-        source: token,
-        receipt_email: email,
-        metadata: {
-          customer_name: name,
-          customer_email: email,
-          customer_phone: phone,
-          delivery_address: address || city || postal,
-          order_type: 'cart'
-        }
-      });
-
-      const orderId = 'ORD-' + Date.now();
-
-      // Envoyer email de confirmation
-      await sendConfirmationEmail(email, name, {
-        orderId: orderId,
-        amount: amount,
-        items: items || [],
-        address: address || city
-      });
-
-      return {
-        statusCode: 200,
-        headers: {
-          'Content-Type': 'application/json',
-          'Access-Control-Allow-Origin': '*'
-        },
-        body: JSON.stringify({
-          success: true,
-          orderId: orderId,
-          chargeId: charge.id,
-          message: 'Paiement réussi et commande enregistrée'
+          clientSecret: paymentIntent.client_secret,
+          paymentIntentId: paymentIntent.id,
+          message: 'PaymentIntent créé, confirmer côté client avec Stripe.js'
         })
       };
     }
@@ -373,7 +295,7 @@ exports.handler = async (event) => {
       // Créer prix récurrent
       const price = await stripe.prices.create({
         product: productId,
-        unit_amount: Math.round(amount),
+        unit_amount: Math.round(amountValue),
         currency: 'eur',
         recurring: {
           interval: freqConfig.interval,
@@ -388,7 +310,7 @@ exports.handler = async (event) => {
           price: price.id,
           quantity: 1
         }],
-        default_payment_method: paymentMethod.id,
+        default_payment_method: undefined,
         automatic_tax: { enabled: false }
       });
 

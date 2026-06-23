@@ -15,7 +15,7 @@
   <meta property="og:image" content="/images/hero.jpg">
   <meta name="theme-color" content="#059669">
   <script>(function(){try{var t=localStorage.getItem('charisferme-theme');if(t==='dark'||(!t&&window.matchMedia('(prefers-color-scheme: dark)').matches)){document.documentElement.classList.add('dark-mode');}}catch(e){}})();</script>
-  <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="styles.min.css">
   <style>
     .reservation-form {
       background: var(--surface);
@@ -120,7 +120,7 @@
 
 <header class="site-header">
   <div class="container header-inner">
-    <a href="index.html" class="logo">CHARISFERME <span>ferme & artisanat local</span></a>
+    <a href="index.html" class="logo"><img src="/images/logo.svg" alt="CHARISFERME" class="logo-img"></a>
 
     <nav class="main-nav" id="siteNav" aria-label="Navigation principale">
       <div class="nav-links">
@@ -158,7 +158,7 @@
     </script>
   </nav>
 
-  <section class="reservation-hero" style="padding: 60px 20px; background: linear-gradient(135deg, #6a8a42 0%, #4a5a32 100%); color: white; text-align: center;">
+  <section class="reservation-hero page-hero-gradient">
     <div class="container">
       <h1>Réserver & Commander</h1>
       <p>Composez votre panier personnalisé ou réservez une visite de groupe à la ferme.</p>
@@ -171,7 +171,7 @@
         <div class="card">
           <h3>🛒 Panier Personnalisé</h3>
           <p>Choisissez vos produits préférés et recevez-les directement chez vous sous 48h. Livraison rapide dans un rayon de 40 km.</p>
-          <ul style="margin: 20px 0; padding-left: 20px;">
+          <ul class="list-indent">
             <li>Sélection personnalisée</li>
             <li>Livraison rapide (48h)</li>
             <li>Réduction pour commandes régulières</li>
@@ -181,7 +181,7 @@
         <div class="card">
           <h3>👥 Visite de Groupe</h3>
           <p>Organisez une visite pédagogique, un atelier ou un événement à la ferme. Nous accueillons écoles, associations et groupes.</p>
-          <ul style="margin: 20px 0; padding-left: 20px;">
+          <ul class="list-indent">
             <li>Visite guidée des champs</li>
             <li>Ateliers de transformation</li>
             <li>Dégustation de produits</li>
@@ -194,8 +194,8 @@
 
   <section class="section">
     <div class="container">
-      <div style="display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 1rem; margin-bottom: 40px;">
-        <h2 style="margin: 0;">Commander votre panier</h2>
+      <div class="flex-between-wrap mb-40">
+        <h2 class="mt-0">Commander votre panier</h2>
         <button class="btn-print" onclick="window.print()" aria-label="Imprimer ou sauvegarder en PDF">
           🖨 Imprimer / PDF
         </button>
@@ -204,7 +204,7 @@
       <div class="reservation-form">
         <form id="reservationForm">
           <input type="hidden" name="subject" value="Nouvelle commande panier - CHARISFERME">
-          <input type="hidden" name="botcheck" value="" style="display:none;">
+          <input type="hidden" name="botcheck" value="" class="display-none">
           <h3>1. Vos coordonnées</h3>
           <div class="form-row">
             <div class="form-group">
@@ -227,7 +227,7 @@
             </div>
           </div>
 
-          <h3 style="margin-top: 40px; margin-bottom: 20px;">2. Sélectionnez vos produits</h3>
+          <h3 class="spaced-h3">2. Sélectionnez vos produits</h3>
           
           <h4>Légumes & Aromates</h4>
           <div class="product-list">
@@ -304,7 +304,7 @@
             </label>
           </div>
 
-          <h3 style="margin-top: 40px; margin-bottom: 20px;">3. Informations supplémentaires</h3>
+          <h3 class="spaced-h3">3. Informations supplémentaires</h3>
           
           <div class="form-group">
             <label for="deliveryDate">Date de livraison souhaitée *</label>
@@ -316,7 +316,7 @@
             <textarea id="message" name="message" placeholder="Intolérance alimentaire, demandes particulières, questions..."></textarea>
           </div>
 
-          <button type="submit" class="btn btn-primary" style="width: 100%; padding: 15px; font-size: 18px; margin-top: 20px;">
+          <button type="submit" class="btn btn-primary btn-full btn-lg mt-20">
             Soumettre ma commande
           </button>
         </form>
@@ -326,7 +326,7 @@
 
   <section class="section section--light">
     <div class="container">
-      <h2 style="text-align: center; margin-bottom: 40px;">Visitez notre ferme</h2>
+      <h2 class="text-center mb-40">Visitez notre ferme</h2>
       <div class="grid grid-2">
         <div class="card">
           <h3>Informations Pratiques</h3>
@@ -336,10 +336,10 @@
         </div>
         <div class="card">
           <h3>Réserver une visite</h3>
-          <p style="font-size: 14px; color: var(--text-secondary); margin-bottom: 20px;">Écoles, associations, entreprises — remplissez le formulaire, nous vous confirmons sous 24h.</p>
+          <p class="small-muted mb-20">Écoles, associations, entreprises — remplissez le formulaire, nous vous confirmons sous 24h.</p>
           <form id="bookingForm">
             <input type="hidden" name="subject" value="Demande de visite - CHARISFERME">
-            <input type="hidden" name="botcheck" value="" style="display:none;">
+            <input type="hidden" name="botcheck" value="" class="display-none">
             <div class="form-group">
               <label for="visitor_name">Nom / Organisation *</label>
               <input type="text" id="visitor_name" name="visitor_name" placeholder="Votre nom ou nom de l'école" required>
@@ -366,7 +366,7 @@
               <label for="visit_message">Message / Besoins particuliers</label>
               <textarea id="visit_message" name="visit_message" placeholder="Type de groupe, âge, thème souhaité..."></textarea>
             </div>
-            <button type="submit" class="btn btn-primary" style="width: 100%; padding: 13px; font-size: 16px;">
+            <button type="submit" class="btn btn-primary btn-full btn-md">
               Envoyer ma demande de visite
             </button>
           </form>
@@ -453,6 +453,6 @@
 })();
 </script>
 <script src="utils.js"></script>
-<script src="script.js"></script>
+<script src="script.min.js"></script>
 </body>
 </html>

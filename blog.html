@@ -15,7 +15,7 @@
   <meta property="og:image" content="/images/hero.jpg">
   <meta name="theme-color" content="#059669">
   <script>(function(){try{var t=localStorage.getItem('charisferme-theme');if(t==='dark'||(!t&&window.matchMedia('(prefers-color-scheme: dark)').matches)){document.documentElement.classList.add('dark-mode');}}catch(e){}})();</script>
-  <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="styles.min.css">
   <!-- Google Analytics -->
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"></script>
   <script>
@@ -30,7 +30,7 @@
 
 <header class="site-header">
   <div class="container header-inner">
-    <a href="index.html" class="logo">CHARISFERME <span>ferme & artisanat local</span></a>
+    <a href="index.html" class="logo"><img src="/images/logo.svg" alt="CHARISFERME" class="logo-img"></a>
 
     <nav class="main-nav" id="siteNav" aria-label="Navigation principale">
       <div class="nav-links">
@@ -68,7 +68,7 @@
     </script>
   </nav>
 
-  <section class="blog-hero" style="padding: 60px 20px; background: linear-gradient(135deg, #6a8a42 0%, #4a5a32 100%); color: white; text-align: center;">
+  <section class="blog-hero page-hero-gradient">
     <div class="container">
       <h1>Blog & Actualités</h1>
       <p>Suivez les nouveautés de notre ferme, nos conseils de saison et nos articles pratiques.</p>
@@ -239,11 +239,11 @@
   </section>
 
   <section class="section">
-    <div class="container" style="text-align: center;">
+    <div class="container text-center">
       <h2>Abonnez-vous à nos actualités</h2>
       <p>Recevez nos derniers articles et nos offres exclusives directement dans votre boîte mail.</p>
-      <form style="max-width: 500px; margin: 30px auto; display: flex; gap: 10px;">
-        <input type="email" placeholder="Votre adresse email" required style="flex: 1; padding: 12px; border: 1px solid #ddd; border-radius: 4px;">
+      <form class="newsletter-form">
+        <input type="email" placeholder="Votre adresse email" required class="form-input">
         <button type="submit" class="btn btn-primary">S'abonner</button>
       </form>
     </div>
@@ -288,6 +288,6 @@
 <a class="whatsapp-float" href="https://wa.me/33600000000?text=Bonjour%20CHARISFERME%20%21%20Je%20souhaite%20un%20contact" target="_blank" rel="noreferrer noopener" aria-label="Contact WhatsApp">WhatsApp</a>
 <button class="scroll-to-top" aria-label="Retour en haut">↑</button>
 <script src="utils.js"></script>
-<script src="script.js"></script>
+<script src="script.min.js"></script>
 </body>
 </html>

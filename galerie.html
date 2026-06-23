@@ -15,8 +15,25 @@
   <meta property="og:image" content="/images/hero.jpg">
   <meta name="theme-color" content="#059669">
   <script>(function(){try{var t=localStorage.getItem('charisferme-theme');if(t==='dark'||(!t&&window.matchMedia('(prefers-color-scheme: dark)').matches)){document.documentElement.classList.add('dark-mode');}}catch(e){}})();</script>
-  <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="styles.min.css">
   <style>
+    .logo img {
+      height: 36px;
+      vertical-align: middle;
+      display: inline-block;
+    }
+    .gallery-hero {
+      padding: 60px 20px;
+      background: linear-gradient(135deg, #6a8a42 0%, #4a5a32 100%);
+      color: white;
+      text-align: center;
+    }
+    .gallery-hero p {
+      opacity: .88;
+      font-size: 1.05rem;
+      max-width: 860px;
+      margin: 0.75rem auto 0;
+    }
     .gallery-grid {
       display: grid;
       grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
@@ -101,7 +118,7 @@
 
 <header class="site-header">
   <div class="container header-inner">
-    <a href="index.html" class="logo">CHARISFERME <span>ferme & artisanat local</span></a>
+        <a href="index.html" class="logo"><img src="/images/logo.svg" alt="CHARISFERME"></a>
 
     <nav class="main-nav" id="siteNav" aria-label="Navigation principale">
       <div class="nav-links">
@@ -139,7 +156,7 @@
     </script>
   </nav>
 
-  <section class="gallery-hero" style="padding: 60px 20px; background: linear-gradient(135deg, #6a8a42 0%, #4a5a32 100%); color: white; text-align: center;">
+  <section class="gallery-hero">
     <div class="container">
       <h1>Galerie Photos</h1>
       <p>Plongez dans le quotidien de notre ferme : champs, récoltes, transformation et moments de partage.</p>
@@ -148,42 +165,13 @@
 
   <section class="section section--light">
     <div class="container">
-      <div class="gallery-filter" role="tablist" aria-label="Filtrer la galerie">
+      <div class="gallery-filter" role="group" aria-label="Filtrer la galerie">
         <button class="filter-btn active" data-filter="all" type="button">Tout voir</button>
         <button class="filter-btn" data-filter="champs" type="button">🌿 Champs</button>
         <button class="filter-btn" data-filter="produits" type="button">🧀 Produits</button>
         <button class="filter-btn" data-filter="visites" type="button">👥 Visites</button>
         <button class="filter-btn" data-filter="elevage" type="button">🐓 Élevage</button>
       </div>
-      <style>
-        .gallery-item {
-          position: relative;
-          overflow: hidden;
-          border-radius: 8px;
-        }
-        .gallery-item-info {
-          position: absolute;
-          bottom: 0;
-          left: 0;
-          right: 0;
-          background: linear-gradient(180deg, transparent 0%, rgba(0,0,0,0.8) 100%);
-          color: white;
-          padding: 20px;
-          transform: translateY(100%);
-          transition: transform 0.3s;
-        }
-        .gallery-item:hover .gallery-item-info {
-          transform: translateY(0);
-        }
-        .gallery-item-title {
-          font-weight: bold;
-          margin: 0 0 5px 0;
-        }
-        .gallery-item-desc {
-          font-size: 0.9rem;
-          margin: 0;
-        }
-      </style>
       <div class="gallery-grid" id="gallery">
         <div class="gallery-item" data-category="champs" onclick="openLightbox('/images/galerie-1.jpg', 'Vue des champs cultivés - Les legumes poussent dans nos champs en rotation annuelle')">
           <img src="/images/galerie-1.jpg" alt="Vue des champs cultivés">
@@ -337,6 +325,6 @@ document.getElementById('lightbox').addEventListener('click', function(e) {
 });
 </script>
 <script src="utils.js"></script>
-<script src="script.js"></script>
+<script src="script.min.js"></script>
 </body>
 </html>

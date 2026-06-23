@@ -11,7 +11,7 @@
   <meta property="og:type" content="website">
   <meta name="theme-color" content="#059669">
   <script>(function(){try{var t=localStorage.getItem('charisferme-theme');if(t==='dark'||(!t&&window.matchMedia('(prefers-color-scheme: dark)').matches)){document.documentElement.classList.add('dark-mode');}}catch(e){}})();</script>
-  <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="styles.min.css">
   <!-- Google Analytics -->
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"></script>
   <script>
@@ -28,7 +28,7 @@
 
 <header class="site-header">
   <div class="container header-inner">
-    <a href="index.html" class="logo">CHARISFERME <span>ferme & artisanat local</span></a>
+    <a href="index.html" class="logo"><img src="/images/logo.svg" alt="CHARISFERME" class="logo-img"></a>
     <nav class="main-nav" id="siteNav" aria-label="Navigation principale">
       <div class="nav-links">
         <a href="index.html">Accueil</a>
@@ -64,7 +64,7 @@
     </script>
   </nav>
 
-  <section class="page-hero" style="padding: 60px 20px; background: linear-gradient(135deg, #6a8a42 0%, #4a5a32 100%); color: white; text-align: center;">
+  <section class="page-hero page-hero-gradient">
     <div class="container">
       <h1>À propos de CHARISFERME</h1>
       <p>Authenticité, transparence et respect des saisons — les valeurs qui guident chacun de nos gestes.</p>
@@ -114,7 +114,7 @@
         <h3>🚀 La modernité (2018-2026)</h3>
         <p>CHARISFERME s'est transformée : tout en gardant ses valeurs artisanales, nous avons adopté les outils modernes. Site web, système de commande en ligne, livraison organisée, mais sans renier nos principes.</p>
         <p>Aujourd'hui (2026), nous fournissons :</p>
-        <ul style="list-style: none; padding: 0;">
+          <ul class="list-reset">
           <li>✓ 150+ clients réguliers (paniers hebdomadaires)</li>
           <li>✓ 35+ clients professionnels (restaurateurs, épiceries, caterers)</li>
           <li>✓ 50+ écoles/groupes (ateliers pédagogiques annuels)</li>
@@ -125,7 +125,7 @@
 
       <article class="story-block">
         <h3>💚 Nos valeurs immuables</h3>
-        <ul style="list-style: none; padding: 0;">
+        <ul class="list-reset">
           <li>🌱 <strong>Respect de la nature</strong> — Pas de pesticide, jamais. Biodiversité protégée. Sols enrichis chaque année.</li>
           <li>🤝 <strong>Transparence totale</strong> — Chaque client peut visiter, poser des questions, comprendre où va son argent.</li>
           <li>🎯 <strong>Qualité avant quantité</strong> — Refuser une récolte si elle ne correspond pas à nos standards, même si ça coûte cher.</li>
@@ -134,7 +134,7 @@
         </ul>
       </article>
 
-      <div class="section-header" style="margin-top: 4rem;">
+      <div class="section-header section-header-mt">
         <h2>Notre philosophie</h2>
         <p>Authenticité, transparence et respect des saisons sont au cœur de toutes nos cultures et de nos transformations.</p>
       </div>
@@ -245,10 +245,10 @@
         </article>
       </div>
 
-      <div style="background: rgba(5,150,105,0.08); border-radius: 12px; padding: 2rem; margin-top: 2rem; text-align: center;">
-        <h3 style="color: var(--primary);">Travaillez avec nous ?</h3>
+      <div class="highlight-panel">
+        <h3 class="primary-link-strong">Travaillez avec nous ?</h3>
         <p>CHARISFERME cherche régulièrement de nouveaux talents passionnés. Envoyez-nous votre CV et votre lettre de motivation.</p>
-        <p><a href="mailto:contact@charisferme.fr?subject=Candidature%20CHARISFERME" style="color: var(--primary); font-weight: bold;">📧 contact@charisferme.fr</a></p>
+        <p><a href="mailto:contact@charisferme.fr?subject=Candidature%20CHARISFERME" class="primary-link-strong">📧 contact@charisferme.fr</a></p>
       </div>
     </div>
   </section>
@@ -292,6 +292,6 @@
 <a class="whatsapp-float" href="https://wa.me/33600000000?text=Bonjour%20CHARISFERME%20%21%20Je%20souhaite%20un%20contact" target="_blank" rel="noreferrer noopener" aria-label="Contact WhatsApp">WhatsApp</a>
 <button class="scroll-to-top" aria-label="Retour en haut">↑</button>
 <script src="utils.js"></script>
-<script src="script.js"></script>
+<script src="script.min.js"></script>
 </body>
 </html>

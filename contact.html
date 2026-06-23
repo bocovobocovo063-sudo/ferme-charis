@@ -9,6 +9,7 @@
   <meta name="author" content="CHARISFERME">
   <meta property="og:title" content="Contact - CHARISFERME">
   <meta property="og:type" content="website">
+  <meta property="og:url" content="https://charis-ferme.netlify.app/contact.html">
   <meta name="theme-color" content="#059669">
   <script>(function(){try{var t=localStorage.getItem('charisferme-theme');if(t==='dark'||(!t&&window.matchMedia('(prefers-color-scheme: dark)').matches)){document.documentElement.classList.add('dark-mode');}}catch(e){}})();</script>
   <link rel="stylesheet" href="styles.min.css">
@@ -28,7 +29,7 @@
 
 <header class="site-header">
   <div class="container header-inner">
-    <a href="index.html" class="logo"><img src="/images/logo.svg" alt="CHARISFERME" style="height:36px; vertical-align:middle;"></a>
+    <a href="index.html" class="logo"><img src="/images/logo.svg" alt="CHARISFERME" class="logo-img"></a>
     <nav class="main-nav" id="siteNav" aria-label="Navigation principale">
       <div class="nav-links">
         <a href="index.html">Accueil</a>
@@ -58,13 +59,13 @@
     <span class="current">Contact</span>
     <script type="application/ld+json">
     {"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [
-      {"@type": "ListItem", "position": 1, "name": "Accueil", "item": "https://www.charisferme.fr"},
-      {"@type": "ListItem", "position": 2, "name": "Contact", "item": "https://www.charisferme.fr/contact.html"}
+      {"@type": "ListItem", "position": 1, "name": "Accueil", "item": "https://charis-ferme.netlify.app"},
+      {"@type": "ListItem", "position": 2, "name": "Contact", "item": "https://charis-ferme.netlify.app/contact.html"}
     ]}
     </script>
   </nav>
 
-  <section class="page-hero" style="padding: 60px 20px; background: linear-gradient(135deg, #6a8a42 0%, #4a5a32 100%); color: white; text-align: center;">
+  <section class="page-hero page-hero-gradient">
     <div class="container">
       <h1>Contact</h1>
       <p>Venez nous rendre visite ou contactez-nous — nous sommes là pour vous accompagner.</p>
@@ -133,8 +134,8 @@
         <h2>Nous trouver</h2>
         <p>Venez nous rendre visite à la ferme ou contactez-nous pour toute demande.</p>
       </div>
-      <div class="location-grid">
-        <div class="location-cards">
+      <div class="location-grid contact-grid">
+        <div class="location-cards contact-panel">
           <div class="location-detail-card">
             <div class="loc-icon">📍</div>
             <div class="loc-content">
@@ -145,7 +146,7 @@
           <div class="location-detail-card">
             <div class="loc-icon">🕐</div>
             <div class="loc-content">
-              <h4>Horaires d'ouverture</h4>
+              <h4>Horaires</h4>
               <p>Lun – Sam : 9h00 – 18h00<br>Dimanche : 10h00 – 14h00</p>
             </div>
           </div>
@@ -164,7 +165,37 @@
             </div>
           </div>
           <div class="location-cta">
-            <a href="https://maps.google.com/?q=Loire+Valley+France+Farm" target="_blank" rel="noreferrer noopener" class="btn btn-primary">Obtenir l'itinéraire →</a>
+            <a href="https://maps.google.com/?q=12345+Village+France" target="_blank" rel="noreferrer noopener" class="btn btn-primary">Itinéraire</a>
+          </div>
+          <div class="contact-form-card">
+            <h3>Envie de nous écrire ?</h3>
+            <p>Remplissez ce formulaire et nous vous répondrons sous 24h.</p>
+            <form name="contact" method="POST" action="/contact.html" data-netlify="true" netlify-honeypot="bot-field" class="contact-form">
+              <input type="hidden" name="form-name" value="contact">
+              <p class="hidden"><label>Ne pas remplir <input name="bot-field"></label></p>
+              <div id="contactNotice" class="form-notice" role="status" aria-live="polite"></div>
+              <div class="form-group">
+                <label for="cf-name">Nom</label>
+                <input type="text" id="cf-name" name="name" required placeholder="Jean Dupont">
+              </div>
+              <div class="form-group">
+                <label for="cf-email">Email</label>
+                <input type="email" id="cf-email" name="email" required placeholder="contact@example.com">
+              </div>
+              <div class="form-group">
+                <label for="cf-phone">Téléphone</label>
+                <input type="tel" id="cf-phone" name="phone" placeholder="06 00 00 00 00">
+              </div>
+              <div class="form-group">
+                <label for="cf-subject">Sujet</label>
+                <input type="text" id="cf-subject" name="subject" required placeholder="Demande de commande, visite, abonnement...">
+              </div>
+              <div class="form-group">
+                <label for="cf-message">Message</label>
+                <textarea id="cf-message" name="message" required rows="5" placeholder="Écrivez-nous votre demande..."></textarea>
+              </div>
+              <button type="submit" class="btn btn-primary btn-full">Envoyer ma demande</button>
+            </form>
           </div>
         </div>
         <div class="map-container">
@@ -219,5 +250,38 @@
 <button class="scroll-to-top" aria-label="Retour en haut">↑</button>
 <script src="utils.js"></script>
 <script src="script.min.js"></script>
+<script>
+  const contactForm = document.querySelector('form.contact-form');
+  const contactNotice = document.getElementById('contactNotice');
+  if (contactForm && contactNotice) {
+    contactForm.addEventListener('submit', async function (event) {
+      event.preventDefault();
+      const submitBtn = contactForm.querySelector('button[type="submit"]');
+      submitBtn.disabled = true;
+      contactNotice.textContent = 'Envoi en cours...';
+      contactNotice.classList.remove('error');
+      contactNotice.classList.add('show');
+
+      const formData = new FormData(contactForm);
+      try {
+        const response = await fetch(contactForm.action || window.location.pathname, {
+          method: 'POST',
+          body: formData,
+        });
+        if (response.ok) {
+          contactNotice.textContent = 'Merci ! Votre message a bien été envoyé. Nous vous répondrons sous 24h.';
+          contactForm.reset();
+        } else {
+          throw new Error('Le serveur a renvoyé une erreur.');
+        }
+      } catch (error) {
+        contactNotice.textContent = 'Une erreur est survenue. Veuillez réessayer ou nous écrire à contact@charisferme.fr';
+        contactNotice.classList.add('error');
+      } finally {
+        submitBtn.disabled = false;
+      }
+    });
+  }
+</script>
 </body>
 </html>
