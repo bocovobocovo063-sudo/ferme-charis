@@ -48,6 +48,8 @@
   # - STRIPE_SECRET_KEY = sk_live_... (clé live Stripe)
   # - STRIPE_PUBLISHABLE_KEY = pk_live_... (clé publique Stripe)
   # - FORM_EMAIL = contact@charisferme.fr (email notifications)
+  # - SENDGRID_API_KEY = SG.xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+  # - SENDGRID_FROM_EMAIL = noreply@charisferme.fr
 
 [context.deploy-preview]
   # Preview utilise clés test

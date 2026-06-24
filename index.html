@@ -24,7 +24,7 @@
   <meta property="og:image" content="/images/hero.jpg">
   <meta name="twitter:card" content="summary_large_image">
   <script>(function(){try{var t=localStorage.getItem('charisferme-theme');if(t==='dark'||(!t&&window.matchMedia('(prefers-color-scheme: dark)').matches)){document.documentElement.classList.add('dark-mode');}}catch(e){}})();</script>
-  <link rel="stylesheet" href="styles.min.css">
+  <link rel="stylesheet" href="styles.css">
   <script src="https://js.stripe.com/v3/"></script>
   <script type="application/ld+json">
   {
@@ -67,8 +67,8 @@
   <div class="toast-container" id="toastContainer" aria-live="polite" aria-atomic="true"></div>
 
 <div class="promo-bar" id="promoBar">
-  <p>🌿 <strong>Marché à la ferme — samedi 17 mai</strong> · Venez découvrir nos produits de saison !</p>
-  <button class="promo-bar-close" id="promoBarClose" aria-label="Fermer l'annonce">✕</button>
+  <p>🌱 <strong>Offres de paniers de saison</strong> · Commandez dès aujourd'hui pour une livraison fraîche et locale.</p>
+  <button class="promo-bar-close" id="promoBarClose" aria-label="Fermer l'annonce">×</button>
 </div>
 
 <header class="site-header">
@@ -123,6 +123,84 @@
     </div>
   </section>
 
+  <section id="certifications" class="section section--light">
+    <div class="container">
+      <div class="section-header">
+        <h2>Nos engagements & certifications</h2>
+        <p>CHARISFERME respecte les standards les plus exigeants en matière de qualité et de durabilité.</p>
+      </div>
+      <div class="grid grid-4">
+        <div class="cert-badge">
+          <span class="cert-icon">🌿</span>
+          <h4>Agriculture Bio</h4>
+          <p>Certifiée sans pesticides ni produits chimiques de synthèse</p>
+        </div>
+        <div class="cert-badge">
+          <span class="cert-icon">🥇</span>
+          <h4>Label Rouge</h4>
+          <p>Qualité supérieure reconnue par l'État français</p>
+        </div>
+        <div class="cert-badge">
+          <span class="cert-icon">🔄</span>
+          <h4>Circuit Court</h4>
+          <p>Producteur-consommateur, sans intermédiaires</p>
+        </div>
+        <div class="cert-badge">
+          <span class="cert-icon">♻️</span>
+          <h4>Durable</h4>
+          <p>Respect de l'environnement et de la saisonnalité</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="featured-products" class="section section--light">
+    <div class="container">
+      <div class="section-header">
+        <h2>Nos produits phares</h2>
+        <p>Découvrez des produits fermiers sélectionnés pour leur fraîcheur, leur qualité et leur goût du terroir.</p>
+      </div>
+      <div class="grid grid-3">
+        <article class="product-card card">
+          <div class="product-img product-img-legumes"><span class="product-emoji">🥕</span></div>
+          <div class="product-body">
+            <span class="product-category-label">Paniers</span>
+            <h3>Panier de saison</h3>
+            <p>Fruits et légumes cueillis le jour même, sélectionnés pour un panier de semaine gourmand.</p>
+            <div class="product-footer">
+              <span class="product-price">À partir de 24€</span>
+              <a href="produits.html" class="btn btn-sm">Voir</a>
+            </div>
+          </div>
+        </article>
+        <article class="product-card card">
+          <div class="product-img product-img-laitiers"><span class="product-emoji">🧀</span></div>
+          <div class="product-body">
+            <span class="product-category-label">Fromages</span>
+            <h3>Fromages fermiers</h3>
+            <p>Fromages artisanaux affinés à la ferme, préparés avec du lait frais de nos vaches.</p>
+            <div class="product-footer">
+              <span class="product-price">À partir de 8€</span>
+              <a href="produits.html" class="btn btn-sm">Voir</a>
+            </div>
+          </div>
+        </article>
+        <article class="product-card card">
+          <div class="product-img product-img-viandes"><span class="product-emoji">🍖</span></div>
+          <div class="product-body">
+            <span class="product-category-label">Viandes</span>
+            <h3>Viande locale</h3>
+            <p>Viandes élevées en plein air, disponibles en colis ou au détail selon vos envies.</p>
+            <div class="product-footer">
+              <span class="product-price">À partir de 14€</span>
+              <a href="produits.html" class="btn btn-sm">Voir</a>
+            </div>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
   <section id="stats" class="section">
     <div class="container">
       <div class="stats-grid">
@@ -149,14 +227,14 @@
         </div>
         <div class="process-arrow" aria-hidden="true"></div>
         <div class="process-step">
-          <span class="step-icon">🧺</span>
+          <span class="step-icon">👨‍🌾</span>
           <div class="step-number">2</div>
           <h3>On prépare votre panier</h3>
           <p>Notre équipe compose votre commande avec les meilleurs produits du jour.</p>
         </div>
         <div class="process-arrow" aria-hidden="true"></div>
         <div class="process-step">
-          <span class="step-icon">🚗</span>
+          <span class="step-icon">📍</span>
           <div class="step-number">3</div>
           <h3>Venez récupérer</h3>
           <p>Passez à la ferme aux horaires qui vous conviennent ou optez pour la livraison locale.</p>
@@ -164,6 +242,32 @@
       </div>
     </div>
   </section>
+  <section id="nos-valeurs" class="section section--light">
+    <div class="container">
+      <div class="section-header">
+        <h2>Notre engagement envers vous</h2>
+        <p>Au cœur de nos valeurs : la transparence, la qualité et le respect mutuel.</p>
+      </div>
+      <div class="grid grid-3">
+        <article class="value-card card">
+          <span class="value-emoji">🔍</span>
+          <h3>Transparence totale</h3>
+          <p>Traçabilité complète de nos produits. Vous savez d'où vient chaque fruit, chaque fromage, chaque viande.</p>
+        </article>
+        <article class="value-card card">
+          <span class="value-emoji">🌱</span>
+          <h3>Agriculture responsable</h3>
+          <p>Rotation des cultures, préservation des sols, biodiversité. Nous pensons aux générations futures.</p>
+        </article>
+        <article class="value-card card">
+          <span class="value-emoji">🤝</span>
+          <h3>Soutien local</h3>
+          <p>Nos partenaires sont des artisans locaux. Ensemble, nous soutenons l'économie de notre région.</p>
+        </article>
+      </div>
+    </div>
+  </section>
+
   <section id="temoignages" class="section">
     <div class="container">
       <div class="section-header">
@@ -191,7 +295,33 @@
         </div>
       </div>
       <div class="text-center mt-40">
-        <a href="avis.html" class="btn btn-secondary">Lire tous les avis →</a>
+        <a href="avis.html" class="btn btn-secondary">Lire tous les avis ?</a>
+      </div>
+    </div>
+  </section>
+
+  <section id="horaires-localisation" class="section">
+    <div class="container">
+      <div class="section-header">
+        <h2>Nous trouver & horaires d'ouverture</h2>
+        <p>Visitez-nous à la ferme ou faites-vous livrer dans votre région.</p>
+      </div>
+      <div class="grid grid-2">
+        <div class="info-card card">
+          <h3>🏡 La Ferme</h3>
+          <p><strong>CHARISFERME</strong><br>
+          Ferme de Charis<br>
+          12345 Village, France</p>
+          <p><strong>Téléphone:</strong> <a href="tel:+33600000000">+33 6 00 00 00 00</a></p>
+          <p><strong>Email:</strong> <a href="mailto:contact@charisferme.fr">contact@charisferme.fr</a></p>
+        </div>
+        <div class="info-card card">
+          <h3>🕒 Horaires</h3>
+          <p><strong>Lundi - Vendredi:</strong> 09h00 - 18h00</p>
+          <p><strong>Samedi:</strong> 09h00 - 18h00</p>
+          <p><strong>Dimanche:</strong> 10h00 - 14h00</p>
+          <p><em>Fermeture exceptionnelle les jours fériés</em></p>
+        </div>
       </div>
     </div>
   </section>
@@ -201,11 +331,12 @@
       <div class="text-center mx-auto max-w-700">
         <h2>Restez informé des récoltes</h2>
         <p>Recevez chaque semaine nos actualités, nos conseils de saison et nos offres exclusives.</p>
-        <form class="newsletter-form">
-          <input type="email" placeholder="Votre email" required class="form-input">
+        <form id="homepageNewsletterForm" class="newsletter-form">
+          <input type="text" name="name" placeholder="Votre prénom" required class="form-input">
+          <input type="email" name="email" placeholder="Votre email" required class="form-input">
           <button type="submit" class="btn btn-primary">S'abonner</button>
         </form>
-        <p class="small-muted mt-10">✓ Pas de spam, juste nos actualités. Désinscription facile.</p>
+        <p class="small-muted mt-10">? Pas de spam, juste nos actualités. Désinscription facile.</p>
       </div>
     </div>
   </section>
@@ -214,54 +345,77 @@
 <footer>
   <div class="container footer-content">
     <div class="footer-block">
-      <h4>CHARISFERME</h4>
+      <h4>✨ CHARISFERME</h4>
       <p>Ferme familiale dédiée à l'agriculture locale, durable et solidaire depuis 2001.</p>
       <div class="footer-badges">
-        <span class="footer-badge">Agriculture Bio</span>
-        <span class="footer-badge">Circuit Court</span>
+        <span class="footer-badge">Bio</span>
         <span class="footer-badge">Label Rouge</span>
+        <span class="footer-badge">Circuit Court</span>
+        <span class="footer-badge">Durable</span>
       </div>
     </div>
     <div class="footer-block">
       <h4>Navigation</h4>
+      <a href="index.html">Accueil</a>
       <a href="apropos.html">À propos</a>
       <a href="produits.html">Produits</a>
-      <a href="reservation.html">Réservation</a>
+      <a href="abonnement.html">Abonnement</a>
+      <a href="activites.html">Activités</a>
+      <a href="galerie.html">Galerie</a>
       <a href="avis.html">Avis</a>
+      <a href="blog.html">Blog</a>
     </div>
     <div class="footer-block">
-      <h4>Contact & Réseaux</h4>
-      <p><a href="tel:0600000000">06 00 00 00 00</a><br><a href="mailto:contact@charisferme.fr">contact@charisferme.fr</a></p>
-      <div class="footer-links">
-        <a href="https://wa.me/33600000000?text=Bonjour%20CHARISFERME%20%21%20Je%20souhaite%20un%20contact" target="_blank" rel="noreferrer noopener">WhatsApp</a>
+      <h4>Informations</h4>
+      <a href="contact.html">Nous contacter</a>
+      <a href="reservation.html">Réserver</a>
+      <a href="mentions-legales.html">Mentions légales</a>
+      <a href="privacy.html">Confidentialité</a>
+      <a href="cookie-policy.html">Cookies</a>
+    </div>
+    <div class="footer-block">
+      <h4>Contact Rapide</h4>
+        <p><strong><a href="tel:+33600000000">📞 +33 6 00 00 00 00</a></strong><br>
+      <strong><a href="mailto:contact@charisferme.fr">✉️ contact@charisferme.fr</a></strong></p>
+      <div class="footer-social">
+        <a href="https://www.facebook.com/charisferme" target="_blank" rel="noopener noreferrer" title="Facebook">f</a>
+        <a href="https://www.instagram.com/charisferme" target="_blank" rel="noopener noreferrer" title="Instagram">📸</a>
+        <a href="https://wa.me/33600000000?text=Bonjour%20CHARISFERME" target="_blank" rel="noopener noreferrer" title="WhatsApp">💬</a>
       </div>
     </div>
   </div>
   <div class="footer-bottom">
+    <div class="footer-payment">
+      <span>Moyens de paiement acceptés:</span>
+      <span class="payment-badges">💳 Carte bancaire • 💸 PayPal • 🏦 Virement</span>
+    </div>
     <div class="footer-legal">
       <p>© 2026 CHARISFERME • Tous droits réservés</p>
       <p>SIRET : 123 456 789 00012 | Ferme de Charis, 12345 Village, France</p>
-      <p><a href="mentions-legales.html">Mentions légales & Confidentialité</a></p>
+      <p><a href="mentions-legales.html">Mentions légales</a> • <a href="privacy.html">Confidentialité</a> • <a href="cookie-policy.html">Cookies</a></p>
     </div>
   </div>
 </footer>
 
 <div class="popup-overlay" id="popupOverlay"></div>
 <div class="newsletter-popup" id="newsletterPopup" role="dialog" aria-modal="true" aria-label="Abonnez-vous à nos actualités">
-  <button class="popup-close" aria-label="Fermer">✕</button>
-  <span class="popup-decoration">🌿</span>
+  <button class="popup-close" aria-label="Fermer">×</button>
+  <span class="popup-decoration">🌾</span>
   <h3>Restez connecté à la nature</h3>
   <p class="popup-desc">Recevez nos recettes de saison, les disponibilités du moment et des offres exclusives directement dans votre boîte mail.</p>
   <form id="popupNewsletterForm">
-    <input type="email" placeholder="Votre adresse email" required>
+    <input type="text" name="name" placeholder="Votre prénom" required class="form-input">
+    <input type="email" name="email" placeholder="Votre adresse email" required class="form-input">
     <button type="submit" class="btn btn-primary">Je m'abonne</button>
   </form>
   <p class="popup-note">Pas de spam. Désinscription libre à tout moment.</p>
 </div>
 
-<a class="whatsapp-float" href="https://wa.me/33600000000?text=Bonjour%20CHARISFERME%20%21%20Je%20souhaite%20un%20contact" target="_blank" rel="noreferrer noopener" aria-label="Contact WhatsApp">WhatsApp</a>
-<button class="scroll-to-top" aria-label="Retour en haut">↑</button>
+<button class="scroll-to-top" aria-label="Retour en haut">?</button>
 <script src="utils.js"></script>
 <script src="script.min.js"></script>
 </body>
 </html>
+
+
+

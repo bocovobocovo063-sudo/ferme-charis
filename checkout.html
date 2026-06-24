@@ -267,10 +267,10 @@
         <div class="form-group">
           <label for="country">Pays</label>
           <select id="country" name="country" required>
-            <option value="FR">🇫🇷 France</option>
-            <option value="BE">🇧🇪 Belgique</option>
-            <option value="CH">🇨🇭 Suisse</option>
-            <option value="LU">🇱🇺 Luxembourg</option>
+            <option value="FR">★★★★ France</option>
+            <option value="BE">★★★★ Belgique</option>
+            <option value="CH">★★★★ Suisse</option>
+            <option value="LU">★★★★ Luxembourg</option>
           </select>
         </div>
       </div>
@@ -310,7 +310,7 @@
       </button>
 
       <div class="checkout-info">
-        <strong>🔒 Paiement Sécurisé</strong><br>
+        <strong>💳 Paiement Sécurisé</strong><br>
         Vos données sont chiffrées et traitées de manière sécurisée par Stripe, leader des paiements en ligne.
       </div>
     </form>
@@ -330,9 +330,9 @@
     </div>
 
     <div class="highlight-panel">
-      <strong>✓ Livraison gratuite</strong><br>
-      <strong>✓ TVA incluse</strong><br>
-      <strong>✓ Assurance client</strong>
+      <strong>? Livraison gratuite</strong><br>
+      <strong>? TVA incluse</strong><br>
+      <strong>? Assurance client</strong>
     </div>
   </div>
 </main>
@@ -370,9 +370,9 @@
     : (configuredStripeKey || 'pk_live_XXXXXX');
 
   if (isLocalhost) {
-    console.log('🔐 Mode TEST Stripe (localhost) - Stripe key configurée');
+    console.log('✅ Mode TEST Stripe (localhost) - Stripe key configurée');
   } else {
-    console.log('🔐 Mode LIVE Stripe (production)');
+    console.log('✅ Mode LIVE Stripe (production)');
   }
 
   const stripe = Stripe(window.STRIPE_PUBLIC_KEY);
@@ -453,7 +453,7 @@
     document.getElementById('postal').value = cartContact.postal;
   }
 
-  console.log('⚙️ Checkout data', { type, cartData, total, contact: cartContact });
+  console.log('✅ Checkout data', { type, cartData, total, contact: cartContact });
 
   const isCartValid = cartData.length > 0 && total > 0;
   if (!isCartValid) {
@@ -574,9 +574,9 @@
           localStorage.removeItem('charisferme-cart');
           localStorage.removeItem('charisferme-subscription-pending');
 
-          document.getElementById('successMessage').textContent = '✓ Paiement confirmé ! Redirection...';
+          document.getElementById('successMessage').textContent = '✅ Paiement confirmé ! Redirection...';
           document.getElementById('successMessage').classList.add('show');
-          if (window.toast) window.toast.success('Commande confirmée ! 🎉');
+          if (window.toast) window.toast.success('Commande confirmée ! ✅');
 
           const redirectOrderId = submitResult.commandeId || createResult.orderId || confirmResult.paymentIntent.id;
           setTimeout(() => {
@@ -586,7 +586,7 @@
           throw new Error('Paiement non confirmé. Statut: ' + (confirmResult.paymentIntent && confirmResult.paymentIntent.status));
         }
       } catch (error) {
-        pageError.textContent = '❌ ' + error.message;
+        pageError.textContent = '? ' + error.message;
         pageError.classList.add('show');
       } finally {
         submitBtn.disabled = false;
@@ -596,7 +596,10 @@
     });
   }
 
-  console.log('✅ Checkout initialized');
+  console.log('? Checkout initialized');
 </script>
 </body>
 </html>
+
+
+

@@ -307,7 +307,60 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   };
 
+  // ===== HOMEPAGE NEWSLETTER =====
+  const initHomepageNewsletter = () => {
+    const form = document.getElementById('homepageNewsletterForm');
+    if (!form) return;
+
+    form.addEventListener('submit', async (e) => {
+      e.preventDefault();
+
+      const name = form.querySelector('input[name="name"]')?.value.trim() || '';
+      const email = form.querySelector('input[type="email"]')?.value.trim() || '';
+      const isValidEmail = /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
+
+      if (!name || !isValidEmail) {
+        if (window.toast) {
+          window.toast.error('Veuillez saisir un prénom valide et une adresse email valide.');
+        } else {
+          alert('Veuillez saisir un prénom valide et une adresse email valide.');
+        }
+        return;
+      }
+
+      try {
+        const response = await fetch('/.netlify/functions/subscribe-newsletter', {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json'
+          },
+          body: JSON.stringify({ name, email })
+        });
+
+        const data = await response.json();
+        if (!response.ok) {
+          throw new Error(data.error || 'Erreur serveur');
+        }
+
+        form.reset();
+        if (window.toast) {
+          window.toast.success('Merci ! Votre inscription est enregistrée.');
+        } else {
+          alert('Merci ! Votre inscription est enregistrée.');
+        }
+      } catch (error) {
+        console.error('Homepage newsletter error:', error);
+        if (window.toast) {
+          window.toast.error('Impossible d’envoyer votre inscription. Réessayez plus tard.');
+        } else {
+          alert('Impossible d’envoyer votre inscription. Réessayez plus tard.');
+        }
+      }
+    });
+  };
+
   // ===== KEYBOARD NAVIGATION =====
+
   const initKeyboardNav = () => {
     document.addEventListener('keydown', (e) => {
       if (e.key === 'Escape') {
@@ -353,10 +406,63 @@ document.addEventListener('DOMContentLoaded', () => {
       if (e.key === 'Escape' && popup.classList.contains('active')) closePopup();
     });
 
-    form?.addEventListener('submit', (e) => {
+    form?.addEventListener('submit', async (e) => {
       e.preventDefault();
-      closePopup();
-      if (window.toast) window.toast.success('Merci ! Bienvenue dans la communauté CHARISFERME 🌿');
+
+      const nameInput = form.querySelector('input[name="name"]');
+      const emailInput = form.querySelector('input[type="email"]');
+      const name = nameInput?.value.trim() || '';
+      const email = emailInput?.value.trim() || '';
+      const isValidEmail = /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
+
+      if (!name) {
+        if (window.toast) {
+          window.toast.error('Veuillez saisir votre prénom.');
+        } else {
+          alert('Veuillez saisir votre prénom.');
+        }
+        return;
+      }
+
+      if (!isValidEmail) {
+        if (window.toast) {
+          window.toast.error('Veuillez saisir une adresse email valide.');
+        } else {
+          alert('Veuillez saisir une adresse email valide.');
+        }
+        return;
+      }
+
+      try {
+        const response = await fetch('/.netlify/functions/subscribe-newsletter', {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json'
+          },
+          body: JSON.stringify({ name, email })
+        });
+
+        const data = await response.json();
+        if (!response.ok) {
+          throw new Error(data.error || 'Erreur serveur');
+        }
+
+        form.reset();
+        closePopup();
+
+        if (window.toast) {
+          window.toast.success('Merci ! Votre inscription est enregistrée.');
+        } else {
+          alert('Merci ! Votre inscription est enregistrée.');
+        }
+      } catch (error) {
+        console.error('Newsletter popup error:', error);
+        if (window.toast) {
+          window.toast.error('Impossible d’envoyer votre inscription. Réessayez plus tard.');
+        } else {
+          alert('Impossible d’envoyer votre inscription. Réessayez plus tard.');
+        }
+      }
     });
   };
 
@@ -598,6 +704,7 @@ document.addEventListener('DOMContentLoaded', () => {
   initStatCounters();
   initCookieBanner();
   initFormValidation();
+  initHomepageNewsletter();
   initKeyboardNav();
   initNewsletterPopup();
   initGalleryFilter();

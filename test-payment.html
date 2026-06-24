@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="fr">
 <head>
   <meta charset="UTF-8">
@@ -191,7 +191,7 @@
 </head>
 <body>
   <div class="container">
-    <h1>🧪 Test Stripe Payment Intents</h1>
+    <h1>ðŸ§ª Test Stripe Payment Intents</h1>
     
     <div class="grid">
       <!-- FORMULAIRE TEST -->
@@ -199,7 +199,7 @@
         <h2>Formulaire Test</h2>
         
         <div class="message info" id="infoMsg">
-          📝 Remplissez le formulaire et cliquez "Créer PaymentIntent" pour tester
+          ðŸ“ Remplissez le formulaire et cliquez "CrÃ©er PaymentIntent" pour tester
         </div>
 
         <form id="testForm">
@@ -214,7 +214,7 @@
           </div>
 
           <div class="form-group">
-            <label for="phone">Téléphone</label>
+            <label for="phone">TÃ©lÃ©phone</label>
             <input type="tel" id="phone" value="06123456789" required>
           </div>
 
@@ -229,68 +229,68 @@
           </div>
 
           <div class="form-group">
-            <label for="postal">Code Postal (4-5 caractères)</label>
+            <label for="postal">Code Postal (4-5 caractÃ¨res)</label>
             <input type="text" id="postal" value="75001" minlength="4" maxlength="5" pattern="[0-9]{4,5}" required placeholder="75001">
-            <small class="small-muted">Format: 4 à 5 chiffres</small>
+            <small class="small-muted">Format: 4 Ã  5 chiffres</small>
           </div>
 
           <div class="form-group">
-            <label for="amount">Montant (€)</label>
+            <label for="amount">Montant (â‚¬)</label>
             <input type="number" id="amount" value="29.99" step="0.01" min="0.50" required>
           </div>
 
           <button type="submit" id="submitBtn">
-            <span id="btnText">Créer PaymentIntent</span>
+            <span id="btnText">CrÃ©er PaymentIntent</span>
           </button>
         </form>
 
         <div class="test-cards">
-          <strong>🎴 Cartes Test Stripe</strong>
-          <p><strong>✅ Succès:</strong> 4242 4242 4242 4242</p>
-          <p><strong>❌ Décliné:</strong> 4000 0000 0000 0002</p>
-          <p><strong>3️⃣ 3DS:</strong> 4000 0025 0000 3155</p>
+          <strong>ðŸŽ´ Cartes Test Stripe</strong>
+          <p><strong>âœ… SuccÃ¨s:</strong> 4242 4242 4242 4242</p>
+          <p><strong>âŒ DÃ©clinÃ©:</strong> 4000 0000 0000 0002</p>
+          <p><strong>3ï¸âƒ£ 3DS:</strong> 4000 0025 0000 3155</p>
           <p><strong>Expiration:</strong> 12/50</p>
           <p><strong>CVC:</strong> 123</p>
         </div>
       </div>
 
-      <!-- RÉSULTATS -->
+      <!-- RÃ‰SULTATS -->
       <div class="card">
-        <h2>Résultats API</h2>
+        <h2>RÃ©sultats API</h2>
         
         <div class="message error display-none" id="errorMsg"></div>
         <div class="message success display-none" id="successMsg"></div>
         <div class="message warning display-none" id="warningMsg"></div>
 
-        <h3 class="panel-h3">Réponse create-payment-intent</h3>
+        <h3 class="panel-h3">RÃ©ponse create-payment-intent</h3>
         <div class="code-block" id="responseBlock">
-          Cliquez "Créer PaymentIntent" pour voir la réponse...
+          Cliquez "CrÃ©er PaymentIntent" pour voir la rÃ©ponse...
         </div>
 
         <div class="status">
           <span class="status-label">Statut:</span>
-          <span class="status-value" id="statusValue">Prêt</span>
+          <span class="status-value" id="statusValue">PrÃªt</span>
           
           <span class="status-label">Order ID:</span>
-          <span class="status-value" id="orderIdValue">—</span>
+          <span class="status-value" id="orderIdValue">â€”</span>
           
           <span class="status-label">PI ID:</span>
-          <span class="status-value" id="piIdValue">—</span>
+          <span class="status-value" id="piIdValue">â€”</span>
           
           <span class="status-label">Client Secret:</span>
-          <span class="status-value small-xs" id="secretValue">—</span>
+          <span class="status-value small-xs" id="secretValue">â€”</span>
         </div>
 
-        <h3 class="panel-h3">Détails Serveur</h3>
+        <h3 class="panel-h3">DÃ©tails Serveur</h3>
         <div class="code-block" id="debugBlock">
-          Afiché au démarrage...
+          AfichÃ© au dÃ©marrage...
         </div>
       </div>
     </div>
 
     <!-- LOGS CONSOLE -->
     <div class="card">
-      <h2>📊 Logs & Debug</h2>
+      <h2>ðŸ“Š Logs & Debug</h2>
       <div class="code-block code-block-height" id="logsBlock">
         [Logs s'affichent ici...]
       </div>
@@ -303,7 +303,7 @@
       ? 'http://localhost:3001'
       : window.location.origin;
 
-    const STRIPE_PUBLISHABLE_KEY = 'pk_test_51Tjm0JRwG5FPFo0qHbNEHVphuRzG1lvyyeNuYpWkQkVx9ZhRcOSBCTcqyYhoB6xUuJheCfIeFxgH3Mz3QBwB37qE00yOy5WVdh';  // Clé TEST Stripe configurée
+    const STRIPE_PUBLISHABLE_KEY = 'pk_test_51Tjm0JRwG5FPFo0qHbNEHVphuRzG1lvyyeNuYpWkQkVx9ZhRcOSBCTcqyYhoB6xUuJheCfIeFxgH3Mz3QBwB37qE00yOy5WVdh';  // ClÃ© TEST Stripe configurÃ©e
 
     // Elements
     const form = document.getElementById('testForm');
@@ -334,22 +334,22 @@
       logsBlock.scrollTop = logsBlock.scrollHeight;
     };
 
-    // Afficher info au démarrage
+    // Afficher info au dÃ©marrage
     window.addEventListener('load', () => {
-      log(`🚀 Page chargée. Environnement: ${window.location.hostname}`);
-      log(`📍 API URL: ${API_URL}`);
-      log(`🔐 Stripe Key (first 20 chars): ${STRIPE_PUBLISHABLE_KEY.substring(0, 20)}...`);
+      log(`ðŸš€ Page chargÃ©e. Environnement: ${window.location.hostname}`);
+      log(`ðŸ“ API URL: ${API_URL}`);
+      log(`ðŸ” Stripe Key (first 20 chars): ${STRIPE_PUBLISHABLE_KEY.substring(0, 20)}...`);
       
       const serverInfo = `
 Environnement local?
-  localhost: ${window.location.hostname === 'localhost' ? '✅' : '❌'}
-  127.0.0.1: ${window.location.hostname === '127.0.0.1' ? '✅' : '❌'}
+  localhost: ${window.location.hostname === 'localhost' ? 'âœ…' : 'âŒ'}
+  127.0.0.1: ${window.location.hostname === '127.0.0.1' ? 'âœ…' : 'âŒ'}
   
 API Endpoint:
   ${API_URL}
 
-Stripe JS chargé:
-  ${typeof Stripe !== 'undefined' ? '✅ Oui' : '❌ Non'}
+Stripe JS chargÃ©:
+  ${typeof Stripe !== 'undefined' ? 'âœ… Oui' : 'âŒ Non'}
 
 .env requis (local):
   STRIPE_SECRET_KEY=sk_test_...
@@ -361,9 +361,9 @@ Stripe JS chargé:
     // Soumission formulaire
     form.addEventListener('submit', async (e) => {
       e.preventDefault();
-      log('📤 Soumission du formulaire...');
+      log('ðŸ“¤ Soumission du formulaire...');
       
-      // Réinitialiser messages
+      // RÃ©initialiser messages
       errorMsg.classList.remove('show');
       successMsg.classList.remove('show');
       warningMsg.classList.remove('show');
@@ -380,7 +380,7 @@ Stripe JS chargé:
         const city = document.getElementById('city').value;
         const postal = document.getElementById('postal').value;
 
-        log(`💳 Créer PaymentIntent pour ${(amount / 100).toFixed(2)}€`);
+        log(`ðŸ’³ CrÃ©er PaymentIntent pour ${(amount / 100).toFixed(2)}â‚¬`);
 
         const response = await fetch(`${API_URL}/.netlify/functions/create-payment-intent`, {
           method: 'POST',
@@ -399,13 +399,13 @@ Stripe JS chargé:
         });
 
         const data = await response.json();
-        log(`📨 Réponse reçue (status: ${response.status})`);
+        log(`ðŸ“¨ RÃ©ponse reÃ§ue (status: ${response.status})`);
 
         if (data.success && data.clientSecret) {
-          log(`✅ PaymentIntent créé: ${data.paymentIntentId}`);
-          log(`🔐 Client Secret: ${data.clientSecret.substring(0, 30)}...`);
+          log(`âœ… PaymentIntent crÃ©Ã©: ${data.paymentIntentId}`);
+          log(`ðŸ” Client Secret: ${data.clientSecret.substring(0, 30)}...`);
           
-          statusValue.textContent = '✅ Succès';
+          statusValue.textContent = 'âœ… SuccÃ¨s';
           statusValue.style.color = '#28a745';
           orderIdValue.textContent = data.orderId;
           piIdValue.textContent = data.paymentIntentId;
@@ -413,30 +413,31 @@ Stripe JS chargé:
           
           responseBlock.textContent = JSON.stringify(data, null, 2);
           
-          successMsg.textContent = '✅ PaymentIntent créé avec succès! Voir les détails ci-dessus.';
+          successMsg.textContent = 'âœ… PaymentIntent crÃ©Ã© avec succÃ¨s! Voir les dÃ©tails ci-dessus.';
           successMsg.classList.add('show');
         } else {
           throw new Error(data.error || data.message || 'Erreur inconnue');
         }
 
       } catch (error) {
-        log(`❌ Erreur: ${error.message}`, 'error');
-        statusValue.textContent = '❌ Erreur';
+        log(`âŒ Erreur: ${error.message}`, 'error');
+        statusValue.textContent = 'âŒ Erreur';
         statusValue.style.color = '#dc3545';
         responseBlock.textContent = error.message;
-        errorMsg.textContent = `❌ ${error.message}`;
+        errorMsg.textContent = `âŒ ${error.message}`;
         errorMsg.classList.add('show');
 
         if (error.message.includes('fetch')) {
-          warningMsg.textContent = '⚠️ Impossible de joindre l\'API. Assurez-vous que netlify dev est lancé sur le port 3001.';
+          warningMsg.textContent = 'âš ï¸ Impossible de joindre l\'API. Assurez-vous que netlify dev est lancÃ© sur le port 3001.';
           warningMsg.classList.add('show');
         }
 
       } finally {
         submitBtn.disabled = false;
-        btnText.textContent = 'Créer PaymentIntent';
+        btnText.textContent = 'CrÃ©er PaymentIntent';
       }
     });
   </script>
 </body>
 </html>
+

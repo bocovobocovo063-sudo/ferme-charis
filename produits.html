@@ -13,7 +13,7 @@
   <script>(function(){try{var t=localStorage.getItem('charisferme-theme');if(t==='dark'||(!t&&window.matchMedia('(prefers-color-scheme: dark)').matches)){document.documentElement.classList.add('dark-mode');}}catch(e){}})();</script>
   <link rel="stylesheet" href="styles.min.css">
   <style>
-    /* ── HERO ── */
+    /* -- HERO -- */
     .page-hero {
       padding: 60px 20px 50px;
       background: linear-gradient(135deg, #6a8a42 0%, #4a5a32 100%);
@@ -41,7 +41,7 @@
       margin-bottom: 0.75rem;
     }
 
-    /* ── BARRE FILTRE + IMPRIMER ── */
+    /* -- BARRE FILTRE + IMPRIMER -- */
     .filter-bar {
       display: flex;
       align-items: center;
@@ -56,14 +56,14 @@
       gap: 0.5rem;
     }
 
-    /* ── GRILLE PRODUITS ── */
+    /* -- GRILLE PRODUITS -- */
     .products-grid {
       display: grid;
       grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
       gap: 1.5rem;
     }
 
-    /* ── CARTE PRODUIT ── */
+    /* -- CARTE PRODUIT -- */
     .pcard {
       background: #fff;
       border: 1px solid var(--border);
@@ -223,7 +223,7 @@
       100% { transform: scale(1); }
     }
 
-    /* ── PANIER FLOTTANT ── */
+    /* -- PANIER FLOTTANT -- */
     .cart-fab {
       position: fixed;
       bottom: 5.5rem;
@@ -259,7 +259,7 @@
       justify-content: center;
     }
 
-    /* ── TIROIR PANIER ── */
+    /* -- TIROIR PANIER -- */
     .cart-overlay {
       display: none;
       position: fixed;
@@ -548,10 +548,10 @@
       <h1>Nos produits</h1>
       <p>Sélectionnez vos produits, choisissez vos quantités et passez commande directement depuis cette page.</p>
       <div class="quality-strip">
-        <div class="quality-pill"><span>🌿</span> Agriculture biologique</div>
-        <div class="quality-pill"><span>🚚</span> Livraison 48h</div>
-        <div class="quality-pill"><span>📍</span> Circuit court local</div>
-        <div class="quality-pill"><span>⭐</span> Note 4.9/5</div>
+        <div class="quality-pill"><span>✨ </span> Agriculture biologique</div>
+        <div class="quality-pill"><span>✨ </span> Livraison 48h</div>
+        <div class="quality-pill"><span>✨ </span> Circuit court local</div>
+        <div class="quality-pill"><span>?</span> Note 4.9/5</div>
       </div>
     </div>
   </section>
@@ -564,13 +564,13 @@
       <div class="filter-bar">
         <div class="filter-group product-filter" role="group" aria-label="Filtrer les produits">
           <button type="button" class="filter-btn active" data-filter="all">Tous</button>
-          <button type="button" class="filter-btn" data-filter="legumes">🥬 Légumes</button>
-          <button type="button" class="filter-btn" data-filter="laitiers">🧀 Laitiers</button>
-          <button type="button" class="filter-btn" data-filter="viandes">🐓 Viandes</button>
-          <button type="button" class="filter-btn" data-filter="conserves">🫙 Conserves</button>
+          <button type="button" class="filter-btn" data-filter="legumes">✨ Légumes</button>
+          <button type="button" class="filter-btn" data-filter="laitiers">✨ Laitiers</button>
+          <button type="button" class="filter-btn" data-filter="viandes">✨ Viandes</button>
+          <button type="button" class="filter-btn" data-filter="conserves">✨ Conserves</button>
         </div>
         <button class="btn-print" onclick="window.print()" aria-label="Imprimer ou sauvegarder en PDF">
-          🖨 Imprimer
+          🖨️ Imprimer
         </button>
       </div>
 
@@ -580,8 +580,7 @@
         <!-- Légumes de saison -->
         <div class="pcard" data-category="legumes">
           <div class="pcard-img pcard-img-legumes">
-            🥬
-            <span class="pcard-badge badge-bio">Bio</span>
+            ✨<span class="pcard-badge badge-bio">Bio</span>
           </div>
           <div class="pcard-body">
             <span class="pcard-cat">Légumes</span>
@@ -592,11 +591,11 @@
               <span class="pcard-price">2,50 € / kg</span>
               <div class="pcard-actions">
                 <div class="qty-stepper">
-                  <button type="button" class="qty-btn" data-action="minus" aria-label="Diminuer">−</button>
+                  <button type="button" class="qty-btn" data-action="minus" aria-label="Diminuer">-</button>
                   <span class="qty-value">1</span>
                   <button type="button" class="qty-btn" data-action="plus" aria-label="Augmenter">+</button>
                 </div>
-                <button type="button" class="btn-add" data-name="Légumes de saison" data-emoji="🥬" aria-label="Ajouter au panier">
+                <button type="button" class="btn-add" data-name="Légumes de saison" data-emoji="🛒" aria-label="Ajouter au panier">
                   + Ajouter
                 </button>
               </div>
@@ -607,8 +606,7 @@
         <!-- Fromages & Laitiers -->
         <div class="pcard" data-category="laitiers">
           <div class="pcard-img pcard-img-laitiers">
-            🧀
-            <span class="pcard-badge badge-local">Fermier</span>
+            ✨<span class="pcard-badge badge-local">Fermier</span>
           </div>
           <div class="pcard-body">
             <span class="pcard-cat">Produits laitiers</span>
@@ -619,11 +617,11 @@
               <span class="pcard-price">Dès 3,80 €</span>
               <div class="pcard-actions">
                 <div class="qty-stepper">
-                  <button type="button" class="qty-btn" data-action="minus" aria-label="Diminuer">−</button>
+                  <button type="button" class="qty-btn" data-action="minus" aria-label="Diminuer">-</button>
                   <span class="qty-value">1</span>
                   <button type="button" class="qty-btn" data-action="plus" aria-label="Augmenter">+</button>
                 </div>
-                <button type="button" class="btn-add" data-name="Fromages & Laitiers" data-emoji="🧀" aria-label="Ajouter au panier">
+                <button type="button" class="btn-add" data-name="Fromages & Laitiers" data-emoji="🛒" aria-label="Ajouter au panier">
                   + Ajouter
                 </button>
               </div>
@@ -634,8 +632,7 @@
         <!-- Viandes & Volailles -->
         <div class="pcard" data-category="viandes">
           <div class="pcard-img pcard-img-viandes">
-            🐓
-            <span class="pcard-badge badge-elevage">Élevage</span>
+            ✨<span class="pcard-badge badge-elevage">Élevage</span>
           </div>
           <div class="pcard-body">
             <span class="pcard-cat">Viandes & Volailles</span>
@@ -646,11 +643,11 @@
               <span class="pcard-price">Dès 12 € / kg</span>
               <div class="pcard-actions">
                 <div class="qty-stepper">
-                  <button type="button" class="qty-btn" data-action="minus" aria-label="Diminuer">−</button>
+                  <button type="button" class="qty-btn" data-action="minus" aria-label="Diminuer">-</button>
                   <span class="qty-value">1</span>
                   <button type="button" class="qty-btn" data-action="plus" aria-label="Augmenter">+</button>
                 </div>
-                <button type="button" class="btn-add" data-name="Viandes & Volailles" data-emoji="🐓" aria-label="Ajouter au panier">
+                <button type="button" class="btn-add" data-name="Viandes & Volailles" data-emoji="🛒" aria-label="Ajouter au panier">
                   + Ajouter
                 </button>
               </div>
@@ -661,8 +658,7 @@
         <!-- Œufs fermiers -->
         <div class="pcard" data-category="viandes">
           <div class="pcard-img pcard-img-oeufs">
-            🥚
-            <span class="pcard-badge badge-elevage">Plein air</span>
+            ✨<span class="pcard-badge badge-elevage">Plein air</span>
           </div>
           <div class="pcard-body">
             <span class="pcard-cat">Viandes & Volailles</span>
@@ -673,11 +669,11 @@
               <span class="pcard-price">4,50 € / douzaine</span>
               <div class="pcard-actions">
                 <div class="qty-stepper">
-                  <button type="button" class="qty-btn" data-action="minus" aria-label="Diminuer">−</button>
+                  <button type="button" class="qty-btn" data-action="minus" aria-label="Diminuer">-</button>
                   <span class="qty-value">1</span>
                   <button type="button" class="qty-btn" data-action="plus" aria-label="Augmenter">+</button>
                 </div>
-                <button type="button" class="btn-add" data-name="Œufs fermiers" data-emoji="🥚" aria-label="Ajouter au panier">
+                <button type="button" class="btn-add" data-name="Œufs fermiers" data-emoji="🛒" aria-label="Ajouter au panier">
                   + Ajouter
                 </button>
               </div>
@@ -688,8 +684,7 @@
         <!-- Conserves maison -->
         <div class="pcard" data-category="conserves">
           <div class="pcard-img pcard-img-conserves">
-            🫙
-            <span class="pcard-badge badge-maison">Maison</span>
+            ✨<span class="pcard-badge badge-maison">Maison</span>
           </div>
           <div class="pcard-body">
             <span class="pcard-cat">Conserves</span>
@@ -700,11 +695,11 @@
               <span class="pcard-price">Dès 4,50 €</span>
               <div class="pcard-actions">
                 <div class="qty-stepper">
-                  <button type="button" class="qty-btn" data-action="minus" aria-label="Diminuer">−</button>
+                  <button type="button" class="qty-btn" data-action="minus" aria-label="Diminuer">-</button>
                   <span class="qty-value">1</span>
                   <button type="button" class="qty-btn" data-action="plus" aria-label="Augmenter">+</button>
                 </div>
-                <button type="button" class="btn-add" data-name="Conserves maison" data-emoji="🫙" aria-label="Ajouter au panier">
+                <button type="button" class="btn-add" data-name="Conserves maison" data-emoji="🛒" aria-label="Ajouter au panier">
                   + Ajouter
                 </button>
               </div>
@@ -715,8 +710,7 @@
         <!-- Herbes & Aromates -->
         <div class="pcard" data-category="legumes">
           <div class="pcard-img pcard-img-aromates">
-            🌿
-            <span class="pcard-badge badge-bio">Bio</span>
+            ✨<span class="pcard-badge badge-bio">Bio</span>
           </div>
           <div class="pcard-body">
             <span class="pcard-cat">Légumes</span>
@@ -727,11 +721,11 @@
               <span class="pcard-price">1,80 € / botte</span>
               <div class="pcard-actions">
                 <div class="qty-stepper">
-                  <button type="button" class="qty-btn" data-action="minus" aria-label="Diminuer">−</button>
+                  <button type="button" class="qty-btn" data-action="minus" aria-label="Diminuer">-</button>
                   <span class="qty-value">1</span>
                   <button type="button" class="qty-btn" data-action="plus" aria-label="Augmenter">+</button>
                 </div>
-                <button type="button" class="btn-add" data-name="Herbes & Aromates" data-emoji="🌿" aria-label="Ajouter au panier">
+                <button type="button" class="btn-add" data-name="Herbes & Aromates" data-emoji="🛒" aria-label="Ajouter au panier">
                   + Ajouter
                 </button>
               </div>
@@ -745,19 +739,19 @@
 
 </main>
 
-<!-- ── PANIER FLOTTANT ── -->
+<!-- -- PANIER FLOTTANT -- -->
 <button class="cart-fab" id="cartFab" aria-label="Ouvrir le panier">
   🛒 Mon panier
   <span class="cart-fab-count" id="cartCount">0</span>
 </button>
 
-<!-- ── OVERLAY + TIROIR ── -->
+<!-- -- OVERLAY + TIROIR -- -->
 <div class="cart-overlay" id="cartOverlay" aria-hidden="true"></div>
 
 <aside class="cart-drawer" id="cartDrawer" aria-label="Panier et commande" role="dialog" aria-modal="true">
   <div class="cart-header">
     <h2>🛒 Mon panier</h2>
-    <button class="cart-close" id="cartClose" aria-label="Fermer le panier">✕</button>
+    <button class="cart-close" id="cartClose" aria-label="Fermer le panier">?</button>
   </div>
 
   <div class="cart-body">
@@ -852,12 +846,12 @@
   </div>
 </footer>
 
-<a class="whatsapp-float" href="https://wa.me/33600000000?text=Bonjour%20CHARISFERME%20%21%20Je%20souhaite%20un%20contact" target="_blank" rel="noreferrer noopener" aria-label="Contact WhatsApp">WhatsApp</a>
-<button class="scroll-to-top" aria-label="Retour en haut">↑</button>
+<a class="whatsapp-float" href="https://wa.me/33600000000?text=Bonjour%20CHARISFERME%20%21%20Je%20souhaite%20un%20contact" target="_blank" rel="noreferrer noopener" aria-label="Contact WhatsApp"></a>
+<button class="scroll-to-top" aria-label="Retour en haut">?</button>
 
 <script>
 (function() {
-  // ── Panier (état) ──
+  // -- Panier (état) --
   let cart = [];
 
   const fab      = document.getElementById('cartFab');
@@ -887,7 +881,7 @@
 
   cart = loadCart();
 
-  // ── Ouvrir / Fermer tiroir ──
+  // -- Ouvrir / Fermer tiroir --
   function openDrawer() {
     drawer.classList.add('open');
     overlay.classList.add('open');
@@ -909,7 +903,7 @@
     if (e.key === 'Escape' && drawer.classList.contains('open')) closeDrawer();
   });
 
-  // ── Mettre à jour l'affichage du tiroir ──
+  // -- Mettre à jour l'affichage du tiroir --
   function renderCart() {
     const total = cart.reduce((s, i) => s + i.qty, 0);
     countEl.textContent = total;
@@ -932,7 +926,7 @@
           <div class="cart-item-qty">Qté : ${item.qty}</div>
         </div>
         <div></div>
-        <button class="cart-item-remove" data-idx="${idx}" aria-label="Retirer ${item.name}">✕</button>
+        <button class="cart-item-remove" data-idx="${idx}" aria-label="Retirer ${item.name}">?</button>
       </div>
     `).join('');
 
@@ -945,7 +939,7 @@
     });
   }
 
-  // ── Stepper quantité ──
+  // -- Stepper quantité --
   document.querySelectorAll('.qty-stepper').forEach(stepper => {
     const valEl = stepper.querySelector('.qty-value');
     stepper.querySelectorAll('.qty-btn').forEach(btn => {
@@ -958,7 +952,7 @@
     });
   });
 
-  // ── Ajouter au panier ──
+  // -- Ajouter au panier --
   document.querySelectorAll('.btn-add').forEach(btn => {
     btn.addEventListener('click', () => {
       const card    = btn.closest('.pcard');
@@ -975,7 +969,7 @@
         cart.push({ name, emoji, qty, price });
       }
 
-      btn.textContent = '✓ Ajouté';
+      btn.textContent = '? Ajouté';
       saveCart();
       btn.classList.add('added');
       setTimeout(() => {
@@ -987,14 +981,14 @@
     });
   });
 
-  // ── Vider le panier ──
+  // -- Vider le panier --
   clearBtn.addEventListener('click', () => {
     cart = [];
     saveCart();
     renderCart();
   });
 
-  // ── Filtre catégories ──
+  // -- Filtre catégories --
   const filterBtns = document.querySelectorAll('.filter-btn');
   const cards      = document.querySelectorAll('.pcard');
   filterBtns.forEach(btn => {
@@ -1008,7 +1002,7 @@
     });
   });
 
-  // ── Envoyer la commande ──
+  // -- Envoyer la commande --
   window.sendOrder = async (mode) => {
     const name    = document.getElementById('cf-name').value.trim();
     const email   = document.getElementById('cf-email').value.trim();
@@ -1040,7 +1034,7 @@
 
     btn.disabled = true;
     const originalText = btn.textContent;
-    btn.textContent = '⏳ Traitement...';
+    btn.textContent = '? Traitement...';
 
     try {
       if (mode === 'email') {
@@ -1089,7 +1083,7 @@
       }
 
     } catch (error) {
-      if (window.toast) window.toast.error('❌ ' + error.message);
+      if (window.toast) window.toast.error('? ' + error.message);
       console.error('Erreur:', error);
     } finally {
       btn.disabled = false;
@@ -1113,3 +1107,6 @@
 <script src="script.min.js"></script>
 </body>
 </html>
+
+
+

@@ -13,7 +13,7 @@
   <script>(function(){try{var t=localStorage.getItem('charisferme-theme');if(t==='dark'||(!t&&window.matchMedia('(prefers-color-scheme: dark)').matches)){document.documentElement.classList.add('dark-mode');}}catch(e){}})();</script>
   <link rel="stylesheet" href="styles.min.css">
   <style>
-    /* ── HERO ── */
+    /* -- HERO -- */
     .sub-hero {
       background: linear-gradient(135deg, rgba(5, 150, 105, 0.08) 0%, rgba(245, 158, 11, 0.04) 100%);
       padding: 4rem 0 3rem;
@@ -22,7 +22,7 @@
     .sub-hero h1 { font-size: clamp(2rem, 5vw, 2.8rem); font-weight: 800; margin-bottom: 0.75rem; }
     .sub-hero p { font-size: 1.1rem; color: var(--text-secondary); max-width: 600px; margin: 0 auto 2rem; }
 
-    /* ── GRILLE PLANS ── */
+    /* -- GRILLE PLANS -- */
     .plans-grid {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
@@ -30,7 +30,7 @@
       margin: 2rem 0;
     }
 
-    /* ── PLAN CARD ── */
+    /* -- PLAN CARD -- */
     .plan-card {
       background: var(--surface);
       border: 2px solid var(--border);
@@ -95,7 +95,7 @@
       color: var(--text);
     }
     .plan-benefits li::before {
-      content: '✓';
+      content: '?';
       color: var(--primary);
       font-weight: 800;
       font-size: 1.1rem;
@@ -120,7 +120,7 @@
     }
     .plan-cta:hover { background: var(--primary-dark); transform: translateY(-2px); }
 
-    /* ── FREQUENCY SELECTOR ── */
+    /* -- FREQUENCY SELECTOR -- */
     .frequency-selector {
       display: flex;
       justify-content: center;
@@ -146,7 +146,7 @@
       color: #fff;
     }
 
-    /* ── COMPOSEUR PANIER ── */
+    /* -- COMPOSEUR PANIER -- */
     .section-composer {
       background: var(--surface);
       border: 1px solid var(--border);
@@ -204,7 +204,7 @@
     .composer-summary p { margin: 0; color: var(--text-secondary); font-size: 0.9rem; }
     .composer-summary strong { font-size: 1.8rem; color: var(--primary); display: block; margin: 0.5rem 0 0; }
 
-    /* ── FAQ ABONNEMENT ── */
+    /* -- FAQ ABONNEMENT -- */
     .sub-faq {
       margin: 4rem 0;
       background: var(--surface);
@@ -238,7 +238,7 @@
     }
     .faq-sub-btn:hover { color: var(--primary); }
     .faq-sub-btn::after {
-      content: '▼';
+      content: '?';
       font-size: 0.75rem;
       color: var(--muted);
       transition: transform 0.3s;
@@ -258,7 +258,7 @@
       margin-top: 1rem;
     }
 
-    /* ── TESTIMONIALS ABONNEMENT ── */
+    /* -- TESTIMONIALS ABONNEMENT -- */
     .sub-testimonials {
       margin: 4rem 0;
     }
@@ -291,7 +291,7 @@
       margin: 0;
     }
 
-    /* ── CALLOUT ── */
+    /* -- CALLOUT -- */
     .sub-callout {
       background: linear-gradient(135deg, rgba(5,150,105,0.1), rgba(245,158,11,0.05));
       border: 2px solid var(--primary);
@@ -390,9 +390,9 @@
         <h2 class="mb-0">Choisissez votre fréquence</h2>
       </div>
       <div class="frequency-selector">
-        <button class="freq-btn active" data-frequency="weekly">📅 Hebdomadaire</button>
-        <button class="freq-btn" data-frequency="biweekly">📅 Bimensuel</button>
-        <button class="freq-btn" data-frequency="monthly">📅 Mensuel</button>
+        <button class="freq-btn active" data-frequency="weekly">✨ Hebdomadaire</button>
+        <button class="freq-btn" data-frequency="biweekly">✨ Bimensuel</button>
+        <button class="freq-btn" data-frequency="monthly">✨ Mensuel</button>
       </div>
 
       <!-- PLANS GRID -->
@@ -406,34 +406,34 @@
   <section class="section section--light">
     <div class="container">
       <div class="section-composer">
-        <h3>🎯 Composez Votre Panier</h3>
+        <h3>✨ Composez Votre Panier</h3>
         <p class="small-muted mb-1">Personnalisez vos paniers selon vos préférences. Chaque formule inclut une sélection équilibrée de produits de saison.</p>
         
         <div class="composer-grid">
           <div class="composer-item">
-            <p class="composer-item-title">🥬 Panier Légumes</p>
+            <p class="composer-item-title">✨ Panier Légumes</p>
             <p class="composer-item-desc">Légumes frais et biologiques de saison</p>
-            <div class="composer-item-qty">💚 5-7 variétés par semaine</div>
+            <div class="composer-item-qty">✨ 5-7 variétés par semaine</div>
           </div>
           <div class="composer-item">
-            <p class="composer-item-title">🧀 Panier Laitiers</p>
+            <p class="composer-item-title">✨ Panier Laitiers</p>
             <p class="composer-item-desc">Fromages, yaourts et crème fermière</p>
-            <div class="composer-item-qty">💛 3-4 produits laitiers</div>
+            <div class="composer-item-qty">✨ 3-4 produits laitiers</div>
           </div>
           <div class="composer-item">
-            <p class="composer-item-title">🥩 Panier Viandes</p>
+            <p class="composer-item-title">✨ Panier Viandes</p>
             <p class="composer-item-desc">Viandes fermières élevées localement</p>
-            <div class="composer-item-qty">🧡 2-3 kg par semaine</div>
+            <div class="composer-item-qty">✨ 2-3 kg par semaine</div>
           </div>
           <div class="composer-item">
-            <p class="composer-item-title">🥚 Panier Complet</p>
+            <p class="composer-item-title">✨ Panier Complet</p>
             <p class="composer-item-desc">Tous nos produits : légumes + laitiers + viandes</p>
-            <div class="composer-item-qty">🌈 Le meilleur des deux mondes</div>
+            <div class="composer-item-qty">✨ Le meilleur des deux mondes</div>
           </div>
         </div>
 
         <div class="composer-summary">
-          <p>💡 <strong>Conseil :</strong> Vous pouvez modifier votre panier à tout moment. Pas de frais cachés, annulation simple.</p>
+          <p>✨ <strong>Conseil :</strong> Vous pouvez modifier votre panier à tout moment. Pas de frais cachés, annulation simple.</p>
           <strong class="primary-link-strong">Première semaine à -20%</strong>
         </div>
       </div>
@@ -443,7 +443,7 @@
   <section class="section">
     <div class="container">
       <div class="sub-callout">
-        <h3>🚚 Livraison Rapide & Gratuite</h3>
+        <h3>✨ Livraison Rapide & Gratuite</h3>
         <p>Nous livrons chaque lundi et jeudi dans un rayon de 15 km autour de la ferme. Livraison gratuite pour toute commande.</p>
         <a href="contact.html" class="btn btn-primary">Vérifier ma zone de livraison</a>
       </div>
@@ -457,19 +457,19 @@
         <h3>Ce que disent nos abonnés</h3>
         <div class="sub-testimonials-grid">
           <div class="sub-testimonial-card">
-            <div class="sub-testimonial-stars">⭐⭐⭐⭐⭐</div>
+            <div class="sub-testimonial-stars">★★★★★</div>
             <p class="sub-testimonial-quote">"Les produits sont frais et savoureux. Nous avons économisé 30% en supermarché !"</p>
             <p class="sub-testimonial-author">Marie D.</p>
             <p class="sub-testimonial-role">Abonnée depuis 8 mois</p>
           </div>
           <div class="sub-testimonial-card">
-            <div class="sub-testimonial-stars">⭐⭐⭐⭐⭐</div>
+            <div class="sub-testimonial-stars">★★★★★</div>
             <p class="sub-testimonial-quote">"Super pratique ! Pas besoin d'aller faire les courses, tout est livré à ma porte."</p>
             <p class="sub-testimonial-author">Jean M.</p>
             <p class="sub-testimonial-role">Abonné depuis 1 an</p>
           </div>
           <div class="sub-testimonial-card">
-            <div class="sub-testimonial-stars">⭐⭐⭐⭐⭐</div>
+            <div class="sub-testimonial-stars">★★★★★</div>
             <p class="sub-testimonial-quote">"J'adore soutenir l'agriculture locale. Les recettes hebdomadaires m'inspirent beaucoup !"</p>
             <p class="sub-testimonial-author">Sophie R.</p>
             <p class="sub-testimonial-role">Abonnée depuis 3 mois</p>
@@ -566,8 +566,8 @@
   </div>
 </footer>
 
-<a class="whatsapp-float" href="https://wa.me/33600000000?text=Bonjour%20CHARISFERME%20%21%20Je%20souhaite%20un%20contact" target="_blank" rel="noreferrer noopener" aria-label="Contact WhatsApp">WhatsApp</a>
-<button class="scroll-to-top" aria-label="Retour en haut">↑</button>
+<a class="whatsapp-float" href="https://wa.me/33600000000?text=Bonjour%20CHARISFERME%20%21%20Je%20souhaite%20un%20contact" target="_blank" rel="noreferrer noopener" aria-label="Contact WhatsApp"></a>
+<button class="scroll-to-top" aria-label="Retour en haut">?</button>
 <script src="utils.js"></script>
 <script src="script.min.js"></script>
 <script>
@@ -609,7 +609,7 @@
       const plansList = plans[frequency];
       plansGrid.innerHTML = plansList.map((plan, idx) => `
         <div class="plan-card${plan.featured ? ' featured' : ''}">
-          ${plan.featured ? '<span class="plan-badge">💎 Populaire</span>' : ''}
+          ${plan.featured ? '<span class="plan-badge">✨ Populaire</span>' : ''}
           <h3 class="plan-name">${plan.name}</h3>
           <p class="plan-desc">Parfait pour les ${plan.name.toLowerCase()}s</p>
           <div class="plan-price">
@@ -659,3 +659,6 @@
 </script>
 </body>
 </html>
+
+
+

@@ -114,7 +114,7 @@
 
   <div class="merci-wrapper">
     <div class="card merci-card">
-      <span class="merci-icon" id="icon">✅</span>
+      <span class="merci-icon" id="icon">?</span>
       <h1 id="title">Commande confirmée !</h1>
       <p id="message">Merci pour votre confiance. Votre commande a bien été reçue et le paiement a été traité avec succès.</p>
       <div class="merci-highlight">
@@ -164,8 +164,8 @@
   </div>
 </footer>
 
-<a class="whatsapp-float" href="https://wa.me/33600000000?text=Bonjour%20CHARISFERME%20%21%20Je%20souhaite%20un%20contact" target="_blank" rel="noreferrer noopener" aria-label="Contact WhatsApp">WhatsApp</a>
-<button class="scroll-to-top" aria-label="Retour en haut">↑</button>
+<a class="whatsapp-float" href="https://wa.me/33600000000?text=Bonjour%20CHARISFERME%20%21%20Je%20souhaite%20un%20contact" target="_blank" rel="noreferrer noopener" aria-label="Contact WhatsApp"></a>
+<button class="scroll-to-top" aria-label="Retour en haut">?</button>
 <script src="utils.js"></script>
 <script src="script.min.js"></script>
 <script>
@@ -186,7 +186,7 @@
     orderIdEl.textContent = orderId;
 
     if (type === 'subscription') {
-      iconEl.textContent = '🎉';
+      iconEl.textContent = '✅';
       titleEl.textContent = 'Abonnement activé !';
       messageEl.textContent = 'Bienvenue dans la communauté CHARISFERME ! Votre abonnement est maintenant actif.';
       highlightEl.textContent = 'Identifiant abonnement : ';
@@ -196,21 +196,21 @@
         <strong>Gestion:</strong> Vous pouvez modifier ou suspendre votre abonnement à tout moment via votre compte.
       `;
     } else if (type === 'order') {
-      iconEl.textContent = '✅';
+      iconEl.textContent = '?';
       titleEl.textContent = 'Commande reçue !';
       messageEl.textContent = 'Merci pour votre commande! Nous l\'avons bien reçue.';
       highlightEl.textContent = 'Numéro de commande : ';
       detailsEl.innerHTML = `
-        <strong>📧 Confirmation envoyée</strong><br>
+        <strong>✅ Confirmation envoyée</strong><br>
         Un email de confirmation a été envoyé à <strong>${email || 'votre adresse'}</strong><br><br>
         <strong>Prochaines étapes:</strong><br>
-        ✓ Notre équipe vous contactera sous 24h<br>
-        ✓ Nous confirmerons les détails de livraison<br>
-        ✓ Nous traiterons le paiement si nécessaire
+        ? Notre équipe vous contactera sous 24h<br>
+        ? Nous confirmerons les détails de livraison<br>
+        ? Nous traiterons le paiement si nécessaire
       `;
     } else {
       // cart ou défaut
-      iconEl.textContent = '✅';
+      iconEl.textContent = '?';
       titleEl.textContent = 'Commande confirmée !';
       messageEl.textContent = 'Merci pour votre commande. Votre paiement a été traité avec succès.';
       highlightEl.textContent = 'Numéro de commande : ';
@@ -229,3 +229,6 @@
 </script>
 </body>
 </html>
+
+
+
